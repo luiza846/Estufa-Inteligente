@@ -1,0 +1,73 @@
+/*geral*/
+*{
+    margin: 0;
+    margin-top: 7px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
+    color: #323232;
+}
+body{
+    /*colocar o body mais para baixo*/
+    padding-top: 0vh; /*5% da tela*/
+    background-color: #bbbbbbcc;
+    background-size: cover;
+    background-position-y: -150px;
+}
+h1{
+    font-size: 30px;
+    text-align: center;
+    color: #21572dcc;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+form input[type=text]{
+    width:100%;
+    height: 35px;
+    border:1px solid #ccc;
+    padding-left: 10px;
+    /*distancia entre dois campos*/
+    margin: 10px 0;
+    border-radius: 20px;
+}
+/*clicar sobre o campo a borda ficar verde*/
+form input[type=text]:focus{
+    outline: 0;
+}
+input,label{
+    display: block;
+    width: 100%;
+}
+/*tirar a borda quando clica no campo*/
+input:focus, label:focus{
+    outline: none;
+}
+form{
+    
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    border-radius: 10px;
+    /*espacamento interno de 10px*/
+    padding: 25px;
+}
+/*botao*/
+input[type="submit"]{
+    background-color: #21572dcc;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    cursor: pointer;
+    /*ao clicar ele muda a cor lentamente*/
+    transition: 1s;
+}
+/*efeitos do botao*/
+form input[type=submit]:hover{
+    background-color: #0d1e11cc;
+}
+.div1 {
+    padding-top: 0px;
+    width: 50%; /* A largura que desejar para o formulário */
+    margin: 0 auto; /* Define as margens esquerda e direita como "auto" para centralizar horizontalmente */
+}
