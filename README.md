@@ -7,4 +7,19 @@ Um website que se integra diretamente com um sistema de Arduino que tem a funç�
 <a href='https://github.com/MiguelSteve'><button>Miguel</button></a><br>
 <h2>Prototipação da Estufa Inteligente</h2>
 <img src="/img/prototypeGreenhouse.png">
+<h2>Componentes do arduino</h2>
+<table>
+    <tr>
+        <td>Nome</td>
+        <td>Função</td>
+    </tr>
+    <tr>
+        <td>Sensor de Umidade</td>
+        <td>Medir o nível de umidade relativa do solo</td>
+    </tr>
+    <tr>
+        <td>Sensor de temperatura</td>
+        <td>Medir a temperatura de um ambiente</td>
+    </tr>
+</table>
 <img src="/img/apresentacao.png">
