@@ -80,7 +80,7 @@ input[type="button"] {
     /* Ao clicar, ele muda a cor lentamente */
     transition: 1s;
     /* Distância entre dois botoes */
-    margin: 30px 20px;
+    margin: 13px 20px;
     text-align: center;
 }
 
@@ -104,5 +104,6 @@ input[type="button"]:hover {
     width: 300px;
     height: 613px;
     background-color: #21572d31;
+    text-align: center;
 }
 /*-----------------------TESTE-----------------------------*/
