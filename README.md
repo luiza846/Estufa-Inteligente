@@ -18,7 +18,7 @@ Um website que se integra diretamente com um sistema de Arduino que tem a funç�
         <td>Medir o nível de umidade relativa do solo</td>
     </tr>
     <tr>
-        <td>Sensor de temperatura</td>
+        <td>Sensor de Temperatura</td>
         <td>Medir a temperatura de um ambiente</td>
     </tr>
         <tr>
