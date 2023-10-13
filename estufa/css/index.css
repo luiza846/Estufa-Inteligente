@@ -4,26 +4,25 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #bbbbbbcc;
+    background-image: url(../images/folhas.jpg);
 }
 /*o quadrado onde tem os campos e botoes*/
 form{
     background-color: white;
     max-width: 900px;
     width: 35%;
-    height: 65%;
+    height: 85%;
     padding: 5%;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
-    border-radius: 20px;
     /*sombra*/
-    box-shadow: 15px 15px 10px gray;
+    box-shadow: 15px 15px 10px rgba(1, 45, 9, 0.488);
 }
 /*frase: fazer login*/
 form h1{
-    font-size: 30px;
+    font-size: 47px;
     text-align: center;
     color: #21572dcc;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

@@ -53,7 +53,7 @@ main {
     padding-right: 5%;
     /*colocar a borda*/
     border-bottom: 3px solid #efefef;
-    background-color: #21572dcc;
+    background-color: #21572d81;
 }
 .menu ul li {
     display: inline-block;
@@ -105,4 +105,4 @@ input[type="button"]:hover {
     height: 613px;
     background-color: #21572d31;
 }
-/*-----------------------LOGO-----------------------------*/
+/*-----------------------TESTE-----------------------------*/

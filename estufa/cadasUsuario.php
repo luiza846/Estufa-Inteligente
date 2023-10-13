@@ -4,15 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Usuário</title>
-    <link rel="stylesheet" href="css/usuarioCAD.css">
+    <link rel="stylesheet" href="css/cadasUsuario.css">
     <p class="error-validation template"></p>
     <script src="js/cadasUsuario.js"></script>
 
 </head>
 <body>
-    
-<div class="centered">
-</div>
 
 <div id="main-container">
         <h1>CRIAR CONTA</h1>
@@ -20,6 +17,7 @@
         <form id="register-form" method="POST" action="processCadasUsua.php">
             <!--ocupa todo o formulario (full-box)-->
 
+            <div class="lado"></div>
 
             <div class="full-box">
 

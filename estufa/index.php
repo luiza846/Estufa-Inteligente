@@ -53,7 +53,7 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
     <title>Login</title>
 
     <!--referenciar o login.css-->
-    <link rel="stylesheet" type="text/css" href="./css/login.css">
+    <link rel="stylesheet" type="text/css" href="./css/index.css">
 </head>
 <body>
     <form action="" method="POST">

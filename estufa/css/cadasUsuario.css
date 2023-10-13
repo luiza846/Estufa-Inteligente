@@ -1,7 +1,7 @@
 /*geral*/
 *{
     margin: 0;
-    margin-top: 7px;
+    margin-top: 12px;
     padding: 0;
     box-sizing: border-box;
     font-family: Helvetica, sans-serif;
@@ -12,6 +12,7 @@ body{
     padding-top: 0vh; /*5% da tela*/
     background-color: #bbbbbbcc;
     background-size: cover;
+    background-image: url(../images/folhasDesfocado.jpg);
     background-position-y: -150px;
 }
 /*frase: fazer login*/
@@ -30,9 +31,10 @@ form input[type=email],
     height: 35px;
     border:1px solid #ccc;
     padding-left: 10px;
-    /*distancia entre dois campos*/
-    margin: 10px 0;
     border-radius: 20px;
+    /*distancia entre dois campos*/
+    margin: 2px 0;
+
 }
 /*clicar sobre o campo a borda ficar verde*/
 form input[type=text]:focus{
@@ -56,14 +58,17 @@ a {
 }
 /*centralizar o form*/
 #main-container{
-    width: 500px;
+    width: 850px;
     margin-left: auto;
     margin-right: auto;
     background-color: #fff;
-    border-radius: 10px;
     /*espacamento interno de 10px*/
-    padding: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 180px;
+    padding-right: 180px;
 }
+
 #main-container h1{
     text-align: center;
     margin-bottom: 25px;
@@ -124,4 +129,9 @@ form input[type=submit]:hover{
 }
 .template{
     display: none;
+}
+.lado{
+    width: 80%;
+    height: 80%;
+    background-color: aqua;
 }
