@@ -7,6 +7,4 @@ Um website que se integra diretamente com um sistema de Arduino que tem a funç�
 <a href='https://github.com/MiguelSteve'><button>Miguel</button></a><br>
 <h2>Prototipação da Estufa Inteligente</h2>
 <img src="/img/prototypeGreenhouse.png">
-<h2>Projeto em andamento...</h2>
-<img src="/img/relogio.gif">
 <img src="/img/apresentacao.png">
