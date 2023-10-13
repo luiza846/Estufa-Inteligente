@@ -21,5 +21,17 @@ Um website que se integra diretamente com um sistema de Arduino que tem a funç�
         <td>Sensor de temperatura</td>
         <td>Medir a temperatura de um ambiente</td>
     </tr>
+        <tr>
+        <td>Válvula Solenoide</td>
+        <td>Controlar o fluxo da água</td>
+    </tr>
+        <tr>
+        <td>Exaustor</td>
+        <td>Manter a temperatura ideal da planta</td>
+    </tr>
+        <tr>
+        <td>Lâmpada Cultivo Indoor</td>
+        <td>Fornecer o espectro de luz necessário para o crescimento saudável das plantas</td>
+    </tr>
 </table>
 <img src="/img/apresentacao.png">
