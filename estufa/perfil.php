@@ -48,6 +48,8 @@ catch(PDOException $erro)
                     $stmt->execute();
 
                     while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    $foto_usuario = $dados["imagem"];
+                    echo "<img src='imagens/$id_usuario/$foto_usuario' width='100'>","<br>";
                     echo "ID do Usuário: ",$dados["id_usuario"],"<br>";
                     echo "Nome: ",$dados["nome"],"<br>"; 
                     echo "Email: ",$dados["email"],"<br>"; 

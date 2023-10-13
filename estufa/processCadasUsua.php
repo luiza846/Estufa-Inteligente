@@ -1,38 +1,57 @@
 <?php
+include_once "conexao.php";
 
-    #fazer conexao com BD
-    try
-    {
-        echo "Dados gravados com sucesso!<br><br>";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    # receber dados do formulário
+    $id_usuario = "";
+    $nome = $_POST['campoNome'];
+    $email = $_POST['campoEmail'];
+    $senha = $_POST['campoSenha'];
+    $arquivo = $_FILES['foto_usuario'];
 
-        #atributos
+    # fazer conexão com o BD
+    try {
+        # Criação da conexão PDO
+        $conn = new PDO("mysql:host=localhost;dbname=estufa", "root", "");
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $id_usuario="";
-        $nome=$_POST['campoNome'];
-        $email=$_POST['campoEmail'];
-        $senha=$_POST['campoSenha'];
+        # Query do BD
+        $query_usuario = "INSERT INTO usuario (nome, email, senha, imagem) VALUES (:nome, :email, :senha, :imagem)";
 
-        #imprimir os dados inseridos
-        echo "Email: {$email}<br>";
-        echo "Nome: {$nome}<br>";
-        echo "Senha: {$senha}<br>";
+        $cad_usuario = $conn->prepare($query_usuario);
+        $cad_usuario->bindParam(':nome', $nome, PDO::PARAM_STR);
+        $cad_usuario->bindParam(':email', $email, PDO::PARAM_STR);
+        $cad_usuario->bindParam(':senha', $senha, PDO::PARAM_STR);
+        $cad_usuario->bindParam(':imagem', $arquivo['name'], PDO::PARAM_STR);
 
-        #conexao com mysql
-        $conectaBD=new PDO("mysql:host=127.0.0.1;port=3306;dbname=estufa","root","");
-        $conectaBD->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        if ($cad_usuario->execute()) {
+            # verificar se o usuário está enviando a foto
+            if ((isset($arquivo['name'])) && !empty($arquivo['name'])) {
+                # recuperar o último ID inserido no BD
+                $ultimo_id = $conn->lastInsertId();
 
-        #conexao com banco de dados operacoes_cartao
-        $dados="INSERT INTO usuario(id_usuario,nome,email,senha) VALUE('".$id_usuario."','".$nome."','".$email."','".$senha."')";
+                # diretório onde o arquivo será salvo
+                $diretorio = "imagens/$ultimo_id/";
 
-        #metodo para executar o sql
-        $conectaBD->exec($dados);
-             
+                # criar o diretório
+                mkdir($diretorio, 0755);
 
+                # fazer o upload do arquivo
+                $nome_arquivo = $arquivo['name'];
+                move_uploaded_file($arquivo['tmp_name'], $diretorio . $nome_arquivo);
+
+                echo "Foto salva";
+            } else {
+                echo "Cadastro realizado com sucesso.";
+            }
+        } else {
+            echo "Erro ao cadastrar o usuário.";
+        }
+    } catch (PDOException $erro) {
+        # informar que houve erro ao fazer a conexão com o BD
+        echo "Erro na conexão com o banco de dados: " . $erro->getMessage();
     }
-    catch(PDOException $erro)
-    {
-        #informar que houve erro ao fazer a conexao com BD
-        echo "Houve erro ao fazer a conexao com banco de dados!";
-    }
-
+} else {
+    echo "Erro!";
+}
 ?>
