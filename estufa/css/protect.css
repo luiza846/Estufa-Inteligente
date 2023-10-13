@@ -1,0 +1,27 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.protect{
+    text-align: center;
+    display: table;
+    max-width: 900px;
+    width: 35%;
+    height: 85%;
+    padding: 5%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+h1{
+    font-size: 30px;
+    text-align: center;
+    color: #21572dcc;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+a{
+    font-size: 20px;
+    color: #21572dcc;
+}
