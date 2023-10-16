@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/10/2023 às 02:51
+-- Tempo de geração: 08/10/2023 às 06:21
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -68,17 +68,19 @@ CREATE TABLE `planta` (
   `nome` varchar(100) NOT NULL,
   `data_criacao` date NOT NULL,
   `umidade` int(11) NOT NULL,
-  `temperatura` int(11) NOT NULL,
-  `imagem` varchar(220) NOT NULL
+  `temperatura` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `planta`
 --
 
-INSERT INTO `planta` (`id_planta`, `id_usuario`, `nome`, `data_criacao`, `umidade`, `temperatura`, `imagem`) VALUES
-(13, 1, 'manjericão', '2023-10-07', 45, 20, ''),
-(26, 18, 'morango', '2023-10-13', 75, 15, '');
+INSERT INTO `planta` (`id_planta`, `id_usuario`, `nome`, `data_criacao`, `umidade`, `temperatura`) VALUES
+(13, 1, 'manjericão', '2023-10-07', 45, 20),
+(16, 3, 'cebolinha', '2023-10-07', 80, 28),
+(20, 4, 'banana', '2023-10-07', 25, 25),
+(21, 9, 'maçã', '2023-10-08', 65, 10),
+(22, 12, 'uva', '2023-10-08', 45, 15);
 
 -- --------------------------------------------------------
 
@@ -107,17 +109,19 @@ CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
   `nome` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
-  `senha` varchar(8) NOT NULL,
-  `imagem` varchar(220) NOT NULL
+  `senha` varchar(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `usuario`
 --
 
-INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `senha`, `imagem`) VALUES
-(1, 'ana', 'ana@gmail.com', '123', ''),
-(18, 'Luiza', 'luiza@gmail.com', '123', 'perfil.png');
+INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `senha`) VALUES
+(1, 'ana', 'ana@gmail.com', '123'),
+(3, 'guest', 'guest@email.com', '123'),
+(4, 'joao', 'joao@gmail.com', '888'),
+(9, 'maria', 'maria@gmail.com', '555'),
+(12, 'luiza', 'luiza@gmail.com', '777');
 
 --
 -- Índices para tabelas despejadas
@@ -176,7 +180,7 @@ ALTER TABLE `imagens`
 -- AUTO_INCREMENT de tabela `planta`
 --
 ALTER TABLE `planta`
-  MODIFY `id_planta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_planta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de tabela `registro`
@@ -188,7 +192,7 @@ ALTER TABLE `registro`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- Restrições para tabelas despejadas
