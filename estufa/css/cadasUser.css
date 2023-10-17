@@ -10,9 +10,7 @@
 body{
     /*colocar o body mais para baixo*/
     padding-top: 0vh; /*5% da tela*/
-    background-color: #bbbbbbcc;
-    background-size: cover;
-    background-image: url(../images/folhasDesfocado.jpg);
+    background-color: #21572d7b;
     background-position-y: -150px;
 }
 /*frase: fazer login*/
