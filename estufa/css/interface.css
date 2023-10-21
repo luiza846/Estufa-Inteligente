@@ -1,0 +1,40 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+/*------------------TELA PRINCIPAL--------------------*/
+.tela-principal{
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+.header-2{
+    /*centralizar os botoes no menu*/
+    text-align: center;
+    height: 55px;
+    width: 100%;
+    /*colocar a borda*/
+    border-bottom: 3px solid #efefef;
+}
+.menu{
+    padding-left: 45%;
+    height: 150px;
+    margin: 0 auto;
+    align-content: center;
+}
+.menu ul li {
+    padding-top: 53px;
+    display: inline-block;
+    color: #21572dcc;
+    /*atribuir espaco entre as palavras*/
+    margin-left: 15px;
+}
+/*tag do link*/
+.menu ul li a{
+    color: #21572dcc;
+    /*remover o sublinhado (aspecto de link)*/
+    text-decoration: none;
+    /*tamanho da fonte*/
+    font-size: 30px;
+    /*deixar as letras maiusculas*/
+    text-transform: uppercase;
+}

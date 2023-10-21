@@ -28,18 +28,16 @@ catch(PDOException $erro)
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/telaPrin.css">
+    <link rel="stylesheet" href="css/interface.css">
 
     <title>Painel</title>
 </head>
 
-<body>
-    <!--DPS APAGAR-->
-    <?php echo "ID_USUARIO: ", $_SESSION['id_usuario']; ?>
-    
+<body class="tela-principal" style="background-image: url(fundoLogin/telaPrincipal.png);">    
 
     <!--menu secundario-->
     <div class="header-2">
+    </div>
         <div class="menu">
             <ul>
                 <li><a href="">HOME</a></li>
@@ -50,7 +48,6 @@ catch(PDOException $erro)
                 <input type="text" placeholder=" Pesquisar palavra-chave" />
             </ul>
         </div>
-    </div>
 
     <div class = "logo">
         <!--escrever o conteúdo aqui-->
