@@ -1,6 +1,6 @@
 <?php
 
-include('protect.php');
+#include('protect.php');
 
 ?>
 <!DOCTYPE html>
@@ -18,8 +18,12 @@ include('protect.php');
 </div>
 
 <div class="div1" id="main-container">
-        <form id="register-form" method="POST" action="processCadasPlanta.php">
+        <form id="register-form" method="POST" action="processCadasPlanta.php" enctype="multipart/form-data">
             <h1>CADASTRAR PLANTA</h1>
+            <!-- CARREGAR IMAGEM -->
+            <label for="foto_planta">Foto: </label>
+            <input type="file" name="foto_planta" id="foto_planta" required><br><br>
+
             <!--ocupa metade do formulario (half-box)-->
             <div class="half-box spacing">
                 Nome: <input type="text" name="campoNome" id="name" placeholder="Digite o apelido da planta">
