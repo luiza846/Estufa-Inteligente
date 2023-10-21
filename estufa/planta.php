@@ -47,8 +47,8 @@ catch(PDOException $erro)
                     $stmt->execute();
 
                     while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo "ID da Planta: ",$dados["id_planta"],"<br>"; 
-                    echo "ID do Usuário: ",$dados["id_usuario"],"<br>";
+                    $foto_planta = $dados["imagem"];
+                    echo "<img src='planta/" . $dados["id_planta"] . "/" . $foto_planta . "' width='100'>","<br>";
                     echo "Nome: ",$dados["nome"],"<br>"; 
                     echo "Data criação: ",$dados["data_criacao"],"<br>"; 
                     echo "Umidade: ",$dados["umidade"],"%<br>"; 
@@ -65,7 +65,6 @@ catch(PDOException $erro)
                     </div>
 
                     <h4>EDITAR *TESTE*</h4>
-                    Nome:<input type="text" name="campoNomePlanta"><br>
                     Umidade:<input type="text" name="campoUmidade"><br>
                     Temperatura:<input type="text" name="campoTemperatura"><br>
                     <input type="submit" value="EDITAR">

@@ -50,14 +50,13 @@ catch(PDOException $erro)
                     while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     $foto_usuario = $dados["imagem"];
                     echo "<img src='imagens/$id_usuario/$foto_usuario' width='100'>","<br>";
-                    echo "ID do Usuário: ",$dados["id_usuario"],"<br>";
                     echo "Nome: ",$dados["nome"],"<br>"; 
                     echo "Email: ",$dados["email"],"<br>"; 
                     }
             ?>
 
-                <br>Senha atual: <input type="text" name="campoSenhaAtual" placeholder="Senha">
-                <br>Nova senha: <input type="text" name="campoSenha" placeholder="Nova senha">
+                <br>Senha atual: <input type="password" name="campoSenhaAntiga" placeholder="Senha">
+                <br>Nova senha: <input type="password" name="campoNovaSenha" placeholder="Nova senha">
                 <br><input type="submit" value="MUDAR SENHA">
                 <div class="full-box">
                     <a href="telaPrincipal.php">Voltar</a>
