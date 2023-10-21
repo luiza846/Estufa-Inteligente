@@ -22,7 +22,7 @@
         </p>
         <p>
             <input type="submit" value="ENTRAR"></input>
-            <h4>Não possui conta?<a href="cadasUsuario.php"><input type="button" value="Cadastre-se" name="btnCadastro" id="btns"></a></h4>
+            <h4>Não possui conta?<a href="cadasUsuario.php"> Cadastre-se</a></h4>
         </p>
     </form>
 
