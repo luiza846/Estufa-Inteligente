@@ -2,8 +2,8 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 16/10/2023 às 02:51
+-- Host: localhost
+-- Tempo de geração: 21/10/2023 às 23:10
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -35,30 +35,6 @@ CREATE TABLE `acao` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `imagens`
---
-
-CREATE TABLE `imagens` (
-  `id_imagem` int(11) NOT NULL,
-  `imagem` varchar(40) NOT NULL,
-  `data_imagem` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `imagens`
---
-
-INSERT INTO `imagens` (`id_imagem`, `imagem`, `data_imagem`) VALUES
-(5, '51027ef49a1391bb49d8290000ee437b.png', '2023-10-07 23:01:24'),
-(6, '4738bba4dc1559f4d4f104f67c9f9df1.png', '2023-10-07 23:03:37'),
-(7, '06443ddef32a5552c05eb89e0820d212.png', '2023-10-07 23:04:07'),
-(8, '3152580e605deda0c619f3374b6b18f0.png', '2023-10-07 23:09:34'),
-(9, '3eb9a3656d99e9d8df18a34f2dcb5192.png', '2023-10-07 23:16:34'),
-(10, 'dc1053c645b90321706c861148712915.png', '2023-10-07 23:17:44');
-
--- --------------------------------------------------------
-
---
 -- Estrutura para tabela `planta`
 --
 
@@ -71,14 +47,6 @@ CREATE TABLE `planta` (
   `temperatura` int(11) NOT NULL,
   `imagem` varchar(220) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `planta`
---
-
-INSERT INTO `planta` (`id_planta`, `id_usuario`, `nome`, `data_criacao`, `umidade`, `temperatura`, `imagem`) VALUES
-(13, 1, 'manjericão', '2023-10-07', 45, 20, ''),
-(26, 18, 'morango', '2023-10-13', 75, 15, '');
 
 -- --------------------------------------------------------
 
@@ -112,14 +80,6 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `usuario`
---
-
-INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `senha`, `imagem`) VALUES
-(1, 'ana', 'ana@gmail.com', '123', ''),
-(18, 'Luiza', 'luiza@gmail.com', '123', 'perfil.png');
-
---
 -- Índices para tabelas despejadas
 --
 
@@ -128,12 +88,6 @@ INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `senha`, `imagem`) VALUES
 --
 ALTER TABLE `acao`
   ADD PRIMARY KEY (`id_acao`);
-
---
--- Índices de tabela `imagens`
---
-ALTER TABLE `imagens`
-  ADD PRIMARY KEY (`id_imagem`);
 
 --
 -- Índices de tabela `planta`
@@ -167,16 +121,10 @@ ALTER TABLE `acao`
   MODIFY `id_acao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `imagens`
---
-ALTER TABLE `imagens`
-  MODIFY `id_imagem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
 -- AUTO_INCREMENT de tabela `planta`
 --
 ALTER TABLE `planta`
-  MODIFY `id_planta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_planta` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `registro`
@@ -188,7 +136,7 @@ ALTER TABLE `registro`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restrições para tabelas despejadas
