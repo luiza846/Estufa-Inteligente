@@ -8,9 +8,10 @@
     <!--icon-->
     <link rel="shortcut icon" type="imagex/png" href="./images/icon.ico">
     <!--referenciar o login.css-->
-    <link rel="stylesheet" type="text/css" href="./css/indexx.css">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
 </head>
-<body>
+<body style="background-image: url(fundoLogin/login.png);">
+    <div class="div-login">
     <form action="" method="POST">
         <br><br><h1>LOGIN</h1><br><br><br>
         <p>
@@ -25,6 +26,7 @@
         </p>
     </form>
 
+    </div>
     <script>
             var email = document.getElementById('email');
             var password= document.getElementById('password');
