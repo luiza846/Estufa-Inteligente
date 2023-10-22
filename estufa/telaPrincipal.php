@@ -86,7 +86,6 @@ catch(PDOException $erro)
                     echo "<h2>",$dados["nome"],"<br></h2>"; 
                     }
             ?>
-            <button type="button"> <img src="/fundoLogin/icons8-comida-natural-96.png" height ="90" width="480" /></button>
         <a href="perfil.php"><input type="button" value="Meu perfil" name="btnPerfil" id="btns"></a>
         <a href="monitora.php"><input type="button" value="Monitoramento" name="btnMonitorar" id="btns"></a>
         <a href="planta.php"><input type="button" value="Planta" name="btnPlanta" id="btns"></a>
