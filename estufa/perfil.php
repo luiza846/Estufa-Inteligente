@@ -31,10 +31,9 @@ catch(PDOException $erro)
     <link rel="stylesheet" href="css/generalInterface.css">
     <title>Meu Perfil</title>
 </head>
-<body class = "body-perfil">
+<body class = "body-perfil" style="background-image: url(fundoLogin/perfil.png);">
     <div class="div-perfil">
         <div class = "div-painel-perfil">
-            <div class = "div-foto-perfil"></div>
             <?php
                     $id_usuario = $_SESSION['id_usuario'];
                     $sql = "SELECT * FROM usuario WHERE id_usuario = :id_usuario";
@@ -46,13 +45,17 @@ catch(PDOException $erro)
 
                     while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     $foto_usuario = $dados["imagem"];
-                    echo "<img src='imagens/$id_usuario/$foto_usuario' width='200'>","<br>";
+                    echo "<img src='imagens/$id_usuario/$foto_usuario'>","<br>";
                     }
             ?>
-
+                    <div class="div-voltar">
+                    <a href="telaPrincipal.php"><button class = "voltar">Voltar</buttom></a>
+                </div>
         </div>
-        <form action="editDadosUsuario.php" method="post">
 
+        <div class = "div-info-perfil">
+        <form action="editDadosUsuario.php" method="post">
+            <div class = "div-nome-email">
             <?php
                     $id_usuario = $_SESSION['id_usuario'];
                     $sql = "SELECT * FROM usuario WHERE id_usuario = :id_usuario";
@@ -63,16 +66,16 @@ catch(PDOException $erro)
                     $stmt->execute();
 
                     while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo "Nome: ",$dados["nome"],"<br>"; 
-                    echo "Email: ",$dados["email"],"<br>"; 
+                    echo "Nome ",$dados["nome"],"<br>"; 
+                    echo "E-mail ",$dados["email"],"<br>"; 
                     }
             ?>
-
+            </div>
                 <br>Senha atual: <input type="password" name="campoSenhaAntiga" placeholder="Senha">
                 <br>Nova senha: <input type="password" name="campoNovaSenha" placeholder="Nova senha">
-                <br><input type="submit" value="MUDAR SENHA">
-                <div class="full-box">
-                    <a href="telaPrincipal.php">Voltar</a>
+                <div class="btn-senha">
+                <br><input class = "btn-mudar-senha" type="submit" value="MUDAR SENHA">
+                </div>
                 </div>
         </form>
     </div>

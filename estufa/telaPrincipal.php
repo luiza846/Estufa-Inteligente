@@ -47,9 +47,14 @@ catch(PDOException $erro)
                 <li><a href="">PAGINAS</a></li>
                 <li><a href="contato.php">CONTATO</a></li>
                 <a href="perfil.php"><input type="button" value="MEU PERFIL" name="btnPerfil" id="btns"></a>                                          
-                <a href="logout.php">Sair</a>
             </ul>
         </div>
+        <div class="div-logout">
+    <a href="logout.php">
+        <img src="fundoLogin/sair.png" alt="Ícone de saída">
+    </a>
+    <h5>SAIR</h5>
+</div>
 
     <div class = "cadastrePlanta">
 

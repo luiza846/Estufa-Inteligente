@@ -48,6 +48,27 @@
 }
 .menu{
     padding-left: 23%;
+    height: 200px;
+}
+.menu, .div-logout{
+    display: inline-block;
+}
+.div-logout{
+    padding-top: 5px;
+    text-align: center;
+    padding-left: 115px;
+}
+.div-logout img{
+    width: 55px;
+}
+.div-logout h5{
+    font-size: 18;
+    color: #4c8124;
+    margin: 0 auto;
+}
+.menu a{
+    font-size: 25px;
+    color: #284611;
 }
 .menu input[type="button"]{
     border: 0px;
@@ -214,6 +235,11 @@
     height: 250px;
     background-color: #284611;
 }
+.btnExcluir{
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.705);
+    border: 0px;
+}
 /*--------------------------------------------------TELA REGISTRO-----------------------------------------------------------*/
 .tb-registro{
         margin: 0 auto;
@@ -231,28 +257,95 @@
 /*--------------------------------------------------TELA PERFIL-----------------------------------------------------------*/
 .body-perfil{
     margin: 0 auto;
-    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto;
 }
 .div-painel-perfil{
     text-align: center;
-    height: 250px;
-    background-color: #4c8124;
+    padding-top: 5%;
+    width: 50%;
 }
-.div-foto-perfil{
-    height: 150px;
-    background-color: #4c8124;
+.div-painel-perfil img{
+    width: 230px;
+    border-radius: 1000px;
 }
-form input[type=text]{
-    width:100%;
+.div-info-perfil{
+    padding-top: 15%;
+    font-size: 20px;
+    text-align: center;
+    float: right;
+    width: 50%;
+}
+form input[type=password]{
+    width: 30%;
+    font-size: 18px;
+    color: #1c330b;
     height: 35px;
-    border:1px solid #ccc;
+    border:3px solid #4c8124;
     padding-left: 10px;
     /*distancia entre dois campos*/
     margin: 10px 0;
     border-radius: 20px;
 }
-.btnExcluir{
-    text-align: center;
-    background-color: rgba(255, 0, 0, 0.705);
+.div-painel-perfil,.div-info-perfil{
+    display: inline-block;
+}
+.div-nome-email{
+    width: 250px;
+    padding-left: 27%;
+    text-align: left;
+    inline-size: auto;
+}
+.div-voltar{
+    padding-top: 45%;
+}
+.voltar{
     border: 0px;
+    width: 200px;
+    height: 43px;
+    /*mostrar para usuario que e clicavel*/
+    cursor: pointer;
+    background-color: #ffffff00;
+    color: #4c8124;
+    border:solid 3px #ffffff;
+    font-size: 25px;
+    /*botao arrendondado*/
+    border-radius: 30px;
+    /*ao clicar ele muda a cor lentamente*/
+
+}
+.voltar a{
+    text-decoration: none;
+    color: #ffffff;
+}
+/*efeitos do botao*/
+.voltar:hover{
+    background: #325c1273;
+    transition: 1s;
+}
+.btn-mudar-senha{
+    border: 0px;
+    width: 430px;
+    height: 47px;
+    /*mostrar para usuario que e clicavel*/
+    cursor: pointer;
+    /*fundo do botao*/
+    background: #325c12;
+    /*cor da letra*/
+    color: white;
+    font-size: 25px;
+    /*botao arrendondado*/
+    border-radius: 30px;
+    /*ao clicar ele muda a cor lentamente*/
+
+}
+/*efeitos do botao*/
+.btn-mudar-senha:hover{
+    background-color: #ffffff3a;
+    color: #4c8124;
+    border:solid 3px #4c8124;
+}
+.btn-senha{
+    padding-top: 5%;
 }

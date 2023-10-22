@@ -63,8 +63,7 @@ catch(PDOException $erro)
                         echo '<td>'. $dados['data_criacao'] .'</td>';
                         echo '<td>'. $dados['umidade'] .'%</td>';
                         echo '<td>'. $dados['temperatura'] .'°C</td>';
-                        echo '<td><button class="btnExcluir" data-id_planta="' . $dados['id_planta'] . '">Excluir</button></td>';
-                }
+                        echo "<td><button class='btnExcluir'><img src='fundoLogin/icons8-lixo-192.png' width='15' class='foto-planta'></button></td>";                }
                 
                 ?>
 </table>
