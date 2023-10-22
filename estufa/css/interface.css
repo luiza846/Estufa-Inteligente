@@ -46,6 +46,31 @@
     text-decoration: underline #4c8124a9;
     transition: 1s;
 }
+.menu{
+    padding-left: 23%;
+}
+.menu input[type="button"]{
+    border: 0px;
+    width: 200px;
+    height: 43px;
+    /*mostrar para usuario que e clicavel*/
+    cursor: pointer;
+    /*fundo do botao*/
+    background: #325c12;
+    /*cor da letra*/
+    color: white;
+    font-size: 25px;
+    /*botao arrendondado*/
+    border-radius: 30px;
+    /*ao clicar ele muda a cor lentamente*/
+
+}
+/*efeitos do botao*/
+.menu input[type="button"]:hover{
+    background-color: #ffffff3a;
+    color: #4c8124;
+    border:solid 3px #4c8124;
+}
 .cadastrePlanta{
     height: 225px;
     width: 450px;
@@ -66,37 +91,91 @@
     /*botao arrendondado*/
     border-radius: 20px;
     /*ao clicar ele muda a cor lentamente*/
-    transition: 1s;
+
+}
+.cadastrePlanta button{
+    border:solid 3px;
+    width: 350px;
+    height: 80px;
+    /*mostrar para usuario que e clicavel*/
+    cursor: pointer;
+    /*fundo do botao*/
+    background: #21572d81;
+    /*cor da letra*/
+    color: white;
+    font-size: 30px;
+    /*botao arrendondado*/
+    border-radius: 20px;
 }
 /*efeitos do botao*/
 .cadastrePlanta input[type="button"]:hover{
     background-color: #0d1e11cc;
+        /*ao clicar ele muda a cor lentamente*/
+        transition: 1s;
 }
 .menu2{
+    padding-top: 5%;
     height: 900px;
+    padding-left: 13%;
 }
 .menu2 input[type="button"]{
-    border:solid 3px #21572d81;
-    width: 200px;
-    height: 200px;
+    /*distancia entre dois campos*/
+    margin: 30px 20px;
+    border:solid 3px #4c8124;
+    width: 410px;
+    height: 85px;
     /*mostrar para usuario que e clicavel*/
     cursor: pointer;
     /*fundo do botao*/
-    background: #4c8124a9;
+    background: white;
     /*cor da letra*/
-    color: #21572d81;
+    color: #4c8124;
     font-size: 30px;
     /*botao arrendondado*/
-    border-radius: 1000px;
+    border-radius: 30px;
     /*ao clicar ele muda a cor lentamente*/
-    transition: 1s;
+    transition: 0.5s;
 }
 /*efeitos do botao*/
 .menu2 input[type="button"]:hover{
-    background-color: #4c81243a;
+    color: white;
+    background-color: #4c8124;
 }
-.rodape{
-    background-color: darkgrey;
-    padding-top: 250px;
+.icons{
+    padding-left: 0%;
+}
+.icons img{
+    margin: 0px 177px;
 
 }
+.rodape{
+    background-color: #284611;
+    height: 250px;
+    width: 100%;
+}
+.rodape, .list-pag{
+    display: inline-block;
+}
+.rodape img{
+    height: 80px;
+    margin: 0px 277px;
+}
+.rodape{
+    padding-top: 10px;
+    height: 250px;
+    margin: 0 auto;
+    color: white;
+}
+.rodape ul li {
+    color: #284611;
+    /*atribuir espaco entre as palavras*/
+}
+/*tag do link*/
+.rodape ul li a{
+    color: #ffffffcc;
+    /*remover o sublinhado (aspecto de link)*/
+    text-decoration: none;
+    /*tamanho da fonte*/
+    font-size: 18px;
+}
+

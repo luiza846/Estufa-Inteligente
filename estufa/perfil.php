@@ -32,8 +32,6 @@ catch(PDOException $erro)
     <title>Meu Perfil</title>
 </head>
 <body>
-    <!--DPS APAGAR-->
-    <?php echo "ID_USUARIO: ", $_SESSION['id_usuario']; ?>
     <div class="div1">
         <form action="editDadosUsuario.php" method="post">
         <h1>Meu perfil</h1>
