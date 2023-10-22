@@ -28,14 +28,13 @@ catch(PDOException $erro)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="css/generalInterface.css">
     <title>Meu Perfil</title>
 </head>
-<body>
-    <div class="div1">
-        <form action="editDadosUsuario.php" method="post">
-        <h1>Meu perfil</h1>
-
+<body class = "body-perfil">
+    <div class="div-perfil">
+        <div class = "div-painel-perfil">
+            <div class = "div-foto-perfil"></div>
             <?php
                     $id_usuario = $_SESSION['id_usuario'];
                     $sql = "SELECT * FROM usuario WHERE id_usuario = :id_usuario";
@@ -47,7 +46,23 @@ catch(PDOException $erro)
 
                     while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     $foto_usuario = $dados["imagem"];
-                    echo "<img src='imagens/$id_usuario/$foto_usuario' width='100'>","<br>";
+                    echo "<img src='imagens/$id_usuario/$foto_usuario' width='200'>","<br>";
+                    }
+            ?>
+
+        </div>
+        <form action="editDadosUsuario.php" method="post">
+
+            <?php
+                    $id_usuario = $_SESSION['id_usuario'];
+                    $sql = "SELECT * FROM usuario WHERE id_usuario = :id_usuario";
+
+                    # Preparar e executar a consulta com a cláusula WHERE
+                    $stmt = $conectaBD->prepare($sql);
+                    $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+                    $stmt->execute();
+
+                    while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     echo "Nome: ",$dados["nome"],"<br>"; 
                     echo "Email: ",$dados["email"],"<br>"; 
                     }

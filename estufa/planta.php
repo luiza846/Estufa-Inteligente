@@ -28,52 +28,80 @@ catch(PDOException $erro)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/planta.css">
+    <link rel="stylesheet" href="css/generalInterface.css">
     <title>Planta</title>
 </head>
-<body>
-    <!--DPS APAGAR-->
-    <?php echo "ID_USUARIO: ", $_SESSION['id_usuario']; ?>
-    <div class="div1">
-            <form action="editDadosPlanta.php" method="post">
-                <h1>Planta</h1>
+<body class="body-planta">
+    <div class="div-painel-planta">
+
+    <form action="deletaPlanta.php" method="POST"></form>
+    </div>
+                <table>
+
+                <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Data de Criação</th>
+                <th>Umidade</th>
+                <th>Temperatura</th>
+                </tr>
+                
                 <?php
-                    $id_usuario = $_SESSION['id_usuario'];
-                    $sql = "SELECT * FROM planta WHERE id_usuario = :id_usuario";
 
-                    # Preparar e executar a consulta com a cláusula WHERE
-                    $stmt = $conectaBD->prepare($sql);
-                    $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
-                    $stmt->execute();
+                $id_usuario = $_SESSION['id_usuario'];
+                $sql = "SELECT * FROM planta WHERE id_usuario = :id_usuario";
+                
+                $stmt = $conectaBD->prepare($sql);
+                $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+                $stmt->execute();
+                
+                while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
-                    while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    $foto_planta = $dados["imagem"];
-                    echo "<img src='planta/" . $dados["id_planta"] . "/" . $foto_planta . "' width='100'>","<br>";
-                    echo "Nome: ",$dados["nome"],"<br>"; 
-                    echo "Data criação: ",$dados["data_criacao"],"<br>"; 
-                    echo "Umidade: ",$dados["umidade"],"%<br>"; 
-                    echo "Temperatura: ",$dados["temperatura"],"°C<br>"; 
-                    }
+                        echo '<tr>';
+                        echo '<td>'. $dados['id_planta'] .'</td>';
+                        echo '<td>'. $dados['nome'] .'</td>';
+                        echo '<td>'. $dados['data_criacao'] .'</td>';
+                        echo '<td>'. $dados['umidade'] .'%</td>';
+                        echo '<td>'. $dados['temperatura'] .'°C</td>';
+                        echo '<td><button class="btnExcluir" data-id_planta="' . $dados['id_planta'] . '">Excluir</button></td>';
+                }
+                
                 ?>
-                    <input type="button" value="Histórico" onclick="mostrarHistorico()">
-                    
-                    <!--caso usuario queira ver o historico-->
-                    <div id="histoPlantas" style="display: none;">
-                        <?php
-                            echo "teste";
-                        ?>
-                    </div>
+</table>
 
-                    <h4>EDITAR *TESTE*</h4>
-                    Umidade:<input type="text" name="campoUmidade"><br>
-                    Temperatura:<input type="text" name="campoTemperatura"><br>
-                    <input type="submit" value="EDITAR">
-                    <div class="full-box">
-                        <a href="telaPrincipal.php">Voltar</a>
-                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
             </form>
 
-    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <!--mostrar historico de todas as plantas que foram cadastradas e excluidas-->
         <script>

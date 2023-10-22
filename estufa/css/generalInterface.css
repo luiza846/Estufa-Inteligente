@@ -1,31 +1,6 @@
 *{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-/*--------------------------------------------------TELA PROTECT-----------------------------------------------------------*/
-
-.protect{
-    text-align: center;
-    display: table;
-    max-width: 900px;
-    width: 35%;
-    height: 85%;
-    padding: 5%;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%,-50%);
-}
-h1{
-    font-size: 30px;
-    text-align: center;
-    color: #21572dcc;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-a{
-    font-size: 20px;
-    color: #21572dcc;
-}
-
 /*--------------------------------------------------TELA PRINCIPAL-----------------------------------------------------------*/
 
 .tela-principal{
@@ -44,7 +19,6 @@ a{
 }
 .menu{
     padding-left: 23%;
-
     height: 150px;
     margin: 0 auto;
 }
@@ -232,4 +206,53 @@ a{
     margin: 0px 55px;
 }
 /*--------------------------------------------------TELA PLANTA-----------------------------------------------------------*/
-
+.body-planta{
+    margin: 0 auto;
+}
+.div-painel-planta{
+    
+    height: 250px;
+    background-color: #284611;
+}
+/*--------------------------------------------------TELA REGISTRO-----------------------------------------------------------*/
+.tb-registro{
+        margin: 0 auto;
+    }
+    th, td {
+        padding: 10px;
+        text-align: center;
+    }
+    tr:nth-child(even) {
+        background-color: #4c81246c;
+    }
+    tr:hover {
+        background-color: #4c8124b2;
+    }
+/*--------------------------------------------------TELA PERFIL-----------------------------------------------------------*/
+.body-perfil{
+    margin: 0 auto;
+    text-align: center;
+}
+.div-painel-perfil{
+    text-align: center;
+    height: 250px;
+    background-color: #4c8124;
+}
+.div-foto-perfil{
+    height: 150px;
+    background-color: #4c8124;
+}
+form input[type=text]{
+    width:100%;
+    height: 35px;
+    border:1px solid #ccc;
+    padding-left: 10px;
+    /*distancia entre dois campos*/
+    margin: 10px 0;
+    border-radius: 20px;
+}
+.btnExcluir{
+    text-align: center;
+    background-color: rgba(255, 0, 0, 0.705);
+    border: 0px;
+}
