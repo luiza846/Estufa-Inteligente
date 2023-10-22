@@ -28,7 +28,7 @@ catch(PDOException $erro)
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/interface.css">
+    <link rel="stylesheet" href="css/generalInterface.css">
 
     <title>Painel</title>
 </head>
@@ -49,8 +49,6 @@ catch(PDOException $erro)
                 <a href="perfil.php"><input type="button" value="MEU PERFIL" name="btnPerfil" id="btns"></a>                                          
                 <a href="logout.php">Sair</a>
             </ul>
-
-
         </div>
 
     <div class = "cadastrePlanta">
@@ -67,8 +65,19 @@ catch(PDOException $erro)
         <a href="monitora.php"><input type="button" value="Monitoramento" name="btnMonitorar" id="btns"></a>
         <a href="planta.php"><input type="button" value="Plantas" name="btnPlanta" id="btns"></a>
         <a href="registro.php"><input type="button" value="Registro" nome="btnregistro" id="btns"></a>
-
     </div>
+
+    <!--<div class="textoBtns">
+        <div class="txtMonitoramento">
+            <h4>Monitorar em tempo real da umidade e temperatura da sua planta</h4>
+        </div>
+        <div class="txtPlanta">
+            <h4>Ver e editar dados da sua planta</h4>
+        </div>
+        <div class="txtRegistro">
+            <h4>Ver o histórico de quantas vezes a planta foi regada, refrigerada e exposta à luz UV</h4>
+        </div>
+    </div>-->
 
     
     <div class="rodape">
@@ -76,11 +85,11 @@ catch(PDOException $erro)
     <div class = "list-pag">
     <ul>
         <h3>Páginas</h3>
-                <li><a href="">Perfil</a></li>
-                <li><a href="sobre.php">Cadastrar Planta</a></li>
-                <li><a href="">Planta</a></li>
-                <li><a href="">Monitoramento</a></li>
-                <li><a href="contato.php">Registro</a></li>
+                <li><a href="perfil.php">Perfil</a></li>
+                <li><a href="cadasPlanta.php">Cadastrar Planta</a></li>
+                <li><a href="planta.php">Planta</a></li>
+                <li><a href="monitora.php">Monitoramento</a></li>
+                <li><a href="registro.php">Registro</a></li>
             </ul>
 
     </div>

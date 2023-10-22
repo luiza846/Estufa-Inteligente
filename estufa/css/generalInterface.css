@@ -1,7 +1,33 @@
 *{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-/*------------------TELA PRINCIPAL--------------------*/
+/*--------------------------------------------------TELA PROTECT-----------------------------------------------------------*/
+
+.protect{
+    text-align: center;
+    display: table;
+    max-width: 900px;
+    width: 35%;
+    height: 85%;
+    padding: 5%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+h1{
+    font-size: 30px;
+    text-align: center;
+    color: #21572dcc;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+a{
+    font-size: 20px;
+    color: #21572dcc;
+}
+
+/*--------------------------------------------------TELA PRINCIPAL-----------------------------------------------------------*/
+
 .tela-principal{
     background-size: cover;
     background-repeat: no-repeat;
@@ -115,8 +141,8 @@
 }
 .menu2{
     padding-top: 5%;
-    height: 900px;
     padding-left: 13%;
+    height: 350px;
 }
 .menu2 input[type="button"]{
     /*distancia entre dois campos*/
@@ -133,13 +159,13 @@
     font-size: 30px;
     /*botao arrendondado*/
     border-radius: 30px;
-    /*ao clicar ele muda a cor lentamente*/
-    transition: 0.5s;
 }
 /*efeitos do botao*/
 .menu2 input[type="button"]:hover{
     color: white;
     background-color: #4c8124;
+    /*ao clicar ele muda a cor lentamente*/
+    transition: 0.5s;
 }
 .icons{
     padding-left: 0%;
@@ -161,8 +187,8 @@
     margin: 0px 277px;
 }
 .rodape{
-    padding-top: 10px;
-    height: 250px;
+
+    height: 200px;
     margin: 0 auto;
     color: white;
 }
@@ -178,4 +204,32 @@
     /*tamanho da fonte*/
     font-size: 18px;
 }
+.textoBtns{
+    height: 400px;
+    background-color: #ffffff;
+    padding-left: 1%;
+    padding-right: 1%;
+    text-align: center;
+    font-size: 17px;
+}
+.txtMonitoramento,.txtPlanta,.txtRegistro{
+    display: inline-block;
+}
+/*alinhar as divs*/
+.txtMonitoramento{
+    height: 400px;
+    width: 20%;
+    margin: 0px 55px;
+}
+.txtPlanta{
+    height: 400px;
+    width: 20%;
+    margin: 0px 55px;
+}
+.txtRegistro{
+    height: 400px;
+    width: 20%;
+    margin: 0px 55px;
+}
+/*--------------------------------------------------TELA PLANTA-----------------------------------------------------------*/
 
