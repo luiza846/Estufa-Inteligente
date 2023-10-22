@@ -6,6 +6,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0 auto;
+
 }
 .header-2{
     /*centralizar os botoes no menu*/
@@ -16,10 +17,10 @@
     border-bottom: 3px solid #efefef;
 }
 .menu{
-    padding-left: 45%;
+    padding-left: 23%;
+
     height: 150px;
     margin: 0 auto;
-    align-content: center;
 }
 .menu ul li {
     padding-top: 53px;
@@ -33,8 +34,69 @@
     color: #21572dcc;
     /*remover o sublinhado (aspecto de link)*/
     text-decoration: none;
+    /*distancia entre dois campos*/
+    margin: 30px 20px;
     /*tamanho da fonte*/
     font-size: 30px;
     /*deixar as letras maiusculas*/
     text-transform: uppercase;
+}
+.menu ul li a:hover{
+    /*remover o sublinhado (aspecto de link)*/
+    text-decoration: underline #4c8124a9;
+    transition: 1s;
+}
+.cadastrePlanta{
+    height: 225px;
+    width: 450px;
+    padding-left: 70%;
+    padding-top: 190px;
+}
+.cadastrePlanta input[type="button"]{
+    border:solid 3px;
+    width: 350px;
+    height: 80px;
+    /*mostrar para usuario que e clicavel*/
+    cursor: pointer;
+    /*fundo do botao*/
+    background: #21572d81;
+    /*cor da letra*/
+    color: white;
+    font-size: 30px;
+    /*botao arrendondado*/
+    border-radius: 20px;
+    /*ao clicar ele muda a cor lentamente*/
+    transition: 1s;
+}
+/*efeitos do botao*/
+.cadastrePlanta input[type="button"]:hover{
+    background-color: #0d1e11cc;
+}
+.menu2{
+    height: 900px;
+}
+.menu2 input[type="button"]{
+    border:solid 3px #21572d81;
+    width: 200px;
+    height: 200px;
+    /*mostrar para usuario que e clicavel*/
+    cursor: pointer;
+    /*fundo do botao*/
+    background: #4c8124a9;
+    /*cor da letra*/
+    color: #21572d81;
+    font-size: 30px;
+    /*botao arrendondado*/
+    border-radius: 1000px;
+    /*ao clicar ele muda a cor lentamente*/
+    transition: 1s;
+}
+/*efeitos do botao*/
+.menu2 input[type="button"]:hover{
+    background-color: #4c81243a;
+}
+.rodape{
+    background-color: darkgrey;
+    padding-top: 250px;
+
 }

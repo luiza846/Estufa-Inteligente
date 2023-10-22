@@ -33,10 +33,11 @@ catch(PDOException $erro)
     <title>Painel</title>
 </head>
 
-<body class="tela-principal" style="background-image: url(fundoLogin/telaPrincipal.png);">    
+<body class="tela-principal" style="background-image: url(fundoLogin/telaPrinc.png);">    
 
     <!--menu secundario-->
     <div class="header-2">
+
     </div>
         <div class="menu">
             <ul>
@@ -45,14 +46,30 @@ catch(PDOException $erro)
                 <li><a href="">SERVIÇOS</a></li>
                 <li><a href="">PAGINAS</a></li>
                 <li><a href="contato.php">CONTATO</a></li>
-                <input type="text" placeholder=" Pesquisar palavra-chave" />
+                <?php
+                    $id_usuario = $_SESSION['id_usuario'];
+                    $sql = "SELECT * FROM usuario WHERE id_usuario = :id_usuario";
+
+                    # Preparar e executar a consulta com a cláusula WHERE
+                    $stmt = $conectaBD->prepare($sql);
+                    $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+                    $stmt->execute();
+
+                    while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    $foto_usuario = $dados["imagem"];
+                    echo "<img src='imagens/$id_usuario/$foto_usuario' width='75'>";
+                    }
+            ?>
             </ul>
+
+
         </div>
 
-    <div class = "logo">
-        <!--escrever o conteúdo aqui-->
-    </div>
+    <div class = "cadastrePlanta">
 
+        <a href="cadasPlanta.php"><input type="button" value="Cadastrar Planta" name="btnMonitorar" id="btns"></a>
+    
+    </div>
     <div class="menu2">
     <?php
                     $id_usuario = $_SESSION['id_usuario'];
@@ -69,15 +86,16 @@ catch(PDOException $erro)
                     echo "<h2>",$dados["nome"],"<br></h2>"; 
                     }
             ?>
+            <button type="button"> <img src="/fundoLogin/icons8-comida-natural-96.png" height ="90" width="480" /></button>
         <a href="perfil.php"><input type="button" value="Meu perfil" name="btnPerfil" id="btns"></a>
         <a href="monitora.php"><input type="button" value="Monitoramento" name="btnMonitorar" id="btns"></a>
         <a href="planta.php"><input type="button" value="Planta" name="btnPlanta" id="btns"></a>
-        <a href="cadasPlanta.php"><input type="button" value="Adicionar Planta" name="btnMonitorar" id="btns"></a>
         <a href="registro.php"><input type="button" value="Registro" nome="btnregistro" id="btns"></a>
         <p>
             <a href="logout.php">Sair</a>
         </p>
     </div>
+    <div class="rodape"></div>
     
 </body>
 </html>
