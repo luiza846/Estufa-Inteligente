@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Tempo de geração: 21/10/2023 às 23:10
+-- Tempo de geração: 23/10/2023 às 16:11
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -35,11 +35,11 @@ CREATE TABLE `acao` (
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `planta`
+-- Estrutura para tabela `estufa`
 --
 
-CREATE TABLE `planta` (
-  `id_planta` int(11) NOT NULL,
+CREATE TABLE `estufa` (
+  `id_estufa` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `nome` varchar(100) NOT NULL,
   `data_criacao` date NOT NULL,
@@ -47,6 +47,26 @@ CREATE TABLE `planta` (
   `temperatura` int(11) NOT NULL,
   `imagem` varchar(220) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `produto`
+--
+
+CREATE TABLE `produto` (
+  `id_produto` int(11) NOT NULL,
+  `n_serie` varchar(30) NOT NULL,
+  `email` varchar(250) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `produto`
+--
+
+INSERT INTO `produto` (`id_produto`, `n_serie`, `email`) VALUES
+(1, '00ff', 'ana@gmail.com'),
+(2, '555g', 'joao@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -90,11 +110,17 @@ ALTER TABLE `acao`
   ADD PRIMARY KEY (`id_acao`);
 
 --
--- Índices de tabela `planta`
+-- Índices de tabela `estufa`
 --
-ALTER TABLE `planta`
-  ADD PRIMARY KEY (`id_planta`),
+ALTER TABLE `estufa`
+  ADD PRIMARY KEY (`id_estufa`),
   ADD KEY `fk_plantUsuario` (`id_usuario`);
+
+--
+-- Índices de tabela `produto`
+--
+ALTER TABLE `produto`
+  ADD PRIMARY KEY (`id_produto`);
 
 --
 -- Índices de tabela `registro`
@@ -121,10 +147,16 @@ ALTER TABLE `acao`
   MODIFY `id_acao` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT de tabela `planta`
+-- AUTO_INCREMENT de tabela `estufa`
 --
-ALTER TABLE `planta`
-  MODIFY `id_planta` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `estufa`
+  MODIFY `id_estufa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT de tabela `produto`
+--
+ALTER TABLE `produto`
+  MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `registro`
@@ -136,16 +168,16 @@ ALTER TABLE `registro`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restrições para tabelas despejadas
 --
 
 --
--- Restrições para tabelas `planta`
+-- Restrições para tabelas `estufa`
 --
-ALTER TABLE `planta`
+ALTER TABLE `estufa`
   ADD CONSTRAINT `fk_plantUsuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
@@ -153,7 +185,7 @@ ALTER TABLE `planta`
 --
 ALTER TABLE `registro`
   ADD CONSTRAINT `fk_regisAcao` FOREIGN KEY (`id_acao`) REFERENCES `acao` (`id_acao`),
-  ADD CONSTRAINT `fk_regisPlanta` FOREIGN KEY (`id_planta`) REFERENCES `planta` (`id_planta`);
+  ADD CONSTRAINT `fk_regisPlanta` FOREIGN KEY (`id_planta`) REFERENCES `estufa` (`id_estufa`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
