@@ -24,9 +24,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($result) {
             // Email e número de série correspondentes foram encontrados, permita o registro
-            $query_usuario = "INSERT INTO usuario (nome, email, senha, imagem) VALUES (:nome, :email, :senha, :imagem)";
+            $query_usuario = "INSERT INTO usuario (nome, n_serie, email, senha, imagem) VALUES (:nome, :n_serie, :email, :senha, :imagem)";
             $cad_usuario = $conn->prepare($query_usuario);
             $cad_usuario->bindParam(':nome', $nome, PDO::PARAM_STR);
+            $cad_usuario->bindParam(':n_serie', $nSerie, PDO::PARAM_STR);
             $cad_usuario->bindParam(':email', $email, PDO::PARAM_STR);
             $cad_usuario->bindParam(':senha', $senha, PDO::PARAM_STR);
             $cad_usuario->bindParam(':imagem', $arquivo['name'], PDO::PARAM_STR);
