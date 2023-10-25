@@ -40,8 +40,7 @@
         </div>
 
         <div class="full-box">
-            <input type="checkbox" name="agreement" id="agreement">
-            <label for="agreement" id="agreement-label">Eu li e aceito os <a href="#">termos de uso</a></label>
+            N° Série: <input type="text" name="campoSerie" id="passconfirmation" placeholder="N° Serie" data-equal="password" data-required>
         </div>
 
         <div class="full-box">

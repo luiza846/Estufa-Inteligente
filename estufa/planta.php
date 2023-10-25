@@ -36,77 +36,26 @@ catch(PDOException $erro)
 
     <form action="deletaPlanta.php" method="POST"></form>
     </div>
-                <table>
-
-                <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Data de Criação</th>
-                <th>Umidade</th>
-                <th>Temperatura</th>
-                </tr>
-                
+               
                 <?php
 
                 $id_usuario = $_SESSION['id_usuario'];
-                $sql = "SELECT * FROM planta WHERE id_usuario = :id_usuario";
+                $sql = "SELECT * FROM estufa WHERE id_usuario = :id_usuario";
                 
                 $stmt = $conectaBD->prepare($sql);
                 $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
                 $stmt->execute();
                 
                 while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
-
-                        echo '<tr>';
-                        echo '<td>'. $dados['id_planta'] .'</td>';
-                        echo '<td>'. $dados['nome'] .'</td>';
-                        echo '<td>'. $dados['data_criacao'] .'</td>';
-                        echo '<td>'. $dados['umidade'] .'%</td>';
-                        echo '<td>'. $dados['temperatura'] .'°C</td>';
-                        echo "<td><button class='btnExcluir'><img src='fundoLogin/icons8-lixo-192.png' width='15' class='foto-planta'></button></td>";                }
-                
+                    $foto_planta = $dados["imagem"];
+                    echo "<img src='planta/" . $dados["id_planta"] . "/" . $foto_planta . "' width='100'>","<br>";
+                    echo "Nome: ",$dados["nome"],"<br>"; 
+                    echo "Data criação: ",$dados["data_criacao"],"<br>"; 
+                    echo "Umidade: ",$dados["umidade"],"%<br>"; 
+                }
                 ?>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             </form>
 
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!--mostrar historico de todas as plantas que foram cadastradas e excluidas-->
-        <script>
-            function mostrarHistorico(){
-                document.getElementById("histoPlantas").style.display = "block";
-            }
-        </script>
 </body>
 </html>

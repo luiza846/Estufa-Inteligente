@@ -13,7 +13,7 @@
     
         $conn = mysqli_connect($servidor,$usuario,$senha,$dbname);
     
-        $result_usuario = "UPDATE planta SET umidade = '$umidade', temperatura = '$temperatura' WHERE id_usuario = $id_usuario";
+        $result_usuario = "UPDATE estufa SET umidade = '$umidade', temperatura = '$temperatura' WHERE id_usuario = $id_usuario";
         $result_usuario = mysqli_query($conn, $result_usuario);
         echo "Dados da planta editada com sucesso!";
     }
