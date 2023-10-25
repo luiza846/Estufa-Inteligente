@@ -24,10 +24,6 @@ include('protect.php');
             <label for="foto_planta">Foto: </label>
             <input type="file" name="foto_planta" id="foto_planta" required><br><br>
 
-            <!--ocupa metade do formulario (half-box)-->
-            <div class="half-box spacing">
-                Nome: <input type="text" name="campoNome" id="name" placeholder="Digite o apelido da planta">
-            </div>
             <div class="half-box">
                 Data que foi plantado: <input type="datetime-local" name="campoData" id="lastname" placeholder="Digite a data que foi plantado">
             </div>
@@ -41,6 +37,23 @@ include('protect.php');
             <div class="full-box">
                 <a href="telaPrincipal.php">Voltar</a>
             </div>
+                        <!--ocupa metade do formulario (half-box)-->
+                        <div class="half-box spacing">
+
+                        <select name="selectSerie">
+  <?php
+    $stmt = $PDO->prepare("SELECT * FROM planta ORDER BY name ASC");
+    $stmt->execute();
+
+    if($stmt->rowCount() > 0){
+      while($dados = $stmt->fetch(PDO::FETCH_ASSOC)){
+        echo "<option value='{$dados['nome_planta']}'>{$dados['nome_planta']}</option>";
+      }
+    }
+  ?>
+</select>
+
+</div>
 
         </form>
     </div>

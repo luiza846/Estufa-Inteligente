@@ -6,11 +6,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $id_usuario = "";
     $nome = $_POST['campoNome'];
     $senha = $_POST['campoSenha'];
+    $confirmSenha = $_POST['campoConfirmSenha'];
     $arquivo = $_FILES['foto_usuario'];
     $nSerie = $_POST['campoSerie'];
     $email = $_POST['campoEmail'];
 
     try {
+        if($senha == $confirmSenha){
+            echo "Deu certo";
         // Criar uma conexão PDO
         $conn = new PDO("mysql:host=localhost;dbname=estufa", "root", "");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -49,6 +52,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         } else {
             echo "Erro: Email e Número de Série incorretos.";
+        }}else{
+            echo "Senhas diferentes";
         }
     } catch (PDOException $erro) {
         echo "Erro na conexão com o banco de dados: " . $erro->getMessage();
