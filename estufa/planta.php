@@ -8,7 +8,7 @@ try
     $conectaBD->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     # Preparar a consulta SQL
-    $sql = "SELECT * FROM planta";
+    $sql = "SELECT * FROM estufa";
 
     # Preparar e executar a consulta
     $stmt = $conectaBD->query($sql);

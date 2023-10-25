@@ -28,6 +28,14 @@ include('protect.php');
             <div class="half-box spacing">
                 Nome: <input type="text" name="campoNome" id="name" placeholder="Digite o apelido da planta">
             </div>
+            <div class="half-box spacing">
+                N° Série: <select name="selectSerie">
+                  <option value="bota">Botafogo</option>
+                  <option value="fla">Flamengo</option>
+                  <option value="flu">Fluminense</option>
+                  <option value="vasco">Vasco da Gama</option>
+                </select>
+            </div>
             <div class="half-box">
                 Data que foi plantado: <input type="datetime-local" name="campoData" id="lastname" placeholder="Digite a data que foi plantado">
             </div>

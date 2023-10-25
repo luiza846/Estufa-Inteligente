@@ -48,15 +48,7 @@ catch(PDOException $erro)
                     echo "<img src='imagens/$id_usuario/$foto_usuario'>","<br>";
                     }
             ?>
-                    <div class="div-voltar">
-                    <a href="telaPrincipal.php"><button class = "voltar">Voltar</buttom></a>
-                </div>
-        </div>
-
-        <div class = "div-info-perfil">
-        <form action="editDadosUsuario.php" method="post">
-            <div class = "div-nome-email">
-            <?php
+                        <?php
                     $id_usuario = $_SESSION['id_usuario'];
                     $sql = "SELECT * FROM usuario WHERE id_usuario = :id_usuario";
 
@@ -66,10 +58,19 @@ catch(PDOException $erro)
                     $stmt->execute();
 
                     while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo "Nome ",$dados["nome"],"<br>"; 
-                    echo "E-mail ",$dados["email"],"<br>"; 
+                    echo "<h1>",$dados["nome"],"</h1>"; 
+                    echo "<h5>",$dados["email"],"</h5>"; 
                     }
             ?>
+
+                    <div class="div-voltar">
+                    <a href="telaPrincipal.php"><button class = "voltar">Voltar</buttom></a>
+                </div>
+        </div>
+
+        <div class = "div-info-perfil">
+        <form action="editDadosUsuario.php" method="post">
+            <div class = "div-nome-email">
             </div>
                 <br>Senha atual: <input type="password" name="campoSenhaAntiga" placeholder="Senha">
                 <br>Nova senha: <input type="password" name="campoNovaSenha" placeholder="Nova senha">

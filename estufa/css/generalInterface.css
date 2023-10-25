@@ -270,6 +270,15 @@
     width: 230px;
     border-radius: 1000px;
 }
+.div-painel-perfil h1{
+    font-size: 45px;
+    color: white;
+    text-transform: uppercase;
+}
+.div-painel-perfil h5{
+    font-size: 25px;
+    color: white;
+}
 .div-info-perfil{
     padding-top: 15%;
     font-size: 20px;
@@ -298,7 +307,8 @@ form input[type=password]{
     inline-size: auto;
 }
 .div-voltar{
-    padding-top: 45%;
+    padding-top: 25%;
+    padding-bottom: 10%;
 }
 .voltar{
     border: 0px;
