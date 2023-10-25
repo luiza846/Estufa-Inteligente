@@ -28,26 +28,16 @@ include('protect.php');
             <div class="half-box spacing">
                 Nome: <input type="text" name="campoNome" id="name" placeholder="Digite o apelido da planta">
             </div>
-            <div class="half-box spacing">
-                N° Série: <select name="selectSerie">
-                  <option value="bota">Botafogo</option>
-                  <option value="fla">Flamengo</option>
-                  <option value="flu">Fluminense</option>
-                  <option value="vasco">Vasco da Gama</option>
-                </select>
-            </div>
             <div class="half-box">
                 Data que foi plantado: <input type="datetime-local" name="campoData" id="lastname" placeholder="Digite a data que foi plantado">
             </div>
-            <div class="half-box">
-                Umidade: <input type="text" name="campoUmidade" id="password" placeholder="Digite a umidade ideal para a planta">
+            <div class="half-box spacing">
+              N° Série <input type="text" name="campoSerie" placeholder="N° Série">
             </div>
             <div class="full-box">
-                Temperatura: <input type="text" name="campoTemperatura" id="passconfirmation" placeholder="Digite a temperatura ideal para a planta">
-            </div>
-              <div class="full-box">
                 <input type="submit" id="btn-submit" value="Registrar">
               </div>
+
             <div class="full-box">
                 <a href="telaPrincipal.php">Voltar</a>
             </div>
