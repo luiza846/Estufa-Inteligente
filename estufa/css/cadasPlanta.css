@@ -6,6 +6,7 @@
     box-sizing: border-box;
     font-family: Helvetica, sans-serif;
     color: #323232;
+    font-size: 20px;
 }
 body{
     /*colocar o body mais para baixo*/
@@ -41,13 +42,11 @@ input,label{
 input:focus, label:focus{
     outline: none;
 }
-form{
-    
-    width: 500px;
+form{  
+    width: 850px;
     margin-left: auto;
     margin-right: auto;
     background-color: #fff;
-    border-radius: 10px;
     /*espacamento interno de 10px*/
     padding: 25px;
 }
@@ -56,7 +55,6 @@ input[type="submit"]{
     background-color: #21572dcc;
     color: #fff;
     border: none;
-    border-radius: 20px;
     height: 40px;
     cursor: pointer;
     /*ao clicar ele muda a cor lentamente*/
@@ -66,8 +64,12 @@ input[type="submit"]{
 form input[type=submit]:hover{
     background-color: #0d1e11cc;
 }
-.div1 {
+.div-planta {
     padding-top: 85px;
     width: 50%; /* A largura que desejar para o formulário */
+    margin: 0 auto; /* Define as margens esquerda e direita como "auto" para centralizar horizontalmente */
+}
+.campos-planta{
+    width: 500px;
     margin: 0 auto; /* Define as margens esquerda e direita como "auto" para centralizar horizontalmente */
 }

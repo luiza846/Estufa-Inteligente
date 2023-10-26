@@ -17,9 +17,7 @@ include('protect.php');
 
     <div>
         <form>
-            <h4>Nome:</h4>
-            <h4>Umidade</h4>
-            <h4>Temperatura</h4>
+
         </form>
     </div>
 

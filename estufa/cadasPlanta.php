@@ -12,14 +12,15 @@ include('protect.php');
     <title>Cadastrar Planta</title>
 
 </head>
-<body>
+<body class="body-planta">
     
 <div class="centered">
 </div>
 
-<div class="div1" id="main-container">
+<div class="div-planta">
         <form id="register-form" method="POST" action="processCadasPlanta.php">
             <h1>CADASTRAR PLANTA</h1>
+            <div class="campos-planta">
             <!--ocupa metade do formulario (half-box)-->
             <label for="foto_planta">Foto: </label>
             <input type="file" name="foto_planta" id="foto_planta" required><br><br>
@@ -45,7 +46,7 @@ include('protect.php');
             <div class="full-box">
                 <a href="telaPrincipal.php">Voltar</a>
             </div>
-
+            </div>
         </form>
     </div></body>
 </html>
