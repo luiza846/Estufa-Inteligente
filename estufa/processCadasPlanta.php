@@ -6,7 +6,10 @@ if (isset($_SESSION['id_usuario'])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Receber dados do formulário
         $id_usuario = $_SESSION['id_usuario'];
+        $nomePlanta = $_POST['campoNome'];
         $dat = $_POST['campoData'];
+        $umidade = $_POST['campoUmidade'];
+        $temperatura = $_POST['campoTemperatura'];
         $nSerie = $_POST['campoSerie'];
         $arquivo = $_FILES['foto_planta'];
 
@@ -23,9 +26,12 @@ if (isset($_SESSION['id_usuario'])) {
 
             if ($result) {
                 // Número de série correspondente foi encontrado, permita o registro
-                $query_usuario = "INSERT INTO estufa (id_usuario, data_criacao, imagem) VALUES (:id_usuario, :data_criacao, :imagem)";
+                $query_usuario = "INSERT INTO estufa (id_usuario, nome, umidade, temperatura, data_criacao, imagem) VALUES (:id_usuario, :nome, :umidade, :temperatura, :data_criacao, :imagem)";
                 $cad_usuario = $conn->prepare($query_usuario);
-                $cad_usuario->bindParam(':id_usuario', $id_usuario, PDO::PARAM_STR);
+                $cad_usuario->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+                $cad_usuario->bindParam(':nome', $nomePlanta, PDO::PARAM_STR);
+                $cad_usuario->bindParam(':umidade', $umidade, PDO::PARAM_STR);
+                $cad_usuario->bindParam(':temperatura', $temperatura, PDO::PARAM_STR);
                 $cad_usuario->bindParam(':data_criacao', $dat, PDO::PARAM_STR);
                 $cad_usuario->bindParam(':imagem', $arquivo['name'], PDO::PARAM_STR);
 
@@ -34,7 +40,7 @@ if (isset($_SESSION['id_usuario'])) {
                     if ((isset($arquivo['name'])) && !empty($arquivo['name'])) {
                         $ultimo_id = $conn->lastInsertId();
                         $diretorio = "planta/$ultimo_id/";
-                        
+
                         if (!file_exists($diretorio)) {
                             mkdir($diretorio, 0755, true);
                         }

@@ -18,50 +18,34 @@ include('protect.php');
 </div>
 
 <div class="div1" id="main-container">
-        <form id="register-form" method="POST" action="processCadasPlanta.php" enctype="multipart/form-data">
+        <form id="register-form" method="POST" action="processCadasPlanta.php">
             <h1>CADASTRAR PLANTA</h1>
-            <!-- CARREGAR IMAGEM -->
+            <!--ocupa metade do formulario (half-box)-->
             <label for="foto_planta">Foto: </label>
             <input type="file" name="foto_planta" id="foto_planta" required><br><br>
 
-            <div class="half-box">
-                Data que foi plantado: <input type="datetime-local" name="campoData" id="lastname" placeholder="Digite a data que foi plantado">
+            <div class="half-box spacing">
+                Nome: <input type="text" name="campoNome" id="name" placeholder="Digite o apelido da planta">
             </div>
             <div class="half-box spacing">
               N° Série <input type="text" name="campoSerie" placeholder="N° Série">
             </div>
+            <div class="half-box">
+                Data que foi plantado: <input type="date" name="campoData" id="lastname" placeholder="Digite a data que foi plantado">
+            </div>
+            <div class="half-box">
+                Umidade: <input type="text" name="campoUmidade" id="password" placeholder="Digite a umidade ideal para a planta">
+            </div>
             <div class="full-box">
+                Temperatura: <input type="text" name="campoTemperatura" id="passconfirmation" placeholder="Digite a temperatura ideal para a planta">
+            </div>
+              <div class="full-box">
                 <input type="submit" id="btn-submit" value="Registrar">
               </div>
-
             <div class="full-box">
                 <a href="telaPrincipal.php">Voltar</a>
             </div>
-                        <!--ocupa metade do formulario (half-box)-->
-                        <div class="half-box spacing">
-
-                        <select name="selectSerie">
-  <?php
-    $stmt = $PDO->prepare("SELECT * FROM planta ORDER BY name ASC");
-    $stmt->execute();
-
-    if($stmt->rowCount() > 0){
-      while($dados = $stmt->fetch(PDO::FETCH_ASSOC)){
-        echo "<option value='{$dados['nome_planta']}'>{$dados['nome_planta']}</option>";
-      }
-    }
-  ?>
-</select>
-
-</div>
 
         </form>
-    </div>
-
-    <!--
-      <p class="error-validation template"></p>
-    <script src="js/cadasUsuario.js"></script>
-  -->
-
-</body>
+    </div></body>
 </html>
