@@ -12,7 +12,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'estufa',
+  database: 'estufa_inteligente',
 });
 
 db.connect((err) => {
@@ -26,18 +26,18 @@ db.connect((err) => {
 // Rota para obter 'nome' e 'nivel_de_umidade' onde 'id' = 1 e enviar para o Arduino
 app.get('/obterDados', (req, res) => {
   // Execute uma consulta SQL para obter 'nome' e 'nivel_de_umidade' onde 'id' = 1
-  const query = 'SELECT nv_umid FROM config WHERE email_usuario =?';
+  const query = 'SELECT umidade FROM planta WHERE id_usuario =?';
 
-  var email = "m@gmail.com";
+  var id_usuario = 1;
 
 
-  db.query(query, [email], (err, results) => {
+  db.query(query, [id_usuario], (err, results) => {
     if (err) {
       console.error('Erro ao consultar o banco de dados: ' + err);
       res.status(500).send('Erro ao consultar o banco de dados');
     } else if (results.length > 0) {
 
-      const UmidadeIdeal = results[0].nv_umid;
+      const UmidadeIdeal = results[0].umidade;
 
 
       // Envie 'nome' e 'nivel_de_umidade' para o Arduino pela porta serial
