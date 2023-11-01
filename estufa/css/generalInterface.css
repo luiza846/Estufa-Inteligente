@@ -361,33 +361,100 @@ form input[type=password]{
 }
 
 /*--------------------------------------------------TELA CADAS PLANTA-----------------------------------------------------------*/
-
 .body-planta{
-    margin: 0 auto;
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0 auto;
 }
-.div-planta{
-    width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #fff;
-    border-radius: 10px;
+.form-cadas-planta{  
+    width: 700px;
     /*espacamento interno de 10px*/
-    padding: 25px;
+    padding: 55px;
 }
-.div-planta input[type="submit"]{
+.body-planta h1{
+    font-size: 30px;
+    text-align: center;
+    color: #21572dcc;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.form-cadas-planta input[type=text]{
+    width:100%;
+    height: 35px;
+    border:1px solid #ccc;
+    padding-left: 10px;
+    /*distancia entre dois campos*/
+    margin: 10px 0;
+    border-radius: 20px;
+}
+/*clicar sobre o campo a borda ficar verde*/
+.form-cadas-planta input[type=text]:focus{
+    outline: 0;
+}
+.body-planta input,label{
+    display: block;
+    width: 100%;
+}
+/*botao*/
+.form-cadas-planta input[type="submit"]{
     background-color: #21572dcc;
     color: #fff;
     border: none;
-    border-radius: 20px;
     height: 40px;
     cursor: pointer;
+    border-radius: 30px;
     /*ao clicar ele muda a cor lentamente*/
     transition: 1s;
 }
 /*efeitos do botao*/
-form input[type=submit]:hover{
+.form-cadas-planta  input[type=submit]:hover{
+    background-color: #0d1e11cc;
+}
+/*--------------------------------------------------TELA CADAS USUARIO-----------------------------------------------------------*/
+.body-usuario{
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+}
+.form-cadas-usuario{  
+    width: 700px;
+    /*espacamento interno de 10px*/
+    padding: 55px;
+}
+.body-usuario h1{
+    font-size: 30px;
+    text-align: center;
+    color: #21572dcc;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.form-cadas-usuario input[type=text]{
+    width:100%;
+    height: 35px;
+    border:1px solid #ccc;
+    padding-left: 10px;
+    /*distancia entre dois campos*/
+    margin: 10px 0;
+    border-radius: 20px;
+}
+/*clicar sobre o campo a borda ficar verde*/
+.form-cadas-usuario input[type=text]:focus{
+    outline: 0;
+}
+.body-usuario input,label{
+    display: block;
+    width: 100%;
+}
+/*botao*/
+.form-cadas-usuario input[type="submit"]{
+    background-color: #21572dcc;
+    color: #fff;
+    border: none;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 30px;
+    /*ao clicar ele muda a cor lentamente*/
+    transition: 1s;
+}
+/*efeitos do botao*/
+.form-cadas-usuario  input[type=submit]:hover{
     background-color: #0d1e11cc;
 }

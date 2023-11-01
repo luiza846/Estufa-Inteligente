@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Usuário</title>
-    <link rel="stylesheet" href="css/cadasUser.css">
+    <link rel="stylesheet" href="css/generalInterface.css">
     <script src="js/cadasUsuario.js"></script>
     <!--icon-->
     <link rel="shortcut icon" type="imagex/png" href="./images/icon.ico">
 </head>
-<body>
+<body class="body-usuario" style="background-image: url(fundoLogin/cadas-planta.png);">
 
-<div id="main-container">
+<div class="div-cadas-usuario">
     <h1>CRIAR CONTA</h1>
 
-    <form id="register-form" method="POST" action="processCadasUsua.php" enctype="multipart/form-data">
+    <form class="form-cadas-usuario" method="POST" action="processCadasUsua.php" enctype="multipart/form-data">
         <!-- CARREGAR IMAGEM -->
         <label for="foto_usuario">Foto: </label>
         <input type="file" name="foto_usuario" id="foto_usuario" required><br><br>

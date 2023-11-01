@@ -8,17 +8,14 @@ include('protect.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/cadasPlanta.css">
+    <link rel="stylesheet" href="css/generalInterface.css">
     <title>Cadastrar Planta</title>
 
 </head>
-<body class="body-planta">
-    
-<div class="centered">
-</div>
+<body class="body-planta" style="background-image: url(fundoLogin/cadas-planta.png);">
 
-<div class="div-planta">
-        <form id="register-form" method="POST" action="processCadasPlanta.php">
+<div class="div-cadas-planta">
+        <form class="form-cadas-planta" method="POST" action="processCadasPlanta.php">
             <h1>CADASTRAR PLANTA</h1>
             <div class="campos-planta">
             <!--ocupa metade do formulario (half-box)-->
@@ -46,6 +43,7 @@ include('protect.php');
             <div class="full-box">
                 <a href="telaPrincipal.php">Voltar</a>
             </div>
+
             </div>
         </form>
     </div></body>

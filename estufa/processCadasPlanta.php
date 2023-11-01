@@ -37,7 +37,7 @@ if (isset($_SESSION['id_usuario'])) {
 
                 if ($cad_usuario->execute()) {
                     // Registro bem-sucedido
-                    if ((isset($arquivo['name'])) && !empty($arquivo['name'])) {
+                    if ((isset($arquivo['planta'])) && !empty($arquivo['planta'])) {
                         $ultimo_id = $conn->lastInsertId();
                         $diretorio = "planta/$ultimo_id/";
 
