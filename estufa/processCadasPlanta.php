@@ -6,12 +6,11 @@ if (isset($_SESSION['id_usuario'])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Receber dados do formulário
         $id_usuario = $_SESSION['id_usuario'];
-        $nomePlanta = $_POST['campoNome'];
         $dat = $_POST['campoData'];
-        $umidade = $_POST['campoUmidade'];
-        $temperatura = $_POST['campoTemperatura'];
         $nSerie = $_POST['campoSerie'];
         $arquivo = $_FILES['foto_planta'];
+
+        echo "ID_USUARIO: ", $_SESSION['id_usuario'] . "<br>";
 
         try {
             // Criar uma conexão PDO
@@ -25,40 +24,55 @@ if (isset($_SESSION['id_usuario'])) {
             $result = $checkQuery->fetch(PDO::FETCH_ASSOC);
 
             if ($result) {
-                // Número de série correspondente foi encontrado, permita o registro
-                $query_usuario = "INSERT INTO estufa (id_usuario, nome, umidade, temperatura, data_criacao, imagem) VALUES (:id_usuario, :nome, :umidade, :temperatura, :data_criacao, :imagem)";
-                $cad_usuario = $conn->prepare($query_usuario);
-                $cad_usuario->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
-                $cad_usuario->bindParam(':nome', $nomePlanta, PDO::PARAM_STR);
-                $cad_usuario->bindParam(':umidade', $umidade, PDO::PARAM_STR);
-                $cad_usuario->bindParam(':temperatura', $temperatura, PDO::PARAM_STR);
-                $cad_usuario->bindParam(':data_criacao', $dat, PDO::PARAM_STR);
-                $cad_usuario->bindParam(':imagem', $arquivo['name'], PDO::PARAM_STR);
+                if (isset($_POST['categoria'])) {
+                    $opcaoSelecionada = $_POST['categoria'];
 
-                if ($cad_usuario->execute()) {
-                    // Registro bem-sucedido
-                    if ((isset($arquivo['planta'])) && !empty($arquivo['planta'])) {
-                        $ultimo_id = $conn->lastInsertId();
-                        $diretorio = "planta/$ultimo_id/";
+                    $stmt = $conn->prepare("SELECT * FROM planta WHERE id_planta = :opcaoSelecionada");
+                    $stmt->bindParam(':opcaoSelecionada', $opcaoSelecionada);
+                    $stmt->execute();
+                    $dadosOpcao = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                        if (!file_exists($diretorio)) {
-                            mkdir($diretorio, 0755, true);
-                        }
+                    if ($dadosOpcao) {
+                        $stmt = $conn->prepare("INSERT INTO estufa (id_usuario, data_criacao, imagem, nome, umidade, temperatura) VALUES (:id_usuario, :data_criacao, :imagem, :nome, :umidade, :temperatura)");
+                        $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+                        $stmt->bindParam(':data_criacao', $dat, PDO::PARAM_STR);
+                        $stmt->bindParam(':nome', $dadosOpcao['nome_planta']);
+                        $stmt->bindParam(':umidade', $dadosOpcao['umidade_ideal']);
+                        $stmt->bindParam(':temperatura', $dadosOpcao['temperatura_ideal']);
+                        $stmt->bindParam(':imagem', $arquivo['name'], PDO::PARAM_STR);
 
-                        $nome_arquivo = $arquivo['name'];
-                        $destino = $diretorio . $nome_arquivo;
+                            // Registro bem-sucedido
+                            if ((isset($arquivo['foto_planta'])) && !empty($arquivo['foto_planta'])) {
+                                $ultimo_id = $conn->lastInsertId();
+                                $diretorio = "planta/$ultimo_id/";
+        
+                                if (!file_exists($diretorio)) {
+                                    mkdir($diretorio, 0755, true);
+                                }
+        
+                                $nome_arquivo = $arquivo['name'];
+                                $destino = $diretorio . $nome_arquivo;
+        
+                                if (move_uploaded_file($arquivo['tmp_name'], $destino)) {
+                                    echo "Foto salva";
+                                } else {
+                                    echo "Erro ao mover o arquivo para o diretório.";
+                                }
+                            } else {
+                                echo "Cadastro realizado com sucesso.";
+                            }
+                        
 
-                        if (move_uploaded_file($arquivo['tmp_name'], $destino)) {
-                            echo "Foto salva";
+                        if ($stmt->execute()) {
+                            echo "Dados da opção inseridos com sucesso na tabela 'estufa'.";
                         } else {
-                            echo "Erro ao mover o arquivo para o diretório.";
+                            echo "Erro ao inserir dados da opção na tabela 'estufa'.";
                         }
                     } else {
-                        echo "Cadastro realizado com sucesso.";
+                        echo "Opção não encontrada na tabela 'planta'.";
                     }
-                } else {
-                    echo "Erro ao cadastrar a estufa: " . $cad_usuario->errorInfo()[2];
                 }
+
             } else {
                 echo "Erro: Número de Série incorreto.";
             }
