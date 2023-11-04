@@ -42,18 +42,25 @@ if (isset($_SESSION['id_usuario'])) {
                         $stmt->bindParam(':imagem', $arquivo['name'], PDO::PARAM_STR);
 
                             // Registro bem-sucedido
-                            if ((isset($arquivo['name'])) && !empty($arquivo['name'])) {
+                            if ((isset($arquivo['foto_planta'])) && !empty($arquivo['foto_planta'])) {
                                 $ultimo_id = $conn->lastInsertId();
                                 $diretorio = "planta/$ultimo_id/";
-                                mkdir($diretorio, 0755);
+        
+                                if (!file_exists($diretorio)) {
+                                    mkdir($diretorio, 0755, true);
+                                }
+        
                                 $nome_arquivo = $arquivo['name'];
-                                move_uploaded_file($arquivo['tmp_name'], $diretorio . $nome_arquivo);
-                                echo "Foto salva";
+                                $destino = $diretorio . $nome_arquivo;
+        
+                                if (move_uploaded_file($arquivo['tmp_name'], $destino)) {
+                                    echo "Foto salva";
+                                } else {
+                                    echo "Erro ao mover o arquivo para o diretório.";
+                                }
                             } else {
                                 echo "Cadastro realizado com sucesso.";
                             }
-                
-            
                         
 
                         if ($stmt->execute()) {

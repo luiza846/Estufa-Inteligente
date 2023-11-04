@@ -51,7 +51,8 @@ catch(PDOException $erro)
                     echo "<img src='planta/" . $dados["id_planta"] . "/" . $foto_planta . "' width='100'>","<br>";
                     echo "Nome: ",$dados["nome"],"<br>"; 
                     echo "Data criação: ",$dados["data_criacao"],"<br>"; 
-                    echo "Umidade: ",$dados["umidade"],"%<br>"; 
+                    echo "Umidade ideal: ",$dados["umidade"],"%<br>";
+                    echo "Temperatura ideal: ",$dados["temperatura"],"°C<br>";  
                 }
                 ?>
 
