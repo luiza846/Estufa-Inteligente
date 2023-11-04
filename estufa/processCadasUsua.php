@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Registro bem-sucedido
                 if ((isset($arquivo['name'])) && !empty($arquivo['name'])) {
                     $ultimo_id = $conn->lastInsertId();
-                    $diretorio = "imagens/$ultimo_id/";
+                    $diretorio = "usuario/$ultimo_id/";
                     mkdir($diretorio, 0755);
                     $nome_arquivo = $arquivo['name'];
                     move_uploaded_file($arquivo['tmp_name'], $diretorio . $nome_arquivo);

@@ -16,7 +16,7 @@ include('connection.php');
 <body class="body-planta" style="background-image: url(fundoLogin/cadas-planta.png);">
 
 <div class="div-cadas-planta">
-        <form class="form-cadas-planta" method="POST" action="processCadasPlanta.php">
+        <form class="form-cadas-planta" method="POST" action="processCadasPlanta.php" enctype="multipart/form-data">
             <h1>CADASTRAR PLANTA</h1>
             <div class="campos-planta">
             <!--ocupa metade do formulario (half-box)-->

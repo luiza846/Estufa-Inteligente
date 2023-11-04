@@ -19,9 +19,6 @@
         <label for="foto_usuario">Foto: </label>
         <input type="file" name="foto_usuario" id="foto_usuario" required><br><br>
         
-        <!--ocupa todo o formulario (full-box)-->
-        <div class="lado"></div>
-
         <div class="full-box">
             E-mail: <input type="text" name="campoEmail" id="email" placeholder="Digite o seu e-mail" data-min-length="3" data-required data-email-validate>
         </div>

@@ -45,7 +45,7 @@ catch(PDOException $erro)
 
                     while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     $foto_usuario = $dados["imagem"];
-                    echo "<img src='imagens/$id_usuario/$foto_usuario'>","<br>";
+                    echo "<img src='usuario/$id_usuario/$foto_usuario'>","<br>";
                     }
             ?>
                         <?php
