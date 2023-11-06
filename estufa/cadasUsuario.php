@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Usuário</title>
-    <link rel="stylesheet" href="css/generalInterface.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="js/cadasUsuario.js"></script>
     <!--icon-->
     <link rel="shortcut icon" type="imagex/png" href="./images/icon.ico">

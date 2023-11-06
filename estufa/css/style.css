@@ -365,22 +365,25 @@ form input[type=password]{
     background-size: cover;
     background-repeat: no-repeat;
     margin: 0 auto;
+    font-size: 18px;
 }
 .form-cadas-planta{  
-    width: 700px;
+    width: 500px;
     /*espacamento interno de 10px*/
-    padding: 55px;
+    margin-top: 180px;
+    margin-left: 265px;
 }
 .body-planta h1{
-    font-size: 30px;
+    font-size: 40px;
     text-align: center;
     color: #21572dcc;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.form-cadas-planta input[type=text]{
+.form-cadas-planta input[type=text],
+.form-cadas-planta input[type=date]{
     width:100%;
     height: 35px;
-    border:1px solid #ccc;
+    border:1px solid #4c8124;
     padding-left: 10px;
     /*distancia entre dois campos*/
     margin: 10px 0;
@@ -394,20 +397,33 @@ form input[type=password]{
     display: block;
     width: 100%;
 }
+/*select*/
+.form-cadas-planta select{
+    width: 55%;
+    height: 35px;
+    background-color: white;
+    border:1px solid #4c8124;
+    padding-left: 10px;
+    /*distancia entre dois campos*/
+    margin: 10px 0;
+    border-radius: 20px;
+}
 /*botao*/
 .form-cadas-planta input[type="submit"]{
+    margin-top: 45px;
     background-color: #21572dcc;
+    font-size: 18px;
     color: #fff;
     border: none;
     height: 40px;
     cursor: pointer;
     border-radius: 30px;
-    /*ao clicar ele muda a cor lentamente*/
-    transition: 1s;
 }
 /*efeitos do botao*/
 .form-cadas-planta  input[type=submit]:hover{
     background-color: #0d1e11cc;
+    /*ao clicar ele muda a cor lentamente*/
+    transition: 1s;
 }
 /*--------------------------------------------------TELA CADAS USUARIO-----------------------------------------------------------*/
 .body-usuario{

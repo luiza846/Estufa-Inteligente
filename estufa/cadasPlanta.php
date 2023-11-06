@@ -9,21 +9,21 @@ include('connection.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/generalInterface.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Cadastrar Planta</title>
 
 </head>
 <body class="body-planta" style="background-image: url(fundoLogin/cadas-planta.png);">
 
 <div class="div-cadas-planta">
-        <form class="form-cadas-planta" method="POST" action="processCadasPlanta.php" enctype="multipart/form-data">
-            <h1>CADASTRAR PLANTA</h1>
+        <form class="form-cadas-planta" method="POST" action="processCadasPlanta.php">
+            <h1>CADASTRAR PLANTA</h1><br><br>
             <div class="campos-planta">
             <!--ocupa metade do formulario (half-box)-->
             <label for="foto_planta">Adicionar foto da planta: </label>
             <input type="file" name="foto_planta" id="foto_planta" required><br><br>
 
-            <select name="categoria" required>
+            <select name="categoria" class = "catergoria" required>
         <option value="">Selecione a planta</option>
         <?php
             $query = $conn->query("SELECT * FROM planta ORDER BY nome_planta ASC");
@@ -46,7 +46,7 @@ include('connection.php');
             </div>
 
               <div class="full-box">
-                <input type="submit" id="btn-submit" value="Registrar">
+                <input type="submit" id="btn-submit" value="CADASTRAR">
               </div>
 
             <div class="full-box">
