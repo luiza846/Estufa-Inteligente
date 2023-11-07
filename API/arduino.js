@@ -31,7 +31,6 @@ db.connect((err) => {
 function InserirTemp(temperatura) {
   const tempData = {
     temperatura: temperatura,
-    timestamp: new Date(),
   };
 
   db.query('INSERT INTO registro(temperatura) VALUES(?)', tempData, (err, results) => {
@@ -44,10 +43,25 @@ function InserirTemp(temperatura) {
   });
 };
 
+function InserirData(time){
+  const timeData = {
+    time: new Date(),
+
+  };
+
+  db.query('INSERT INTO registro(data) VALUES(?)', timeData, (err, results) => {
+    if(err){
+      console.log("ERRO AO SALVAR A DATA");
+    }
+    else{
+      console.log("DATA SALVA COM SUCESSO");
+    }
+  });
+};
+
 function InserirUmid(umidade) {
   const umidadeData = {
     umidade: umidade,
-    timestamp: Date(),
   };
 
   db.query('INSERT INTO resgistro(umidade) VALUES(?)', umidadeData, (err, results) => {
@@ -66,6 +80,7 @@ parser.on('data', (data) => {
   if(!isNaN(temperatura) && !isNaN(umidade)){
     InserirTemp(temperatura);
     InserirUmid(umidade);
+    InserirData();
   }
 });
 
@@ -79,6 +94,7 @@ app.get('/obterDados', (req, res) => {
 
 
   db.query(query, [id_usuario], (err, results) => {
+
     if (err) {
       console.error('Erro ao consultar o banco de dados: ' + err);
       res.status(500).send('Erro ao consultar o banco de dados');
