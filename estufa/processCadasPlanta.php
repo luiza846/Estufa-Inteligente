@@ -2,7 +2,11 @@
 session_start();
 include_once "conexao.php";
 
-if (isset($_SESSION['id_usuario'])) {
+$id_usuario = $_SESSION['id_usuario'];
+$sql = "SELECT * FROM estufa WHERE id_usuario = :id_usuario";
+
+
+if (isset($_SESSION['id_usuario'])&& $result === false) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Receber dados do formulário
         $id_usuario = $_SESSION['id_usuario'];
@@ -83,6 +87,6 @@ if (isset($_SESSION['id_usuario'])) {
         echo "Erro: Método de requisição incorreto.";
     }
 } else {
-    echo "Erro: Usuário não está logado.";
+    echo "Erro: Usuário não está logado ou planta já cadastrado";
 }
 ?>

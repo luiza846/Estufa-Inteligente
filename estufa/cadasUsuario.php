@@ -41,7 +41,7 @@
         </div>
 
         <div class="full-box">
-            <input type="submit" id="btn-submit" value="Registrar">
+            <input type="submit" id="btn-submit" value="CADASTRAR">
         </div>
 
         <div class="full-box">
