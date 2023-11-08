@@ -1,15 +1,14 @@
 const express = require('express');
 const { SerialPort } = require('serialport');
+const mysql = require('mysql');
 //or
 const { ReadlineParser } = require('@serialport/parser-readline');
-const mysql = require('mysql');
-
 const app = express();
 
 // Configuração da porta serial para se comunicar com o Arduino
 const port = new SerialPort({path:'/dev/ttyACM0', baudRate: 9600 });
+const parser = port.pipe(new ReadlineParser({delimiter: '\r\n'}));
 
-const parser = port.pipe(new ReadlineParser({ delimiter: '\r\n' }))
 
 // Configuração do banco de dados MySQL
 const db = mysql.createConnection({
@@ -27,68 +26,32 @@ db.connect((err) => {
   }
 });
 
-//Funcoes para enviar a temperatura e a Umidade para o Banco de dados
-function InserirTemp(temperatura) {
-  const tempData = {
-    temperatura: temperatura,
-  };
 
-  db.query('INSERT INTO registro(temperatura) VALUES(?)', tempData, (err, results) => {
-    if(err){
-      console.log("ERRO AO ENVIAR A TEMPERATURA");
-    }
-    else{
-      console.log("TEMPERATURA SALVA COM SUCESSO");
-    }
-  });
-};
+// Comandos API
+app.get('/SalvarDados', (req, res) => { // Precisa ficar em loop para enviar ao banco toda vez que tiver uma acao realizada
 
-function InserirData(time){
-  const timeData = {
-    time: new Date(),
+    parser.on('data', function(data) {
+      const dados = data;
 
-  };
+      const time = Date().toString();
 
-  db.query('INSERT INTO registro(data) VALUES(?)', timeData, (err, results) => {
-    if(err){
-      console.log("ERRO AO SALVAR A DATA");
-    }
-    else{
-      console.log("DATA SALVA COM SUCESSO");
-    }
-  });
-};
+      console.log(dados);
 
-function InserirUmid(umidade) {
-  const umidadeData = {
-    umidade: umidade,
-  };
+      db.query("UPDATE registro SET dados = ?, data = ? WHERE id_registro = ?", [dados, time, 1], (err, results) => {
+        if(err){
+          console.log("ERRO AO SALVAR OS DADOS: " + err);
+        }
+        else{
+          console.log("DADOS INSERIDOS COM SUCESSO");
+        }
+      })
+    });
 
-  db.query('INSERT INTO resgistro(umidade) VALUES(?)', umidadeData, (err, results) => {
-    if(err){
-      console.log("ERRO AO ENVIAR A UMIDADE");
-    }
-    else{
-      console.log("UMIDADE SALVA COM SUCESSO");
-    }
-  });
-}
-
-parser.on('data', (data) => {
-  const [temperatura, umidade] = data.split(',').map(parseFloat);
-
-  if(!isNaN(temperatura) && !isNaN(umidade)){
-    InserirTemp(temperatura);
-    InserirUmid(umidade);
-    InserirData();
-  }
 });
 
-
-// Rota para obter 'nome' e 'nivel_de_umidade' onde 'id' = 1 e enviar para o Arduino
-app.get('/obterDados', (req, res) => {
-  // Execute uma consulta SQL para obter 'nome' e 'nivel_de_umidade' onde 'id' = 1
-  const query = 'SELECT umidade FROM planta WHERE id_usuario =?';
+app.get('/ReceberDados', (req, res) => {
+  // Execute uma consulta SQL para obter nivel_de_umidade onde 'id' = 1
+  const query = 'SELECT nv_umid, nv_temp FROM planta WHERE id =?';
 
   var id_usuario = 1;
 
@@ -100,14 +63,18 @@ app.get('/obterDados', (req, res) => {
       res.status(500).send('Erro ao consultar o banco de dados');
     } else if (results.length > 0) {
 
-      const UmidadeIdeal = results[0].umidade;
+      const UmidadeIdeal = results[0].nv_umid;
+      const TempIdeal = results[0].nv_temp;
+
 
 
       // Envie 'nome' e 'nivel_de_umidade' para o Arduino pela porta serial
       port.write(`UmidadeIdeal:${UmidadeIdeal}\n`);
+      port.write(`TempIdeal:${TempIdeal}\n`);
 
 
-      console.log(`UmidadeIdeal: ${UmidadeIdeal}`);
+      console.log(`UmidadeIdeal: ${UmidadeIdeal}\n`);
+      console.log(`TempIdeal: ${TempIdeal}\n`);
      
 
       res.status(200).send('Dados enviados com sucesso para o Arduino');
