@@ -2,11 +2,8 @@
 session_start();
 include_once "conexao.php";
 
-$id_usuario = $_SESSION['id_usuario'];
-$sql = "SELECT * FROM estufa WHERE id_usuario = :id_usuario";
 
-
-if (isset($_SESSION['id_usuario'])&& $result === false) {
+if (isset($_SESSION['id_usuario'])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Receber dados do formulário
         $id_usuario = $_SESSION['id_usuario'];
@@ -44,30 +41,21 @@ if (isset($_SESSION['id_usuario'])&& $result === false) {
                         $stmt->bindParam(':umidade', $dadosOpcao['umidade_ideal']);
                         $stmt->bindParam(':temperatura', $dadosOpcao['temperatura_ideal']);
                         $stmt->bindParam(':imagem', $arquivo['name'], PDO::PARAM_STR);
-
-                            // Registro bem-sucedido
-                            if ((isset($arquivo['foto_planta'])) && !empty($arquivo['foto_planta'])) {
-                                $ultimo_id = $conn->lastInsertId();
-                                $diretorio = "planta/$ultimo_id/";
+                        // Registro bem-sucedido
+                        if ((isset($arquivo['name'])) && !empty($arquivo['name'])) {
+                            $ultimo_id = $conn->lastInsertId();
+                            $diretorio = "planta/$ultimo_id/";
+                            mkdir($diretorio, 0755);
+                            $nome_arquivo = $arquivo['name'];
+                            move_uploaded_file($arquivo['tmp_name'], $diretorio . $nome_arquivo);
+                            echo "Foto salva";
+                        } else {
+                            echo "Cadastro realizado com sucesso.";
+                        }
+            
         
-                                if (!file_exists($diretorio)) {
-                                    mkdir($diretorio, 0755, true);
-                                }
-        
-                                $nome_arquivo = $arquivo['name'];
-                                $destino = $diretorio . $nome_arquivo;
-        
-                                if (move_uploaded_file($arquivo['tmp_name'], $destino)) {
-                                    echo "Foto salva";
-                                } else {
-                                    echo "Erro ao mover o arquivo para o diretório.";
-                                }
-                            } else {
-                                echo "Cadastro realizado com sucesso.";
-                            }
-                        
-
-                        if ($stmt->execute()) {
+                    
+                    if ($stmt->execute()) {
                             echo "Dados da opção inseridos com sucesso na tabela 'estufa'.";
                         } else {
                             echo "Erro ao inserir dados da opção na tabela 'estufa'.";
@@ -87,6 +75,6 @@ if (isset($_SESSION['id_usuario'])&& $result === false) {
         echo "Erro: Método de requisição incorreto.";
     }
 } else {
-    echo "Erro: Usuário não está logado ou planta já cadastrado";
+    echo "Erro: Usuário não está logado";
 }
 ?>
