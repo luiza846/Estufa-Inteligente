@@ -45,7 +45,6 @@ void loop() {
  
   ReceberDados();
   Controle();
-  delay(30000);
 }
  
 void ReceberDados(){
@@ -86,69 +85,39 @@ void Controle(){
 
  float tempe_Atual = dht.readTemperature();
   
-  // Definicao do estado dos componentes
-  static int estadoVal;
-  static int estadoVent;
+
+  //Manda os niveis de humidade e temperatura para a porta serial
+  Serial.print(tempe_Atual);
+  Serial.print(",");
+  Serial.println(Umidade_Atual);
+
 
   //Controle da Valvula
   if(Umidade_Atual < umid_Ideal && tempe_Atual <= tempe_Ideal){
-    estadoVal = 1;
+    
     digitalWrite(valvula, HIGH);
-    Serial.print("Humidade:");
-    Serial.print(Umidade_Atual);
-    Serial.print("||||");
-    Serial.print("Temperatura:");
-    Serial.print(tempe_Atual);
-    Serial.print("||||");
-    Serial.print("Acao:");
-    Serial.println("IRRIGACAO");
-
   }
  
   if(Umidade_Atual >= umid_Ideal){
-    estadoVal = 0;
     digitalWrite(valvula, LOW);
  
   }
  
   //Controle da Ventuinha
   if(tempe_Atual > tempe_Ideal && Umidade_Atual >= umid_Ideal){
-    estadoVent = 1;
     digitalWrite(vent, HIGH);
-        Serial.print("Humidade:");
-    Serial.print(Umidade_Atual);
-    Serial.print("||||");
-    Serial.print("Temperatura:");
-    Serial.print(tempe_Atual);
-    Serial.print("||||");
-    Serial.print("Acao:");
-    Serial.println("VENTILACAO");
-
-    
   }
  
   if(tempe_Atual <= tempe_Ideal){
-    estadoVent = 0;
     digitalWrite(vent, LOW);
   }
 
   //Controle da valvula e da Ventuinha
 
    if(Umidade_Atual < umid_Ideal && tempe_Atual > tempe_Ideal){
-    estadoVal = 1;
     digitalWrite(valvula, HIGH);
-    Serial.print("Humidade:");
-    Serial.print(Umidade_Atual);
-    Serial.print("||||");
-    Serial.print("Temperatura:");
-    Serial.print(tempe_Atual);
-    Serial.print("||||");
-    Serial.print("Acao:");
-    Serial.println("IRRIGACAO && VENTILACAO");
-
   }
 
-delay(5000);
-      
+ delay(5000);     
  
 }

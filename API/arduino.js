@@ -10,6 +10,15 @@ const port = new SerialPort({path:'/dev/ttyACM0', baudRate: 9600 });
 const parser = port.pipe(new ReadlineParser({delimiter: '\r\n'}));
 
 
+// Configurando arquivo .txt
+const fs = require('fs');
+const { time } = require('console');
+
+const arquivo = 'dados.txt';
+const stream = fs.createWriteStream(arquivo, {flags: 'a'});
+
+
+
 // Configuração do banco de dados MySQL
 const db = mysql.createConnection({
   host: 'localhost',
@@ -28,28 +37,8 @@ db.connect((err) => {
 
 
 // Comandos API
-app.get('/SalvarDados', (req, res) => { // Precisa ficar em loop para enviar ao banco toda vez que tiver uma acao realizada
 
-    parser.on('data', function(data) {
-      const dados = data;
-
-      const time = Date().toString();
-
-      console.log(dados);
-
-      db.query("UPDATE registro SET dados = ?, data = ? WHERE id_registro = ?", [dados, time, 1], (err, results) => {
-        if(err){
-          console.log("ERRO AO SALVAR OS DADOS: " + err);
-        }
-        else{
-          console.log("DADOS INSERIDOS COM SUCESSO");
-        }
-      })
-    });
-
-});
-
-app.get('/ReceberDados', (req, res) => {
+app.post('/EnviarDados', (req, res) => {
   // Execute uma consulta SQL para obter nivel_de_umidade onde 'id' = 1
   const query = 'SELECT nv_umid, nv_temp FROM planta WHERE id =?';
 
@@ -84,6 +73,44 @@ app.get('/ReceberDados', (req, res) => {
     }
   });
 });
+
+app.get(`/ReceberDados`, (req, res) => {
+  parser.on('data', (data) => {
+
+    const [temp, humid] = data.split(',');
+
+    Salvardados(temp, humid);
+    
+  });
+});
+
+// Funcao para salvar dados no arquivo txt
+
+function Salvardados(temp, humid){
+
+  const timestamp = new Date();
+  const ano = timestamp.getFullYear();
+  const mes = timestamp.getMonth();
+  const dia = timestamp.getDay();
+  const hora = timestamp.getHours();
+  const minutos = timestamp.getMinutes();
+  const segundos = timestamp.getSeconds();
+
+  const dados = `Data: ${ano}/${mes}/${dia}, Hora:${hora}:${minutos}:${segundos}, Temperatura: ${temp}ºC, Humidade: ${humid}% \n`;
+
+  stream.write(dados, (err) => {
+
+    if(err){
+      console.error('ERRO AO SALVAR DADOS: ' + err);
+    }
+    else{
+      console.log("DADOS SALVOS");
+    }
+  
+  });
+ 
+}
+
 
 app.listen(3000, () => {
   console.log('API Node.js rodando na porta 3000');
