@@ -504,6 +504,9 @@ form input[type=password]{
 .form-cadas-usuario  input[type=submit]:hover{
     background-color: #0d1e11cc;
 }
+.div-cadas-usuario-aviso{
+    color: red;
+}
 /*--------------------------------------------------TELA MONITORA-----------------------------------------------------------*/
 .div-monitora{
     width: 100%;
