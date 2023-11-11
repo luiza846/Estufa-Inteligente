@@ -269,6 +269,8 @@
 .div-painel-perfil img{
     width: 230px;
     border-radius: 1000px;
+    width: 200px;
+    height: 200px;
 }
 .div-painel-perfil h1{
     font-size: 45px;
@@ -424,6 +426,34 @@ form input[type=password]{
     background-color: #0d1e11cc;
     /*ao clicar ele muda a cor lentamente*/
     transition: 1s;
+}
+#msgSucesso{
+    border:1px solid #4c8124;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+/*botao do dialog (mensagem de aviso)*/
+#msgSucesso input[type="button"]{
+    margin-top: 45px;
+    background-color: #21572dcc;
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 30px;
+}
+/*efeitos do botao*/
+#msgSucesso input[type=button]:hover{
+    background-color: #0d1e11cc;
+    /*ao clicar ele muda a cor lentamente*/
+    transition: 1s;
+}
+#msgSucesso a{
+    text-decoration: none;
+}
+.div-cadas-planta-aviso{
+    color: red;
 }
 /*--------------------------------------------------TELA CADAS USUARIO-----------------------------------------------------------*/
 .body-usuario{

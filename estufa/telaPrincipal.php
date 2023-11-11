@@ -72,18 +72,6 @@ catch(PDOException $erro)
         <a href="registro.php"><input type="button" value="Registro" nome="btnregistro" id="btns"></a>
     </div>
 
-    <!--<div class="textoBtns">
-        <div class="txtMonitoramento">
-            <h4>Monitorar em tempo real da umidade e temperatura da sua planta</h4>
-        </div>
-        <div class="txtPlanta">
-            <h4>Ver e editar dados da sua planta</h4>
-        </div>
-        <div class="txtRegistro">
-            <h4>Ver o histórico de quantas vezes a planta foi regada, refrigerada e exposta à luz UV</h4>
-        </div>
-    </div>-->
-
     
     <div class="rodape">
     <img src="fundoLogin/logoxx.png" alt="logo">
