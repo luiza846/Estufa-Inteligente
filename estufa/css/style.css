@@ -474,3 +474,28 @@ form input[type=password]{
 .form-cadas-usuario  input[type=submit]:hover{
     background-color: #0d1e11cc;
 }
+/*--------------------------------------------------TELA MONITORA-----------------------------------------------------------*/
+.div-monitora{
+    width: 100%;
+    height: 300px;
+}
+.div-monitora-sobre-planta{
+    width: 100%;
+    height: 300px;
+    background-color: #742ea38a;
+
+}
+.div-monitora-temp{
+    width: 590px;
+    height: 400px;
+}
+.div-monitora-umidade{
+    width: 300px;
+    height: 300px;
+}
+.div-monitora-temp, .div-monitora-umidade{
+    display: inline-block;
+}
+.div-monitora-all{
+    text-align: center;
+}
