@@ -390,10 +390,14 @@ form input[type=password]{
     /*distancia entre dois campos*/
     margin: 10px 0;
     border-radius: 20px;
+    /*NOVO QUE EU ADICIONEI, PARA DAR UM PEQUENO PROBLEMA NO SELECIONAR PLANTA, 
+      SÓ SE VOCÊ CLICAR NA SETA DO SELECIONE DUAS VEZES ELE FICA DE OUTRA COR,
+      ENTÃO NÃO SEI SE DEVEMOS MANTER*/
+    outline: 10;
 }
 /*clicar sobre o campo a borda ficar verde*/
 .form-cadas-planta input[type=text]:focus{
-    outline: 0;
+    outline: 10;
 }
 .body-planta input,label{
     display: block;
@@ -455,58 +459,151 @@ form input[type=password]{
 .div-cadas-planta-aviso{
     color: red;
 }
+.tooltip::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px;
+  background-color: #000;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.tooltip:hover::before,
+.tooltip:active::before {
+  opacity: 1;
+  visibility: visible;
+}
 /*--------------------------------------------------TELA CADAS USUARIO-----------------------------------------------------------*/
+
 .body-usuario{
+
     background-size: cover;
+
     background-repeat: no-repeat;
+
     margin: 0 auto;
+
 }
+
 .form-cadas-usuario{  
-    width: 700px;
+
+    width: 500px;
+
     /*espacamento interno de 10px*/
-    padding: 55px;
+
+    margin-top: 180px;
+
+    margin-left: 265px;
+
 }
+
 .body-usuario h1{
-    font-size: 30px;
+
+    font-size: 40px;
+
     text-align: center;
+
     color: #21572dcc;
+
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
 }
+
 .form-cadas-usuario input[type=text]{
+
     width:100%;
+
     height: 35px;
-    border:1px solid #ccc;
+
+    border:1px solid #4c8124;
+
     padding-left: 10px;
+
+    color: #1c330b;
+
+    outline: 10;
+
     /*distancia entre dois campos*/
-    margin: 10px 0;
+
+    margin: 4px 0;
+
     border-radius: 20px;
+
 }
+
 /*clicar sobre o campo a borda ficar verde*/
-.form-cadas-usuario input[type=text]:focus{
-    outline: 0;
-}
+
+
 .body-usuario input,label{
+
     display: block;
+
     width: 100%;
+
 }
+
 /*botao*/
+
 .form-cadas-usuario input[type="submit"]{
+
+    margin-top: 45px;
+
     background-color: #21572dcc;
+
+    font-size: 18px;
+
     color: #fff;
+
     border: none;
+
     height: 40px;
+
     cursor: pointer;
+
     border-radius: 30px;
+
     /*ao clicar ele muda a cor lentamente*/
+
     transition: 1s;
+
+}
+
+.div-cadas-usuario input[type=password]{
+
+    width: 100%;
+
+    font-size: 18px;
+
+    color: #1c330b;
+
+    height: 35px;
+
+    border:1px solid #4c8124;
+
+    padding-left: 10px;
+
+    /*distancia entre dois campos*/
+
+    margin: 4px 0;
+
+    border-radius: 20px;
+
 }
 /*efeitos do botao*/
 .form-cadas-usuario  input[type=submit]:hover{
+
     background-color: #0d1e11cc;
+
 }
-.div-cadas-usuario-aviso{
-    color: red;
-}
+
+
 /*--------------------------------------------------TELA MONITORA-----------------------------------------------------------*/
 .div-monitora{
     width: 100%;
@@ -523,11 +620,8 @@ form input[type=password]{
     height: 400px;
 }
 .div-monitora-umidade{
-    width: 590px;
-    height: 400px;
-}
-.div-monitora-umidade :hover{
-    background-color: rgba(255, 255, 255, 0);
+    width: 300px;
+    height: 300px;
 }
 .div-monitora-temp, .div-monitora-umidade{
     display: inline-block;

@@ -11,7 +11,37 @@ include('connection.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Cadastrar Planta</title>
+    <style>
+        /*ESSE É O STYLE DO LEMBRETE, NÃO CONSEGUI FAZER FUCIONAR COM ELE ESTANDO NO ARQUIVO DO CSS
 
+    <div class="hm">?<div>Batatinha quando nasce esparrama pelo chão.</div></div>
+        
+        ^ esse é o div que faz aparecer o ponto de interrigação, mas eu não estou conseguindo fazer ele funcionar antes ou depois do "selecionar planta"
+        */
+.hm div {display:none;position:relative}
+.hm:hover div {display:block;position:absolute;top:0;margin-left:40px}
+
+/* daqui pra baixo é só estética para demonstração */
+.hm {
+  width: 500px;
+
+    /*espacamento interno de 10px*/
+
+    margin-top: 1000px;
+
+    margin-left: 300px;
+
+  color:#999;
+}
+
+.hm div {
+  width:8em;
+  color:#fff;
+  background:#999;
+  border-radius:15px;
+  padding:15px;
+}
+    </style>
 </head>
 <body class="body-planta" style="background-image: url(fundoLogin/cadas-planta.png);">
 
@@ -135,6 +165,7 @@ include('connection.php');
               <div class="full-box">
                 <input type="submit" id="btn-submit" value="CADASTRAR">
               </div>
+
 
             <div class="full-box">
                 <a href="telaPrincipal.php">Voltar</a>

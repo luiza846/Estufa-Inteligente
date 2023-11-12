@@ -12,8 +12,8 @@
 <body class="body-usuario" style="background-image: url(fundoLogin/cadas-planta.png);">
 
 <div class="div-cadas-usuario">
-    <h1>CRIAR CONTA</h1>
-
+    
+    
     <form class="form-cadas-usuario" method="POST" action="" enctype="multipart/form-data">
         <!-- CARREGAR IMAGEM -->
         <div class = "div-cadas-usuario-aviso">
@@ -85,6 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
         </div>
+        <h1>CRIAR CONTA</h1>
         <label for="foto_usuario">Foto: </label>
         <input type="file" name="foto_usuario" id="foto_usuario" required><br><br>
         
