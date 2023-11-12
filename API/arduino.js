@@ -96,7 +96,7 @@ function Salvardados(temp, humid){
   const minutos = timestamp.getMinutes();
   const segundos = timestamp.getSeconds();
 
-  const dados = `Data: ${ano}/${mes}/${dia}, Hora:${hora}:${minutos}:${segundos}, Temperatura: ${temp}ºC, Humidade: ${humid}% \n`;
+  const dados = `${ano}/${mes}/${dia} ${hora}:${minutos}:${segundos} ${temp} ${humid} \n`;
 
   stream.write(dados, (err) => {
 

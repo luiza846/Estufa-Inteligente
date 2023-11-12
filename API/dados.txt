@@ -1,29 +1,27 @@
-Data: 2023/10/5, Hora:10:36:7, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:36:7, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:36:7, Temperatura: 5.00ºC, Humidade: undefined% 
-Data: 2023/10/5, Hora:10:36:7, Temperatura: 25.00ºC, Humidade: undefined% 
-Data: 2023/10/5, Hora:10:36:7, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:36:7, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:36:8, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:36:13, Temperatura: 30.00ºC, Humidade: 12.00% 
-Data: 2023/10/5, Hora:10:36:18, Temperatura: 30.00ºC, Humidade: 8.00% 
-Data: 2023/10/5, Hora:10:36:23, Temperatura: 30.00ºC, Humidade: 4.00% 
-Data: 2023/10/5, Hora:10:36:28, Temperatura: 30.00ºC, Humidade: 14.00% 
-Data: 2023/10/5, Hora:10:36:33, Temperatura: 30.00ºC, Humidade: 2.00% 
-Data: 2023/10/5, Hora:10:36:38, Temperatura: 30.00ºC, Humidade: 19.00% 
-Data: 2023/10/5, Hora:10:36:43, Temperatura: 30.00ºC, Humidade: 10.00% 
-Data: 2023/10/5, Hora:10:36:48, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:36:53, Temperatura: 30.00ºC, Humidade: 16.00% 
-Data: 2023/10/5, Hora:10:36:58, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:37:3, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:37:8, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:37:13, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:37:18, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:37:23, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:37:28, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:37:33, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:37:38, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:37:43, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:37:48, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:37:53, Temperatura: 30.00ºC, Humidade: 0.00% 
-Data: 2023/10/5, Hora:10:37:58, Temperatura: 30.00ºC, Humidade: 0.00% 
+
+2023/10/0 12:40:19 nan 0.00 
+2023/10/0 12:40:19 5.00 undefined 
+2023/10/0 12:40:19 25.00 undefined 
+2023/10/0 12:40:19 nan 0.00 
+2023/10/0 12:40:19 nan 0.00 
+2023/10/0 12:40:19 nan 0.00 
+2023/10/0 12:40:23 nan 0.00 
+2023/10/0 12:40:28 nan 0.00 
+2023/10/0 12:40:33 nan 0.00 
+2023/10/0 12:40:38 nan 0.00 
+2023/10/0 12:40:43 nan 0.00 
+2023/10/0 12:40:48 nan 0.00 
+2023/10/0 12:40:53 nan 0.00 
+2023/10/0 12:40:58 nan 0.00 
+2023/10/0 12:41:3 nan 0.00 
+2023/10/0 12:41:8 33.00 0.00 
+2023/10/0 12:41:13 33.00 0.00 
+2023/10/0 12:41:18 33.00 0.00 
+2023/10/0 12:41:23 33.00 0.00 
+2023/10/0 12:41:28 34.00 0.00 
+2023/10/0 12:41:34 34.00 0.00 
+2023/10/0 12:41:39 34.00 0.00 
+2023/10/0 12:41:44 34.00 0.00 
+2023/10/0 12:41:49 34.00 0.00 
+2023/10/0 12:41:54 34.00 0.00 
+2023/10/0 12:41:59 34.00 0.00 
