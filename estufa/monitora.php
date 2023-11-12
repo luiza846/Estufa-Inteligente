@@ -58,15 +58,52 @@
       <div id="chart_div"></div>
     </body>
 </div>
-    <div class = "div-monitora-temp">
+<?php
+// Caminho do arquivo TXT
+$arquivo = 'teste.txt';
+
+// Lê todas as linhas do arquivo em um array
+$linhas = file($arquivo);
+
+// Inicializa arrays para temperatura e horário
+$temperaturaData = [];
+$horarioData = [];
+
+// Pega apenas as últimas 3 linhas do array (conforme seu exemplo)
+$ultimas_linhas = array_slice($linhas, -5);
+
+// Itera sobre as últimas linhas
+foreach ($ultimas_linhas as $linha) {
+    // Divide a linha em partes usando espaço como delimitador
+    $dados = explode(' ', $linha);
+
+    // Atribui os valores a variáveis
+    $data = $dados[0];
+    $hora = $dados[1];
+    $temperatura = $dados[2];
+    $umidade = $dados[3];
+
+    // Adiciona os valores aos arrays
+    $horarioData[] = $hora;
+    $temperaturaData[] = $temperatura;
+}
+
+// Converte os arrays para JSON
+$temperaturaDataJSON = json_encode($temperaturaData);
+$horarioDataJSON = json_encode($horarioData);
+?>
+
+<!-- Seu HTML e CSS -->
+
+<div class="div-monitora-temp">
     <!-- O gráfico será renderizado aqui -->
     <canvas id="myChart"></canvas>
 
     <!-- Seu script para criar o gráfico -->
     <script>
-        // Seus dados de temperatura e horário
-        var temperaturaData = [20, 22, 25, 23, 26];
-        var horarioData = ["8:00", "10:00", "12:00", "14:00", "16:00"];
+        // Seus dados de temperatura e horário (vindos do PHP)
+        var temperaturaData = <?php echo $temperaturaDataJSON; ?>;
+        var horarioData = <?php echo $horarioDataJSON; ?>;
 
         // Obtendo o contexto do canvas
         var ctx = document.getElementById('myChart').getContext('2d');
@@ -79,8 +116,8 @@
                 datasets: [{
                     label: 'Temperatura (°C)',
                     data: temperaturaData,
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(77, 129, 36, 0.2)',
+                    borderColor: 'rgba(77, 129, 36, 2.0)',
                     borderWidth: 1
                 }]
             },
@@ -95,7 +132,8 @@
             }
         });
     </script>
-    </div>
 </div>
+
+</div></div>
 </body>
 </html>
