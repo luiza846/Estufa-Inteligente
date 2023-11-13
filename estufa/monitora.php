@@ -1,3 +1,26 @@
+<?php
+include('protect.php');
+# Fazer conexão com BD
+try
+{
+    # Conexão com MySQL usando PDO
+    $conectaBD = new PDO("mysql:host=127.0.0.1;port=3306;dbname=estufa", "root", "");
+    $conectaBD->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    # Preparar a consulta SQL
+    $sql = "SELECT * FROM estufa";
+
+    # Preparar e executar a consulta
+    $stmt = $conectaBD->query($sql);
+
+}
+catch(PDOException $erro)
+{
+    # Informar que houve erro ao fazer a conexão com BD
+    echo "Houve erro ao fazer a conexão com o banco de dados!";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +34,26 @@
 <body class="tela-principal" style="background-image: url(fundoLogin/monitora.png);">
 
 <div class = "div-monitora"></div>
-<div class = "div-monitora-sobre-planta">dados da planta aqui
-  <form>
-    
-  </form>
+
+<div class = "div-monitora-info">
+<?php
+    $id_usuario = $_SESSION['id_usuario'];
+    $sql = "SELECT * FROM estufa WHERE id_usuario = :id_usuario";
+
+    $stmt = $conectaBD->prepare($sql);
+    $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+    $stmt->execute();
+
+    while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $foto_planta = $dados["imagem"];
+        echo "<img src='planta/" . $dados["id_planta"] . "/" . $foto_planta . "' width='100'>","<br>";
+        echo "Nome: ",$dados["nome"],"<br>"; 
+        echo "Data criação: ",$dados["data_criacao"],"<br>"; 
+        echo "Umidade ideal: ",$dados["umidade"],"%<br>";
+        echo "Temperatura ideal: ",$dados["temperatura"],"°C<br>";  
+    }
+    ?>
+
 </div>
 
 <div class = "div-monitora-all">
@@ -31,7 +70,7 @@ $temperaturaData = [];
 $horarioData = [];
 
 // Pega apenas as últimas 3 linhas do array (conforme seu exemplo)
-$ultimas_linhas = array_slice($linhas, -5);
+$ultimas_linhas = array_slice($linhas, -10);
 
 // Itera sobre as últimas linhas
 foreach ($ultimas_linhas as $linha) {
@@ -73,7 +112,7 @@ $umidadeJSON = json_encode($umidade);
             ]);
 
             var options = {
-              width: 500, height: 350,
+              width: 700, height: 350,
               greenFrom: 75, greenTo: 100,
               yellowFrom: 25, yellowTo: 75,
               redFrom: 0, redTo: 25,

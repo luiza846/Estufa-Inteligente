@@ -31,8 +31,8 @@ catch(PDOException $erro)
     <link rel="stylesheet" href="css/style.css">
     <title>Meu Perfil</title>
 </head>
-<body class = "body-perfil" style="background-image: url(fundoLogin/perfil.png);">
-    <div class="div-perfil">
+<body class = "body-perfil" style="background-image: url(/perfil.png);">
+
         <div class = "div-painel-perfil">
             <?php
                     $id_usuario = $_SESSION['id_usuario'];
@@ -63,22 +63,17 @@ catch(PDOException $erro)
                     }
             ?>
 
-                    <div class="div-voltar">
-                    <a href="telaPrincipal.php"><button class = "voltar">Voltar</buttom></a>
-                </div>
-        </div>
-
-        <div class = "div-info-perfil">
-        <form action="editDadosUsuario.php" method="post">
-            <div class = "div-nome-email">
-            </div>
+                <form action="editDadosUsuario.php" method="post">
                 <br>Senha atual: <input type="password" name="campoSenhaAntiga" placeholder="Senha">
                 <br>Nova senha: <input type="password" name="campoNovaSenha" placeholder="Nova senha">
                 <div class="btn-senha">
                 <br><input class = "btn-mudar-senha" type="submit" value="MUDAR SENHA">
                 </div>
-                </div>
-        </form>
+                </form>                    
+
+                <a href="telaPrincipal.php"><button class = "voltar">Voltar</buttom></a>
+
+
     </div>
 </body>
 </html>
