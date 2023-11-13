@@ -140,7 +140,7 @@ include('connection.php');
             <label for="foto_planta">Adicionar foto da planta: </label>
             <input type="file" name="foto_planta" id="foto_planta" required><br><br>
 
-            <select name="categoria" class = "catergoria" required>
+        <select name="categoria" class = "catergoria" required>
         <option value="">Selecione a planta</option>
         <?php
             $query = $conn->query("SELECT * FROM planta ORDER BY nome_planta ASC");
