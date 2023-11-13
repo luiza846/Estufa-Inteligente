@@ -159,7 +159,7 @@ if (isset($_SESSION['id_usuario'])) {
             </div>
 
               <div class="full-box">
-                <input type="submit" id="btn-submit" value="CADASTRAR">
+                <input type="submit" id="btn_cadastrar" value="CADASTRAR">
               </div>
 
 

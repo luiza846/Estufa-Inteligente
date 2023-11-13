@@ -37,15 +37,14 @@ db.connect((err) => {
 
 
 // Comandos API
-
+function EnviarParaArduino(){
 app.post('/EnviarDados', (req, res) => {
   // Execute uma consulta SQL para obter nivel_de_umidade onde 'id' = 1
-  const query = 'SELECT nv_umid, nv_temp FROM planta WHERE id =?';
+  const query = 'SELECT umidade_ideal, temperatura_ideal FROM planta WHERE id_planta = ?';
 
-  var id_usuario = 1;
+  const id_planta = opcaoSelecionada;
 
-
-  db.query(query, [id_usuario], (err, results) => {
+  db.query(query, [id_planta], (err, results) => {
 
     if (err) {
       console.error('Erro ao consultar o banco de dados: ' + err);
@@ -73,7 +72,9 @@ app.post('/EnviarDados', (req, res) => {
     }
   });
 });
+}
 
+function Monitorar(){
 app.get(`/ReceberDados`, (req, res) => {
   parser.on('data', (data) => {
 
@@ -83,6 +84,7 @@ app.get(`/ReceberDados`, (req, res) => {
     
   });
 });
+}
 
 // Funcao para salvar dados no arquivo txt
 
@@ -111,6 +113,11 @@ function Salvardados(temp, humid){
  
 }
 
+// Chamando as funcoes
+
+document.getElementById("btn_cadastrar").addEventListener("click", EnviarParaArduino);
+
+document.getElementById("btn_monitorar").addEventListener("click", Monitorar);
 
 app.listen(3000, () => {
   console.log('API Node.js rodando na porta 3000');
