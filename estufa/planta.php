@@ -34,7 +34,6 @@ catch(PDOException $erro)
 <body class="body-planta">
     <div class="div-painel-planta">
 
-    <form action="deletaPlanta.php" method="POST"></form>
     </div>
                
                 <?php
@@ -56,7 +55,6 @@ catch(PDOException $erro)
                 }
                 ?>
 
-            </form>
 
 </body>
 </html>
