@@ -96,45 +96,6 @@ $umidade = intval($umidade);
 $umidadeJSON = json_encode($umidade);
 ?>
 
-<div class="div-monitora-umidade">
-  
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript">
-        google.charts.load('current', {'packages':['gauge']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        var umidade = <?php echo $umidadeJSON; ?>;
-
-        function drawChart() {
-            var data = google.visualization.arrayToDataTable([
-                ['Label', 'Value'],
-                ['Umidade', umidade],  // Usando o valor da última linha
-            ]);
-
-            var options = {
-              width: 700, height: 350,
-              greenFrom: 75, greenTo: 100,
-              yellowFrom: 25, yellowTo: 75,
-              redFrom: 0, redTo: 25,
-              minorTicks: 5,
-              max: 100,  // Valor máximo para 100%
-              greenColor: {color: '#4B9CCA'}, 
-              yellowColor: {color: "#8CC3E2"},
-              redColor: {color: "#C5E3F4"}
-            };
-
-            
-            var chart = new google.visualization.Gauge(document.getElementById('chart_div'));
-
-            chart.draw(data, options);
-        }
-    </script>
-    
-    <!-- Div para renderizar o gráfico de medidor -->
-    <div id="chart_div"></div>
-</div>
-
-
 
 <!-- Seu HTML e CSS -->
 
