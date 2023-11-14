@@ -35,27 +35,6 @@ catch(PDOException $erro)
 
 <div class = "div-monitora"></div>
 
-<div class = "div-monitora-info">
-<?php
-    $id_usuario = $_SESSION['id_usuario'];
-    $sql = "SELECT * FROM estufa WHERE id_usuario = :id_usuario";
-
-    $stmt = $conectaBD->prepare($sql);
-    $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
-    $stmt->execute();
-
-    while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        $foto_planta = $dados["imagem"];
-        echo "<img src='planta/" . $dados["id_planta"] . "/" . $foto_planta . "' width='100'>","<br>";
-        echo "Nome: ",$dados["nome"],"<br>"; 
-        echo "Data criação: ",$dados["data_criacao"],"<br>"; 
-        echo "Umidade ideal: ",$dados["umidade"],"%<br>";
-        echo "Temperatura ideal: ",$dados["temperatura"],"°C<br>";  
-    }
-    ?>
-
-</div>
-
 <div class = "div-monitora-all">
 
 <?php
@@ -96,6 +75,7 @@ $umidade = intval($umidade);
 $umidadeJSON = json_encode($umidade);
 ?>
 
+<div class="div-monitora-umidade">
 
 <!-- Seu HTML e CSS -->
 

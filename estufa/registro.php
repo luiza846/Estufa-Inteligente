@@ -27,7 +27,7 @@ include('protect.php');
         <?php 
 
             // Caminho do arquivo TXT
-            $arquivo = 'teste.txt';
+            $arquivo = 'API/dados.txt';
 
             // Lê todas as linhas do arquivo em um array
             $linhas = file($arquivo);
