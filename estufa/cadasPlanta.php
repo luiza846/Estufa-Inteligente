@@ -46,7 +46,7 @@ include('connection.php');
 <body class="body-planta" style="background-image: url(fundoLogin/cadas-planta.png);">
 
 <div class="div-cadas-planta">
-        <form class="form-cadas-planta" method="POST" action="" enctype="multipart/form-data">
+        <form class="form-cadas-planta" method="POST" action="http://localhost:3000/EnviarDados" enctype="multipart/form-data">
             <h1>CADASTRAR PLANTA</h1>
             <div class = "div-cadas-planta-aviso">
       

@@ -24,7 +24,7 @@ const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'lab',
+  database: 'estufa',
 });
 
 db.connect((err) => {
@@ -37,7 +37,6 @@ db.connect((err) => {
 
 
 // Comandos API
-function EnviarParaArduino(){
 app.post('/EnviarDados', (req, res) => {
   // Execute uma consulta SQL para obter nivel_de_umidade onde 'id' = 1
   const query = 'SELECT umidade_ideal, temperatura_ideal FROM planta WHERE id_planta = ?';
@@ -46,10 +45,10 @@ app.post('/EnviarDados', (req, res) => {
   const conteudo = fs.readFileSync('planta.txt', 'utf-8');
   // Separando as linhas
   const linha = conteudo.split('\n');
-  const ultimoValor = linha[linha.length];
+  const ultimoValor = linha[linha.length - 2];
   
   // Definido ID da planta atraves da planta.txt
-  const id_planta = Number(ultimoValor);
+  const id_planta = parseInt(ultimoValor);
 
   db.query(query, [id_planta], (err, results) => {
 
@@ -58,8 +57,8 @@ app.post('/EnviarDados', (req, res) => {
       res.status(500).send('Erro ao consultar o banco de dados');
     } else if (results.length > 0) {
 
-      const UmidadeIdeal = results[0].nv_umid;
-      const TempIdeal = results[0].nv_temp;
+      const UmidadeIdeal = results[0].umidade_ideal;
+      const TempIdeal = results[0].temperatura_ideal;
 
 
 
@@ -79,9 +78,8 @@ app.post('/EnviarDados', (req, res) => {
     }
   });
 });
-}
 
-function Monitorar(){
+
 app.get(`/ReceberDados`, (req, res) => {
   parser.on('data', (data) => {
 
@@ -91,7 +89,7 @@ app.get(`/ReceberDados`, (req, res) => {
     
   });
 });
-}
+
 
 // Funcao para salvar dados no arquivo txt
 
@@ -121,10 +119,6 @@ function Salvardados(temp, humid){
 }
 
 // Chamando as funcoes
-
-document.getElementById("btn_cadastrar").addEventListener("click", EnviarParaArduino);
-
-document.getElementById("btn_monitorar").addEventListener("click", Monitorar);
 
 app.listen(3000, () => {
   console.log('API Node.js rodando na porta 3000');
