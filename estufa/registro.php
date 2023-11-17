@@ -12,10 +12,9 @@ include('protect.php');
     <title>Registro</title>
 </head>
 <body class = "body-registro" style="background-image: url(fundoLogin/registro.png);">
-    <!--DPS APAGAR-->
-    <?php echo "ID_USUARIO: ", $_SESSION['id_usuario']; ?>
 
-    <table border = '2'>
+<div class = "div-registro">
+    <table>
 
         <tr>
         <th>Data</th>
@@ -57,6 +56,6 @@ include('protect.php');
         ?>
     </table>
 
-
+    </div>
 </body>
 </html>
