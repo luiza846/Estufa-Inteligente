@@ -459,27 +459,6 @@ form input[type=password]{
 .div-cadas-planta-aviso{
     color: red;
 }
-.tooltip::before {
-  content: attr(data-tooltip);
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 5px;
-  background-color: #000;
-  color: #fff;
-  font-size: 14px;
-  border-radius: 4px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s, visibility 0.3s;
-}
-
-.tooltip:hover::before,
-.tooltip:active::before {
-  opacity: 1;
-  visibility: visible;
-}
 /*--------------------------------------------------TELA CADAS USUARIO-----------------------------------------------------------*/
 
 .body-usuario{
@@ -633,9 +612,18 @@ form input[type=password]{
 .body-registro{
 
     background-size: cover;
-
     background-repeat: no-repeat;
-
     margin: 0 auto;
 
+}
+.div-registro{
+    margin-top: 200px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+/*ESTILIZAR A TABELA*/
+.div-registro table{
+    width: 75%;
+    border:1px solid #4c8124;
 }
