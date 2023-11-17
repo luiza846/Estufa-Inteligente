@@ -629,3 +629,13 @@ form input[type=password]{
 .div-monitora-all{
     text-align: center;
 }
+/*--------------------------------------------------TELA REGISTRO-----------------------------------------------------------*/
+.body-registro{
+
+    background-size: cover;
+
+    background-repeat: no-repeat;
+
+    margin: 0 auto;
+
+}

@@ -11,7 +11,7 @@ include('protect.php');
     <link rel="stylesheet" href="css/style.css">
     <title>Registro</title>
 </head>
-<body>
+<body class = "body-registro" style="background-image: url(fundoLogin/registro.png);">
     <!--DPS APAGAR-->
     <?php echo "ID_USUARIO: ", $_SESSION['id_usuario']; ?>
 
