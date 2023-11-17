@@ -58,17 +58,15 @@ catch(PDOException $erro)
 
     <div class = "cadastrePlanta">
 
-        <a href="cadasPlanta.php"><input type="button" value="Cadastrar Planta" name="btnMonitorar" id="btns"></a>
+        <a href="cadasPlanta.php"><input type="button" value="Inserir Planta" name="btnMonitorar" id="btns"></a>
     
     </div>
     <div class="menu2">
         <div class="icons">
         <img src="fundoLogin/icons8-análise-de-crescimento-financeiro-96.png" alt="Ícone de perfil">
-        <img src="fundoLogin/icons8-folha-de-louro-96.png" alt="Ícone de perfil">
         <img src="fundoLogin/icons8-histórico-de-encomendas-96.png" alt="Ícone de perfil">
         </div>
         <a href="monitora.php"><input type="button" value="Monitoramento" name="btnMonitorar" id="btn_monitorar"></a>
-        <a href="planta.php"><input type="button" value="Plantas" name="btnPlanta" id="btns"></a>
         <a href="registro.php"><input type="button" value="Registro" nome="btnregistro" id="btns"></a>
     </div>
 
