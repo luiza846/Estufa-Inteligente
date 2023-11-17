@@ -42,7 +42,14 @@ app.post('/EnviarDados', (req, res) => {
   // Execute uma consulta SQL para obter nivel_de_umidade onde 'id' = 1
   const query = 'SELECT umidade_ideal, temperatura_ideal FROM planta WHERE id_planta = ?';
 
-  const id_planta = opcaoSelecionada;
+  // Criando a leitura do txt planta 
+  const conteudo = fs.readFileSync('planta.txt', 'utf-8');
+  // Separando as linhas
+  const linha = conteudo.split('\n');
+  const ultimoValor = linha[linha.length];
+  
+  // Definido ID da planta atraves da planta.txt
+  const id_planta = Number(ultimoValor);
 
   db.query(query, [id_planta], (err, results) => {
 

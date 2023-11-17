@@ -156,6 +156,11 @@ $umidadeDataJSON = json_encode($umidadeData);
         });
     </script>
 </div>
-</div></div>
+</div>
+</div>
+<!-- BOTAO PARA RECEBER OS DADOS DO ARDUINO (TEM Q ESTAR DENTRO DO FORM DESSA FORMA) ALTERAR O ESTILO DO BOTAO SEM ALTERAR O TYPE DELE -->
+<form method="GET" action="http://localhost:3000/ReceberDados">
+        <input type="submit" value="Iniciar monitoramento">
+    </form>
 </body>
 </html>
