@@ -105,9 +105,7 @@ if (isset($_SESSION['id_usuario'])) {
                                 $file_plant = fopen("planta.txt","a");
 
                                 
-                                    fwrite($file_plant, $opcaoSelecionada."\n");
-                                    echo "PERFECT!";
-                                    
+                                    fwrite($file_plant, $opcaoSelecionada."\n");                                  
                         
                         }
 
