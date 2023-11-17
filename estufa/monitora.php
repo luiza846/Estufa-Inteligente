@@ -65,6 +65,7 @@ foreach ($ultimas_linhas as $linha) {
     // Adiciona os valores aos arrays
     $horarioData[] = $hora;
     $temperaturaData[] = $temperatura;
+    $umidadeData[] = $umidade;
 }
 
 // Converte os arrays para JSON
@@ -72,7 +73,7 @@ $temperaturaDataJSON = json_encode($temperaturaData);
 $horarioDataJSON = json_encode($horarioData);
 
 $umidade = intval($umidade);
-$umidadeJSON = json_encode($umidade);
+$umidadeDataJSON = json_encode($umidadeData);
 ?>
 
 <div class="div-monitora-umidade">
@@ -117,7 +118,44 @@ $umidadeJSON = json_encode($umidade);
         });
     </script>
 </div>
+<div class="div-monitora-umidade">
+    <!-- O gráfico será renderizado aqui -->
+    <canvas id="myChart"></canvas>
 
+    <!-- Seu script para criar o gráfico -->
+    <script>
+        // Seus dados de temperatura e horário (vindos do PHP)
+        var umidadeData = <?php echo $umidadeDataJSON; ?>;
+        var horarioData = <?php echo $horarioDataJSON; ?>;
+
+        // Obtendo o contexto do canvas
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        // Criando o gráfico
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: horarioData,
+                datasets: [{
+                    label: 'Temperatura (°C)',
+                    data: temperaturaData,
+                    backgroundColor: 'rgba(77, 129, 36, 0.2)',
+                    borderColor: 'rgba(77, 129, 36, 2.0)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</div>
 </div></div>
 </body>
 </html>

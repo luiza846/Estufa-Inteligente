@@ -99,7 +99,17 @@ if (isset($_SESSION['id_usuario'])) {
                                 mkdir($diretorio, 0755);
                                 $nome_arquivo = $arquivo['name'];
                                 move_uploaded_file($arquivo['tmp_name'], $diretorio . $nome_arquivo);
-                            }
+
+
+                                /*gerar arquivo txt*/
+                                $file_plant = fopen("planta.txt","a");
+
+                                
+                                    fwrite($file_plant, $opcaoSelecionada."\n");
+                                    echo "PERFECT!";
+                                    
+                        
+                        }
 
                             echo "<dialog id='msgSucesso' open>
                                 <center><img src=fundoLogin/sucesso.png></center>
