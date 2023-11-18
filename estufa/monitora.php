@@ -62,6 +62,11 @@ while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
         <input type="submit" value="Iniciar monitoramento">
     </form>
 
+    <div class="div-voltar">
+                <img class = "img-voltar" src="fundoLogin/voltar.png" alt="Ícone de saída">
+                <a href="telaPrincipal.php">Voltar</a>
+            </div>
+
 </div>
 
 <div class = "div-monitora-all">

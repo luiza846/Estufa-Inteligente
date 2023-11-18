@@ -171,7 +171,8 @@ if (isset($_SESSION['id_usuario'])) {
               </div>
 
 
-            <div class="full-box">
+              <div class="div-voltar">
+                <img class = "img-voltar" src="fundoLogin/voltar.png" alt="Ícone de saída">
                 <a href="telaPrincipal.php">Voltar</a>
             </div>
 

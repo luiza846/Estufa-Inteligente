@@ -118,10 +118,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="submit" id="btn-submit" value="CADASTRAR">
         </div>
 
-        <div class="full-box">
-            <a href="index.php">Voltar</a>
-        </div>
-    </form>
+        <div class="div-voltar">
+                <img src="fundoLogin/voltar.png" alt="Ícone de saída">
+                <a href="index.php">Voltar</a>
+            </div>    </form>
 </div>
 
 </body>
