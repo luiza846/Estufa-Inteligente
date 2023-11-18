@@ -68,7 +68,7 @@ while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
 <div class = "div-graficos">
 <?php
 // Caminho do arquivo TXT
-$arquivo = 'API/dados.txt';
+$arquivo = 'dados.txt';
 
 // Lê todas as linhas do arquivo em um array
 $linhas = file($arquivo);
