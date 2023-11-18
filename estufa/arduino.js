@@ -70,8 +70,8 @@ app.post('/EnviarDados', (req, res) => {
       console.log(`UmidadeIdeal: ${UmidadeIdeal}\n`);
       console.log(`TempIdeal: ${TempIdeal}\n`);
      
+      console.log("DADOS ENVIADOS COM SUCESSO");
 
-      res.status(200).send('Dados enviados com sucesso para o Arduino');
     } else {
       console.error('Nenhum dado encontrado na tabela');
       res.status(404).send('Nenhum dado encontrado na tabela');
