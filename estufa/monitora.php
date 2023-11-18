@@ -35,8 +35,37 @@ catch(PDOException $erro)
 
 <div class = "div-monitora"></div>
 
-<div class = "div-monitora-all">
+<div class = "div-info-planta">
 
+<?php
+
+$id_usuario = $_SESSION['id_usuario'];
+$sql = "SELECT * FROM estufa WHERE id_usuario = :id_usuario ORDER BY id_estufa DESC LIMIT 1";
+
+$stmt = $conectaBD->prepare($sql);
+$stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+$stmt->execute();
+
+while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $foto_planta = $dados["imagem"];
+    echo "<div class='div-foto-planta'><img src='planta/" . $dados["id_estufa"] . "/" . $foto_planta . "'></div><br>";
+    echo "<h1>",$dados["nome"],"</h1></h5>"; 
+    echo "<h5>Data criação: ",$dados["data_criacao"],"</h5>"; 
+    echo "<h5>Umidade ideal: ",$dados["umidade"],"%</h5>";
+    echo "<h5>Temperatura ideal: ",$dados["temperatura"],"°C</h5>";  
+}
+?>
+
+
+<!-- BOTAO PARA RECEBER OS DADOS DO ARDUINO-->
+<form method="GET" action="http://localhost:3000/ReceberDados">
+        <input type="submit" value="Iniciar monitoramento">
+    </form>
+
+</div>
+
+<div class = "div-monitora-all">
+<div class = "div-graficos">
 <?php
 // Caminho do arquivo TXT
 $arquivo = 'API/dados.txt';
@@ -76,13 +105,12 @@ $umidade = intval($umidade);
 $umidadeDataJSON = json_encode($umidadeData);
 ?>
 
-<div class="div-monitora-umidade">
 
 <!-- Seu HTML e CSS -->
 
 <div class="div-monitora-temp">
     <!-- O gráfico será renderizado aqui -->
-    <canvas id="myChart"></canvas>
+    <canvas id="graficTemp"></canvas>
 
     <!-- Seu script para criar o gráfico -->
     <script>
@@ -91,10 +119,10 @@ $umidadeDataJSON = json_encode($umidadeData);
         var horarioData = <?php echo $horarioDataJSON; ?>;
 
         // Obtendo o contexto do canvas
-        var ctx = document.getElementById('myChart').getContext('2d');
+        var ctx = document.getElementById('graficTemp').getContext('2d');
 
         // Criando o gráfico
-        var myChart = new Chart(ctx, {
+        var graficTemp = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: horarioData,
@@ -118,9 +146,10 @@ $umidadeDataJSON = json_encode($umidadeData);
         });
     </script>
 </div>
+
 <div class="div-monitora-umidade">
     <!-- O gráfico será renderizado aqui -->
-    <canvas id="myChart"></canvas>
+    <canvas id="graficUmidade"></canvas>
 
     <!-- Seu script para criar o gráfico -->
     <script>
@@ -129,18 +158,18 @@ $umidadeDataJSON = json_encode($umidadeData);
         var horarioData = <?php echo $horarioDataJSON; ?>;
 
         // Obtendo o contexto do canvas
-        var ctx = document.getElementById('myChart').getContext('2d');
+        var ctx = document.getElementById('graficUmidade').getContext('2d');
 
         // Criando o gráfico
-        var myChart = new Chart(ctx, {
+        var graficUmidade = new Chart(ctx, {
             type: 'line',
             data: {
                 labels: horarioData,
                 datasets: [{
-                    label: 'Temperatura (°C)',
-                    data: temperaturaData,
-                    backgroundColor: 'rgba(77, 129, 36, 0.2)',
-                    borderColor: 'rgba(77, 129, 36, 2.0)',
+                    label: 'Umidade (°C)',
+                    data: umidadeData,
+                    backgroundColor: 'rgba(79, 126, 217, 0.2)',
+                    borderColor: 'rgba(79, 126, 217, 2.0)',
                     borderWidth: 1
                 }]
             },
@@ -158,9 +187,5 @@ $umidadeDataJSON = json_encode($umidadeData);
 </div>
 </div>
 </div>
-<!-- BOTAO PARA RECEBER OS DADOS DO ARDUINO (TEM Q ESTAR DENTRO DO FORM DESSA FORMA) ALTERAR O ESTILO DO BOTAO SEM ALTERAR O TYPE DELE -->
-<form method="GET" action="http://localhost:3000/ReceberDados">
-        <input type="submit" value="Iniciar monitoramento">
-    </form>
 </body>
 </html>

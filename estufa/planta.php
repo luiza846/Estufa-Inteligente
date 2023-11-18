@@ -39,7 +39,7 @@ catch(PDOException $erro)
                 <?php
 
                 $id_usuario = $_SESSION['id_usuario'];
-                $sql = "SELECT * FROM estufa WHERE id_usuario = :id_usuario";
+                $sql = "SELECT * FROM estufa WHERE id_usuario = :id_usuario ORDER BY id_estufa DESC LIMIT 1";
                 
                 $stmt = $conectaBD->prepare($sql);
                 $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
@@ -48,7 +48,7 @@ catch(PDOException $erro)
                 while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     $foto_planta = $dados["imagem"];
                     echo "<img src='planta/" . $dados["id_planta"] . "/" . $foto_planta . "' width='100'>","<br>";
-                    echo "Nome: ",$dados["nome"],"<br>"; 
+                    echo $dados["nome"],"<br>"; 
                     echo "Data criação: ",$dados["data_criacao"],"<br>"; 
                     echo "Umidade ideal: ",$dados["umidade"],"%<br>";
                     echo "Temperatura ideal: ",$dados["temperatura"],"°C<br>";  
