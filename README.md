@@ -2,15 +2,10 @@
 Um website que se integra diretamente com um sistema de Arduino que tem a função de monitorar a planta e controlar os componentes do Arduino, como irrigação, refrigeração, exposição UV de forma automática e personalizada. 
 
 <h2>Nosso Time</h2>
-<a href='https://github.com/luiza846'><button>Ana Luiza</button></a><br>
-Função: Desenvolvimento Front-End, Back-End e Banco de Dados
-<br><br>
-<a href='https://github.com/ClarinhaFlores'><button>Ana Clara</button></a><br>
-Função: Desenvolvimento Back-End, Documentação e Banco de Dados
-<br><br>
-<a href='https://github.com/MiguelSteve'><button>Miguel</button></a><br>
-Função: Desenvolvimento do Protótipo, Back-End protótipo e Desenvolvimento da API
-<br><br>
+
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/112641732?v=4" width=115><br><sub>Ana Luiza de Siqueira</sub>](https://github.com/luiza846) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/116900571?v=4" width=115><br><sub>Ana Clara Alves Flores</sub>](https://github.com/ClarinhaFlores) |  [<img loading="lazy" src="https://avatars.githubusercontent.com/u/116909409?v=4" width=115><br><sub>Miguel Estevez</sub>](https://github.com/MiguelSteve) |
+| :---: | :---: | :---: |
+
 <h2>Prototipação da Estufa Inteligente</h2>
 <img src="/img/prototypeGreenhouse.png">
 <h2>Componentes do arduino</h2>
