@@ -4,11 +4,7 @@ Um website que se integra diretamente com um sistema de Arduino que tem a funç�
 # Índice 
 
 * [Sobre o projeto](#Estufa-Inteligente)
-* [Índice] (#Índice)
-* [Descrição do Projeto](#descrição-do-projeto)
-* [Status do Projeto](#status-do-Projeto)
 * [Prototipação da Estufa Inteligente](#Prototipação-da-Estufa-Inteligente)
-* [Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstração-da-aplicação)
 * [Tecnologias utilizadas](#tecnologias-utilizadas)
 * [Nosso Time](#Nosso-Time)
 * [Componentes do Arduino](#Componentes-do-arduino)
@@ -21,19 +17,12 @@ Um website que se integra diretamente com um sistema de Arduino que tem a funç�
 
 
 
-# Descrição do projeto
-Em breve
 
-
-
-# Status do Projeto
-<!--FUNCIONALIDADES DO SITE-->
 
 <!--FOTO DO PROTOTIPO-->
 ## Prototipação da Estufa Inteligente
 <img src="/img/prototypeGreenhouse.png">
 
-# Funcionalidades e Demonstração da Aplicação
 
 ## Componentes do arduino
 <table>
