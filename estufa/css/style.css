@@ -1,3 +1,4 @@
+
 *{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -136,7 +137,7 @@
 }
 .menu2{
     padding-top: 5%;
-    padding-left: 26%;
+    padding-left: 15%;
     height: 350px;
 }
 .menu2 input[type="button"]{
@@ -161,6 +162,33 @@
     background-color: #4c8124;
     /*ao clicar ele muda a cor lentamente*/
     transition: 0.5s;
+}
+.menu2, .form-atualiza-dados{
+    display: inline-block;
+}
+.form-atualiza-dados input[type="submit"]{
+    /*distancia entre dois campos*/
+    margin: 30px 20px;
+    border:solid 3px #4c8124;
+    width: 410px;
+    height: 85px;
+    /*mostrar para usuario que e clicavel*/
+    cursor: pointer;
+    /*fundo do botao*/
+    background: white;
+    /*cor da letra*/
+    color: #4c8124;
+    font-size: 30px;
+    /*botao arrendondado*/
+    border-radius: 30px;
+
+}
+.form-atualiza-dados input[type="submit"]:hover{
+    color: white;
+    background-color: #4c8124;
+    /*ao clicar ele muda a cor lentamente*/
+    transition: 0.5s;
+
 }
 .icons{
     padding-left: 0%;

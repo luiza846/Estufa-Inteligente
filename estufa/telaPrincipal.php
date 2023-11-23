@@ -63,9 +63,16 @@ catch(PDOException $erro)
     </div>
     <div class="menu2">
         <div class="icons">
+        <img src="fundoLogin/sync.png" alt="Ícone de perfil">
         <img src="fundoLogin/icons8-análise-de-crescimento-financeiro-96.png" alt="Ícone de perfil">
         <img src="fundoLogin/icons8-histórico-de-encomendas-96.png" alt="Ícone de perfil">
         </div>
+        <!--MIGUEL CHAMAR A FUNCAO-->
+        <form class="form-atualiza-dados" action="">
+            <input type="submit" value="Atualizar Dispositivo" nome="btnAtualiza" id="btns">
+            <!--mensagem de aviso-->
+
+        </form>
         <a href="monitora.php"><input type="button" value="Monitoramento" name="btnMonitorar" id="btn_monitorar"></a>
         <a href="registro.php"><input type="button" value="Registro" nome="btnregistro" id="btns"></a>
     </div>
