@@ -72,6 +72,7 @@ app.post('/EnviarDados', (req, res) => {
      
       console.log("DADOS ENVIADOS COM SUCESSO");
 
+
     } else {
       console.error('Nenhum dado encontrado na tabela');
       res.status(404).send('Nenhum dado encontrado na tabela');

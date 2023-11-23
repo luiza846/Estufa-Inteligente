@@ -67,8 +67,13 @@ catch(PDOException $erro)
         <img src="fundoLogin/icons8-análise-de-crescimento-financeiro-96.png" alt="Ícone de perfil">
         <img src="fundoLogin/icons8-histórico-de-encomendas-96.png" alt="Ícone de perfil">
         </div>
+<script>
+    function Enviar(){
+    alert("Planta Atualizada com sucesso");
+    }
+</script>
         <!--MIGUEL CHAMAR A FUNCAO-->
-        <form class="form-atualiza-dados" action="">
+        <form class="form-atualiza-dados" method="POST" action="http://localhost:3000/EnviarDados" onsubmit="Enviar()">
             <input type="submit" value="Atualizar Dispositivo" nome="btnAtualiza" id="btns">
             <!--mensagem de aviso-->
 

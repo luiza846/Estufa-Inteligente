@@ -58,7 +58,12 @@ while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
 
 <!-- BOTAO PARA RECEBER OS DADOS DO ARDUINO-->
-<form method="GET" action="http://localhost:3000/ReceberDados">
+<script>
+    function Monitora(){
+    alert('Dados Recebidos');
+    }
+</script>
+<form method="GET" action="http://localhost:3000/ReceberDados" onsubmit="Monitora()">
         <input type="submit" value="Iniciar monitoramento">
     </form>
 
