@@ -2,29 +2,8 @@
 *{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-/*--------------------------------------------------TELA PROTECT-----------------------------------------------------------*/
-.body-protect{
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.div-protect{
-    margin-top: 15%;
-    color: #325c12;
-    text-align: center;
-}
-.div-protect img{
-    margin-bottom: 5px;
-}
-.div-protect h1{
-    font-size: 45px;
-}
-.div-protect h3{
-    font-size: 25px;
-}
-.div-protect a{
-    color: #1c330b;
-}
 /*--------------------------------------------------TELA PRINCIPAL-----------------------------------------------------------*/
+
 .tela-principal{
     background-size: cover;
     background-repeat: no-repeat;
