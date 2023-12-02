@@ -26,13 +26,13 @@
 .menu ul li {
     padding-top: 53px;
     display: inline-block;
-    color: #21572dcc;
+    color: #FFFFFF;
     /*atribuir espaco entre as palavras*/
-    margin-left: 15px;
+    margin-left: 142px;
 }
 /*tag do link*/
 .menu ul li a{
-    color: #21572dcc;
+    color: #FFFFFF;
     /*remover o sublinhado (aspecto de link)*/
     text-decoration: none;
     /*distancia entre dois campos*/
@@ -254,6 +254,44 @@
     width: 20%;
     margin: 0px 55px;
 }
+.tooltip2{
+    position: relative;
+    margin-left: 200px;
+    float: top;
+    border-radius:15px;
+    display: inline-block; 
+
+  }
+
+  .tooltip2 .tooltiptext2 {
+    visibility: hidden;
+    width: 220px;
+    background-color: #4C81241A;
+    color: #284611;
+    text-align: center;
+    border-radius: 6px;
+    padding: 20px 20px 100px 20px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    top: -120%;
+      left: 70%;
+      transform: translate(0, -40%);
+    
+  }
+.tooltip2 img{
+    width: 50px;
+
+}
+  .tooltip2:hover .tooltiptext2{
+    visibility: visible;
+    opacity: 1;
+  }
+
 /*--------------------------------------------------TELA PLANTA-----------------------------------------------------------*/
 .body-planta{
     margin: 0 auto;
@@ -268,6 +306,43 @@
     background-color: rgba(255, 0, 0, 0.705);
     border: 0px;
 }
+.tooltip {
+    position: relative;
+    display: inline-block;
+    float: right;
+    margin-right: 180px;
+    margin-top: 8px;
+    border-radius:15px;
+
+  }
+  
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    background-color: #4C81241A;
+    color: #284611;
+    text-align: center;
+    border-radius: 6px;
+    padding: 20px 20px 152px 20px;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    top: -150%;
+      left: 265%;
+      transform: translate(0, -40%);
+    
+  }
+.tooltip img{
+    width: 35px;
+
+}
+  .tooltip:hover .tooltiptext{
+    visibility: visible;
+    opacity: 1;
+  }
 
 /*--------------------------------------------------TELA PERFIL-----------------------------------------------------------*/
 .body-perfil{
@@ -336,7 +411,7 @@ form input[type=password]{
     cursor: pointer;
     background-color: #ffffff00;
     color: #4c8124;
-    border:solid 3px #ffffff;
+    border:solid 3px #325c12;
     font-size: 25px;
     /*botao arrendondado*/
     border-radius: 30px;
@@ -345,7 +420,7 @@ form input[type=password]{
 }
 .voltar a{
     text-decoration: none;
-    color: #ffffff;
+    color: #325c12;
 }
 /*efeitos do botao*/
 .voltar:hover{
@@ -366,6 +441,7 @@ form input[type=password]{
     /*botao arrendondado*/
     border-radius: 30px;
     /*ao clicar ele muda a cor lentamente*/
+    margin-bottom: 20px;
 
 }
 /*efeitos do botao*/
@@ -377,7 +453,9 @@ form input[type=password]{
 .btn-senha{
     padding-top: 5%;
 }
-
+.senha{
+    font-size: 25px;
+}
 /*--------------------------------------------------TELA CADAS PLANTA-----------------------------------------------------------*/
 .body-planta{
     background-size: cover;

@@ -31,8 +31,9 @@ catch(PDOException $erro)
     <link rel="stylesheet" href="css/style.css">
     <title>Meu Perfil</title>
 </head>
-<body class = "body-perfil" style="background-image: url(/perfil.png);">
+<body class = "body-perfil" style="background-image: url(fundoLogin/perfil2.png);">
 
+<center>
         <div class = "div-painel-perfil">
             <?php
                     $id_usuario = $_SESSION['id_usuario'];
@@ -64,6 +65,9 @@ catch(PDOException $erro)
             ?>
 
                 <form action="editDadosUsuario.php" method="post">
+                    <div class="senha">
+                <br>EFETUAR ALTERAÇÃO DA SENHA:
+                    </div>
                 <br>Senha atual: <input type="password" name="campoSenhaAntiga" placeholder="Senha">
                 <br>Nova senha: <input type="password" name="campoNovaSenha" placeholder="Nova senha">
                 <div class="btn-senha">
@@ -75,5 +79,6 @@ catch(PDOException $erro)
 
 
     </div>
+</center>
 </body>
 </html>

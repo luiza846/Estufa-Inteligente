@@ -41,11 +41,11 @@ catch(PDOException $erro)
     </div>
         <div class="menu">
             <ul>
-                <li><a href="">HOME</a></li>
-                <li><a href="sobre.php">SOBRE</a></li>
-                <li><a href="">SERVIÇOS</a></li>
-                <li><a href="">PAGINAS</a></li>
-                <li><a href="contato.php">CONTATO</a></li>
+                <li><a href="">.</a></li>
+                <li><a href="sobre.php">.</a></li>
+                <li><a href="">.</a></li>
+                <li><a href="">.</a></li>
+                <li><a href="contato.php">.</a></li>
                 <a href="perfil.php"><input type="button" value="MEU PERFIL" name="btnPerfil" id="btns"></a>                                          
             </ul>
         </div>
@@ -63,6 +63,12 @@ catch(PDOException $erro)
     </div>
     <div class="menu2">
         <div class="icons">
+            <div>
+            <div class="tooltip2"> <!-- O ponto de interrogação -->
+            <abbr><img src="fundoLogin/ajuda.png" alt="Ícone de ajuda"></abbr>
+            <span class="tooltiptext2">Se você alterou a planta que vai cultivar, aperte este botão para fazer as configurações da estufa se ajustarem.</span>
+            </div>
+        </div>
         <img src="fundoLogin/sync.png" alt="Ícone de perfil">
         <img src="fundoLogin/icons8-análise-de-crescimento-financeiro-96.png" alt="Ícone de perfil">
         <img src="fundoLogin/icons8-histórico-de-encomendas-96.png" alt="Ícone de perfil">
