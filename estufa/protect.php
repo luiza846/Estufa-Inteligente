@@ -17,8 +17,10 @@
 
             if(!isset($_SESSION['id_usuario'])) {
 
-                echo "<img src='images/acesso.png' width='250'>","<br>";
-                die("<h1>Você não pode acessar esta página porque não está logado!</h1><p><br><a href=\"index.php\">ENTRAR</a></p>");
+                echo "<div style='text-align: center; color: #325c12; font-family: \"Lucida Sans\", \"Lucida Sans Regular\", \"Lucida Grande\", \"Lucida Sans Unicode\", Geneva, Verdana, sans-serif; margin-top: 270px;'>";
+                echo "<img src='fundoLogin/erro.png' alt='Erro'><br>";
+                die("<h1>Não foi possível carregar esta página!</h1> <h3> Para acessá-la, faça o <a href=\"index.php\">login.</a> <br><br>Caso não tenha uma conta, por favor, <a href=\"cadasUsuario.php\">cadastre-se.</a></h3></div>");
+                                                            
             }
         ?>
 

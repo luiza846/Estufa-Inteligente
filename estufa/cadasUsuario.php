@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Erro ao cadastrar o usuário.";
             }
         } else {
-            echo "*Erro: Email e Número de Série incorretos.";
+            echo "*Erro: Email ou Número de Série incorretos.";
         }}else{
             echo "*Erro: Senhas diferentes!";
         }
