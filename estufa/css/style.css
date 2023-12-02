@@ -701,6 +701,9 @@ form input[type=password]{
     width: 75%;
     border:1px solid #4c8124;
 }
+th{
+    cursor: pointer;
+}
 th, td {
     padding: 10px;
     text-align: center;
@@ -711,7 +714,24 @@ tr:nth-child(even) {
 tr:hover {
     background-color: #4c81249a;
 }
-
+.div-paginas{
+    margin-top: 5px;
+    display: flex;
+    padding-left: 735px;
+}
+.div-paginas a{
+    font-size: 20px;
+    color: #325c12;
+}
+.div-paginas img{
+    width: 25px;
+}
+.div-paginas a, .div-paginas img{
+    display: inline-block;
+}
+.a-posterior{
+    margin-left: 250px;
+}
 /*--------------------------------------------------BTN VOLTAR-----------------------------------------------------------*/
 .div-voltar {
     margin-top: 15px;
