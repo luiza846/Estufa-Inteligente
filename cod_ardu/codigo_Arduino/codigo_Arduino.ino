@@ -45,6 +45,7 @@ void loop() {
  
   ReceberDados();
   Controle();
+  ControleLampada();
 }
  
 void ReceberDados(){
@@ -104,20 +105,26 @@ void Controle(){
   }
  
   //Controle da Ventuinha
-  if(tempe_Atual > tempe_Ideal && Umidade_Atual >= umid_Ideal){
-    digitalWrite(vent, HIGH);
+  if(tempe_Atual > tempe_Ideal){
+    digitalWrite(vent, LOW);
   }
  
   if(tempe_Atual <= tempe_Ideal){
-    digitalWrite(vent, LOW);
+    digitalWrite(vent, HIGH);
   }
 
   //Controle da valvula e da Ventuinha
 
-   if(Umidade_Atual < umid_Ideal && tempe_Atual > tempe_Ideal){
+   if(Umidade_Atual < umid_Ideal){
     digitalWrite(valvula, HIGH);
   }
 
  delay(5000);     
  
+}
+void ControleLampada(){
+    digitalWrite(lamp, HIGH);
+    delay(12 * 60 * 60 * 1000);
+    digitalWrite(lamp, HIGH);
+
 }
