@@ -19,7 +19,6 @@ catch(PDOException $erro)
     # Informar que houve erro ao fazer a conexão com BD
     echo "Houve erro ao fazer a conexão com o banco de dados!";
 }
-
 ?>
 
 
@@ -49,6 +48,7 @@ catch(PDOException $erro)
                     echo "<img src='usuario/$id_usuario/$foto_usuario'>","<br>";
                     }
             ?>
+            
                         <?php
                     $id_usuario = $_SESSION['id_usuario'];
                     $sql = "SELECT * FROM usuario WHERE id_usuario = :id_usuario";
@@ -64,10 +64,53 @@ catch(PDOException $erro)
                     }
             ?>
 
-                <form action="editDadosUsuario.php" method="post">
+                <form action="" method="post">
                     <div class="senha">
+                        
                 <br>EFETUAR ALTERAÇÃO DA SENHA:
                     </div>
+                    <!--alterar senha-->
+                    <?php
+                    if (isset($_SESSION['id_usuario'])) {
+                        $id_usuario = $_SESSION['id_usuario'];
+                        $oldPassword = $_POST['campoSenhaAntiga'];
+                        $newPassword = $_POST['campoNovaSenha'];
+                        $servidor = "localhost";
+                        $usuario = "root";
+                        $senha = "";
+                        $dbname = "estufa";
+                    
+                        $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
+                    
+                        $sql = "SELECT senha FROM usuario WHERE id_usuario = $id_usuario";
+                        $result = mysqli_query($conn, $sql);
+                    
+                        if ($result) {
+                            $row = mysqli_fetch_assoc($result);
+                            $senhaAtual = $row['senha'];
+                    
+                            if ($oldPassword == $senhaAtual) {
+                    
+                                $result_usuario = "UPDATE usuario SET senha = '$newPassword' WHERE id_usuario = $id_usuario";
+                                #consultar o resultado para ver se foi alterado com sucesso
+                                $result_usuario = mysqli_query($conn, $result_usuario);
+                                echo "<dialog id='msgSucessoPerfil' open>
+                                <center><img src=fundoLogin/sucesso.png></center>
+                                <br>Senha alterada com sucesso!
+                                <a href=telaPrincipal.php><input type=button value=VOLTAR name=btnVoltar></a>
+                            </dialog>";
+                            } else {
+                                echo "<div class=div-senha> Campos ainda não preenchidos ou senha incorreta! </div>";
+                            }
+                        } else {
+                            echo "Erro ao buscar a senha atual do usuário.";
+                        }
+                    } else {
+                        echo "ID de usuário não definido na sessão.";
+                    }
+
+                    ?>
+
                 <br>Senha atual: <input type="password" name="campoSenhaAntiga" placeholder="Senha">
                 <br>Nova senha: <input type="password" name="campoNovaSenha" placeholder="Nova senha">
                 <div class="btn-senha">

@@ -38,7 +38,11 @@ $indiceFinal = $indiceInicial + $linhasPorPagina;
 </head>
 
 <body class="body-registro" style="background-image: url(fundoLogin/registro.png);">
+<div class="div-registra-cabecalho">
+<img src="fundoLogin/voltarWhite.png" alt="Ícone de saída">
+                <a href="telaPrincipal.php">Voltar</a>
 
+</div>
     <div class="div-registro">
         <table>
 

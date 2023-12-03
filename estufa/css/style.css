@@ -456,6 +456,40 @@ form input[type=password]{
 .senha{
     font-size: 25px;
 }
+#msgSucessoPerfil{
+    border:1px solid #4c8124;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    width: 350px;
+}
+#msgSucessoPerfil img{
+    width: 96px;
+}
+/*botao do dialog (mensagem de aviso)*/
+#msgSucessoPerfil input[type="button"]{
+    margin-top: 45px;
+    background-color: #21572dcc;
+    font-size: 18px;
+    color: #ffffff;
+    border: none;
+    height: 40px;
+    width: 85%;
+    cursor: pointer;
+    border-radius: 30px;
+}
+/*efeitos do botao*/
+#msgSucessoPerfil input[type=button]:hover{
+    background-color: #0d1e11cc;
+    /*ao clicar ele muda a cor lentamente*/
+    transition: 1s;
+}
+#msgSucessoPerfil a{
+    text-decoration: none;
+}
+.div-senha{
+    color: rgb(119, 11, 11);
+}
+
 /*--------------------------------------------------TELA CADAS PLANTA-----------------------------------------------------------*/
 .body-planta{
     background-size: cover;
@@ -768,8 +802,27 @@ form input[type=password]{
     margin: 0 auto;
 
 }
+.div-registra-cabecalho{
+    height: 155px;
+    display: flex;
+    text-align: center;
+}
+.div-registra-cabecalho img{
+    height: 67px;
+    margin-top: 45px;
+}
+.div-registra-cabecalho a{
+    font-size: 28px;
+    color: white;
+    margin-top: 60px;
+}
+.div-registra-cabecalho a, 
+.div-registra-cabecalho img{
+    display: inline-block;
+    margin-left: 25px;
+}
 .div-registro{
-    margin-top: 200px;
+    margin-top: 37  px;
     text-align: center;
     display: flex;
     justify-content: center;

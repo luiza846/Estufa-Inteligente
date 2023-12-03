@@ -95,8 +95,7 @@ catch(PDOException $erro)
     <ul>
         <h3>Páginas</h3>
                 <li><a href="perfil.php">Perfil</a></li>
-                <li><a href="cadasPlanta.php">Cadastrar Planta</a></li>
-                <li><a href="planta.php">Planta</a></li>
+                <li><a href="cadasPlanta.php">Inserir Planta</a></li>
                 <li><a href="monitora.php">Monitoramento</a></li>
                 <li><a href="registro.php">Registro</a></li>
             </ul>
