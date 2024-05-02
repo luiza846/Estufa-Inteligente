@@ -120,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="div-voltar">
                 <img src="fundoLogin/voltar.png" alt="Ícone de saída">
-                <a href="index.php">Voltar</a>
+                <a href="login.php">Voltar</a>
             </div>    </form>
 </div>
 
