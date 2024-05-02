@@ -1,0 +1,226 @@
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+/*--------------------------------------------------TELA ECOMMERCE-----------------------------------------------------------*/
+
+.tela-principal{
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+
+}
+.header-2{
+    /*centralizar os botoes no menu*/
+    text-align: center;
+    height: 55px;
+    width: 100%;
+    /*colocar a borda*/
+    border-bottom: 3px solid #efefef;
+}
+.menu{
+
+
+}
+.menu ul li {
+    padding-top: 53px;
+    display: inline-block;
+    color: #FFFFFF;
+    /*atribuir espaco entre as palavras*/
+    margin-left: 142px;
+}
+/*tag do link*/
+.menu ul li a{
+    color: #FFFFFF;
+    /*remover o sublinhado (aspecto de link)*/
+    text-decoration: none;
+    /*distancia entre dois campos*/
+    margin: 30px 20px;
+    /*tamanho da fonte*/
+    font-size: 30px;
+    /*deixar as letras maiusculas*/
+    text-transform: uppercase;
+}
+.menu ul li a:hover{
+    /*remover o sublinhado (aspecto de link)*/
+    text-decoration: underline #4c8124a9;
+    transition: 1s;
+}
+.menu{
+    padding-left: 23%;
+    height: 200px;
+}
+
+.menu a{
+    font-size: 25px;
+    color: #284611;
+}
+.menu input[type="button"]{
+    border: 0px;
+    width: 200px;
+    height: 43px;
+    /*mostrar para usuario que e clicavel*/
+    cursor: pointer;
+    /*fundo do botao*/
+    background: #325c12;
+    /*cor da letra*/
+    color: white;
+    font-size: 25px;
+    /*botao arrendondado*/
+    border-radius: 30px;
+    /*ao clicar ele muda a cor lentamente*/
+
+}
+/*efeitos do botao*/
+.menu input[type="button"]:hover{
+    background-color: #ffffff3a;
+    color: #4c8124;
+    border:solid 3px #4c8124;
+}
+.cadastrePlanta{
+    text-align: center;
+    height: 300px;
+    width: 100%;
+    padding-top: 250px;
+}
+.cadastrePlanta input[type="button"]{
+    border:solid 3px;
+    width: 350px;
+    height: 80px;
+    /*mostrar para usuario que e clicavel*/
+    cursor: pointer;
+    /*fundo do botao*/
+    background: #21572d81;
+    /*cor da letra*/
+    color: white;
+    font-size: 30px;
+    /*botao arrendondado*/
+    border-radius: 20px;
+    /*ao clicar ele muda a cor lentamente*/
+
+}
+.cadastrePlanta button{
+    border:solid 3px;
+    width: 350px;
+    height: 80px;
+    /*mostrar para usuario que e clicavel*/
+    cursor: pointer;
+    /*fundo do botao*/
+    background: #21572d81;
+    /*cor da letra*/
+    color: white;
+    font-size: 30px;
+    /*botao arrendondado*/
+    border-radius: 20px;
+}
+/*efeitos do botao*/
+.cadastrePlanta input[type="button"]:hover{
+    background-color: #0d1e11cc;
+        /*ao clicar ele muda a cor lentamente*/
+        transition: 1s;
+}
+.menu2{
+    text-align: center;
+    height: 350px;
+}
+.menu3{
+    text-align: center;
+    height: 350px;
+}
+.menu4{
+    text-align: center;
+    height: 350px;
+}
+.rodape{
+    background-color: #284611;
+    height: 250px;
+    width: 100%;
+}
+.rodape, .list-pag{
+    display: inline-block;
+}
+.rodape img{
+    height: 80px;
+    margin: 0px 277px;
+}
+.rodape{
+
+    height: 200px;
+    margin: 0 auto;
+    color: white;
+}
+.rodape ul li {
+    color: #284611;
+    /*atribuir espaco entre as palavras*/
+}
+/*tag do link*/
+.rodape ul li a{
+    color: #ffffffcc;
+    /*remover o sublinhado (aspecto de link)*/
+    text-decoration: none;
+    /*tamanho da fonte*/
+    font-size: 18px;
+}
+.textoBtns{
+    height: 400px;
+    background-color: #ffffff;
+    padding-left: 1%;
+    padding-right: 1%;
+    text-align: center;
+    font-size: 17px;
+}
+.txtMonitoramento,.txtPlanta,.txtRegistro{
+    display: inline-block;
+}
+/*alinhar as divs*/
+.txtMonitoramento{
+    height: 400px;
+    width: 20%;
+    margin: 0px 55px;
+}
+.txtPlanta{
+    height: 400px;
+    width: 20%;
+    margin: 0px 55px;
+}
+.txtRegistro{
+    height: 400px;
+    width: 20%;
+    margin: 0px 55px;
+}
+.tooltip2{
+    position: relative;
+    margin-left: 200px;
+    float: top;
+    border-radius:15px;
+    display: inline-block; 
+
+  }
+
+  .tooltip2 .tooltiptext2 {
+    visibility: hidden;
+    width: 220px;
+    background-color: #4C81241A;
+    color: #284611;
+    text-align: center;
+    border-radius: 6px;
+    padding: 20px 20px 100px 20px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    top: -120%;
+      left: 70%;
+      transform: translate(0, -40%);
+    
+  }
+.tooltip2 img{
+    width: 50px;
+
+}
+  .tooltip2:hover .tooltiptext2{
+    visibility: visible;
+    opacity: 1;
+  }

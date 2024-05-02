@@ -21,7 +21,7 @@ include('connection.php');
             <div class = "div-cadas-planta-aviso">
       
             <?php
-session_start();
+#session_start();
 include_once "conexao.php";
 
 if (isset($_SESSION['id_usuario'])) {
