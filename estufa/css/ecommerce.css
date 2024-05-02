@@ -9,14 +9,6 @@
     margin: 0 auto;
 
 }
-.header-2{
-    /*centralizar os botoes no menu*/
-    text-align: center;
-    height: 55px;
-    width: 100%;
-    /*colocar a borda*/
-    border-bottom: 3px solid #efefef;
-}
 .menu{
 
 
