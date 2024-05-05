@@ -37,8 +37,8 @@ if (isset($_SESSION['id_usuario'])) {
             $conn = new PDO("mysql:host=localhost;dbname=estufa", "root", "");
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            // Consultar o banco de dados para verificar se o número de série fornecido existe
-            $checkQuery = $conn->prepare("SELECT n_serie FROM usuario WHERE n_serie = :nSerie");
+             // verificar se n serie existe
+            $checkQuery = $conn->prepare("SELECT n_serie FROM produto WHERE n_serie = :nSerie");
             $checkQuery->bindParam(':nSerie', $nSerie, PDO::PARAM_STR);
             $checkQuery->execute();
             $result = $checkQuery->fetch(PDO::FETCH_ASSOC);

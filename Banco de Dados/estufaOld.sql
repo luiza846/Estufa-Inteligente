@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 05/05/2024 às 05:04
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Host: localhost
+-- Tempo de geração: 22/11/2023 às 11:41
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,14 +36,6 @@ CREATE TABLE `estufa` (
   `temperatura` int(11) DEFAULT NULL,
   `imagem` varchar(220) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `estufa`
---
-
-INSERT INTO `estufa` (`id_estufa`, `id_usuario`, `nome`, `data_criacao`, `umidade`, `temperatura`, `imagem`) VALUES
-(10, 26, 'Cacto', '2024-05-04', 30, 30, 'cacto-mini-900x1200.jpg'),
-(11, 25, 'Morango', '2024-05-04', 70, 22, 'morango.jpg');
 
 -- --------------------------------------------------------
 
@@ -113,19 +105,11 @@ INSERT INTO `produto` (`id_produto`, `n_serie`, `email_produto`) VALUES
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL,
   `nome` varchar(250) NOT NULL,
+  `n_serie` varchar(8) NOT NULL,
   `email` varchar(250) NOT NULL,
   `senha` varchar(8) NOT NULL,
   `imagem` varchar(220) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `usuario`
---
-
-INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `senha`, `imagem`) VALUES
-(25, 'ana', 'ana@gmail.com', '123', '20230501_094247.jpg'),
-(26, 'Jão', 'joao@gmail.com', '123', 'cacto-mini-900x1200.jpg'),
-(28, 'Cecilia', 'cecilia@gmail.com', '123', 'cacto-mini-900x1200.jpg');
 
 --
 -- Índices para tabelas despejadas
@@ -164,7 +148,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `estufa`
 --
 ALTER TABLE `estufa`
-  MODIFY `id_estufa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_estufa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `planta`
@@ -182,7 +166,7 @@ ALTER TABLE `produto`
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Restrições para tabelas despejadas

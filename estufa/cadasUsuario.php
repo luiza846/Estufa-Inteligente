@@ -30,7 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $senha = $_POST['campoSenha'];
     $confirmSenha = $_POST['campoConfirmSenha'];
     $arquivo = $_FILES['foto_usuario'];
-    $nSerie = $_POST['campoSerie'];
     $email = $_POST['campoEmail'];
 
     try {
@@ -39,19 +38,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn = new PDO("mysql:host=localhost;dbname=estufa", "root", "");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // verificar se o email e n serie existem
-        $checkQuery = $conn->prepare("SELECT n_serie, email_produto FROM produto WHERE n_serie = :nSerie AND email_produto = :email");
-        $checkQuery->bindParam(':nSerie', $nSerie, PDO::PARAM_STR);
-        $checkQuery->bindParam(':email', $email, PDO::PARAM_STR);
-        $checkQuery->execute();
-        $result = $checkQuery->fetch(PDO::FETCH_ASSOC);
 
-        if ($result) {
             // se o email e senha estao corretos inserir dados
-            $query_usuario = "INSERT INTO usuario (nome, n_serie, email, senha, imagem) VALUES (:nome, :n_serie, :email, :senha, :imagem)";
+            $query_usuario = "INSERT INTO usuario (nome, email, senha, imagem) VALUES (:nome, :email, :senha, :imagem)";
             $cad_usuario = $conn->prepare($query_usuario);
             $cad_usuario->bindParam(':nome', $nome, PDO::PARAM_STR);
-            $cad_usuario->bindParam(':n_serie', $nSerie, PDO::PARAM_STR);
             $cad_usuario->bindParam(':email', $email, PDO::PARAM_STR);
             $cad_usuario->bindParam(':senha', $senha, PDO::PARAM_STR);
             $cad_usuario->bindParam(':imagem', $arquivo['name'], PDO::PARAM_STR);
@@ -67,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     echo "<dialog id='msgSucesso' open>
                                 <center><img src=fundoLogin/sucesso.png></center>
                                 <p>Cadastro realizado com sucesso!</p>
-                                <a href=index.php><input type=button value=VOLTAR name=btnVoltar></a>
+                                <a href=login.php><input type=button value=VOLTAR name=btnVoltar></a>
                             </dialog>";
                 } else {
                     echo "Cadastro realizado com sucesso.";
@@ -75,9 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 echo "Erro ao cadastrar o usuário.";
             }
-        } else {
-            echo "*Erro: Email ou Número de Série incorretos.";
-        }}else{
+         }else{
             echo "*Erro: Senhas diferentes!";
         }
     } catch (PDOException $erro) {
@@ -108,10 +97,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <div class="full-box">
             Confirmação senha: <input type="password" name="campoConfirmSenha" id="passconfirmation" placeholder="Confirme a sua senha" data-equal="password" data-required>
-        </div>
-
-        <div class="full-box">
-            N° Série: <input type="text" name="campoSerie" id="passconfirmation" placeholder="N° Serie" data-equal="password" data-required>
         </div>
 
         <div class="full-box">
