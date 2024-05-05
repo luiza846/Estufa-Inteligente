@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 06/05/2024 às 01:39
+-- Tempo de geração: 05/05/2024 às 05:04
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -30,7 +30,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `estufa` (
   `id_estufa` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
-  `n_serie` varchar(30) NOT NULL,
   `nome` varchar(100) DEFAULT NULL,
   `data_criacao` date DEFAULT NULL,
   `umidade` int(11) DEFAULT NULL,
@@ -42,12 +41,9 @@ CREATE TABLE `estufa` (
 -- Despejando dados para a tabela `estufa`
 --
 
-INSERT INTO `estufa` (`id_estufa`, `id_usuario`, `n_serie`, `nome`, `data_criacao`, `umidade`, `temperatura`, `imagem`) VALUES
-(10, 26, '0', 'Cacto', '2024-05-04', 30, 30, 'cacto-mini-900x1200.jpg'),
-(11, 25, '0', 'Morango', '2024-05-04', 70, 22, 'morango.jpg'),
-(12, 25, '0', 'Morango', '2024-05-05', 70, 22, 'morango.jpg'),
-(13, 28, '0077', 'Morango', '2024-05-05', 0, 0, 'morango.jpg'),
-(16, 28, 'abc', 'Cacto', '2024-05-05', 0, 0, 'cacto-mini-900x1200.jpg');
+INSERT INTO `estufa` (`id_estufa`, `id_usuario`, `nome`, `data_criacao`, `umidade`, `temperatura`, `imagem`) VALUES
+(10, 26, 'Cacto', '2024-05-04', 30, 30, 'cacto-mini-900x1200.jpg'),
+(11, 25, 'Morango', '2024-05-04', 70, 22, 'morango.jpg');
 
 -- --------------------------------------------------------
 
@@ -106,9 +102,7 @@ CREATE TABLE `produto` (
 
 INSERT INTO `produto` (`id_produto`, `n_serie`, `email_produto`) VALUES
 (1, '00ff', 'ana@gmail.com'),
-(2, '555g', 'joao@gmail.com'),
-(4, '0077', 'cecilia@gmail.com'),
-(5, 'abc', 'cecilia@gmail.com');
+(2, '555g', 'joao@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -170,7 +164,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `estufa`
 --
 ALTER TABLE `estufa`
-  MODIFY `id_estufa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_estufa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `planta`
@@ -182,7 +176,7 @@ ALTER TABLE `planta`
 -- AUTO_INCREMENT de tabela `produto`
 --
 ALTER TABLE `produto`
-  MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_produto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`

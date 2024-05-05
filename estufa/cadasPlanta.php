@@ -26,6 +26,7 @@ include_once "conexao.php";
 
 if (isset($_SESSION['id_usuario'])) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
         // Receber dados do formulário
         $id_usuario = $_SESSION['id_usuario'];
         $dat = $_POST['campoData'];
@@ -43,7 +44,16 @@ if (isset($_SESSION['id_usuario'])) {
             $checkQuery->execute();
             $result = $checkQuery->fetch(PDO::FETCH_ASSOC);
 
+            // verificar se usuario ja cadastrou a planta
+            $checkQuery = $conn->prepare("SELECT n_serie FROM estufa WHERE n_serie = :nSerie");
+            $checkQuery->bindParam(':nSerie', $nSerie, PDO::PARAM_STR);
+            $checkQuery->execute();
+            $resultPlantaExistente = $checkQuery->fetch(PDO::FETCH_ASSOC);
+
+
             if ($result) {
+                // verificar se existe n_serie na tabela 
+                if (!$resultPlantaExistente) {
                 if (isset($_POST['categoria'])) {
                     $opcaoSelecionada = $_POST['categoria'];
 
@@ -53,8 +63,9 @@ if (isset($_SESSION['id_usuario'])) {
                     $dadosOpcao = $stmt->fetch(PDO::FETCH_ASSOC);
 
                     if ($dadosOpcao) {
-                        $stmt = $conn->prepare("INSERT INTO estufa (id_usuario, data_criacao, imagem, nome, umidade, temperatura) VALUES (:id_usuario, :data_criacao, :imagem, :nome, :umidade, :temperatura)");
+                        $stmt = $conn->prepare("INSERT INTO estufa (id_usuario, n_serie, data_criacao, imagem, nome, umidade, temperatura) VALUES (:id_usuario, :n_serie, :data_criacao, :imagem, :nome, :umidade, :temperatura)");
                         $stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+                        $stmt ->bindParam(':n_serie', $nSerie, PDO::PARAM_STR);
                         $stmt->bindParam(':data_criacao', $dat, PDO::PARAM_STR);
                         $stmt->bindParam(':nome', $dadosOpcao['nome_planta']);
                         $stmt->bindParam(':umidade', $dadosOpcao['umidade_ideal']);
@@ -92,6 +103,16 @@ if (isset($_SESSION['id_usuario'])) {
                         echo "Opção não encontrada na tabela 'planta'.";
                     }
                 }
+            }
+            else{
+                /* mensagem avisando que a estufa já possui planta */
+                echo "<dialog id='msgSucesso' open>
+                <center><img src=fundoLogin/sucesso.png></center>
+                <p>Estufa já possui planta!</p>
+                <a href=telaPrincipal.php><input type=button value=VOLTAR name=btnVoltar></a>
+                <a href=alteraPlanta.php><input type=button value=EDITAR PLANTA name=btnVoltar></a>
+            </dialog>";
+            }
             } else {
                 echo "*Erro: Número de Série incorreto!";
             }
