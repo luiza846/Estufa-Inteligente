@@ -13,7 +13,7 @@ body {
 
 @media screen and (max-width: 480px) {
     .menu {
-        height: 65px;
+        height: 25px;
     }
 
     /*tag do link*/
@@ -23,22 +23,20 @@ body {
         /*remover o sublinhado (aspecto de link)*/
         text-decoration: none;
         /*distancia entre dois campos*/
-        margin: 1px 2px;
         /*tamanho da fonte*/
         font-size: 10px;
-        /*deixar as letras maiusculas*/
-        text-transform: uppercase;
         margin-left: 2px;
+
     }
 
     .btns-menu {
-        padding-top: 20px;
         padding-left: 30%;
     }
 
     .menu input[type="button"] {
         border: 0px;
-        height: 19px;
+        height: 10%;
+        width: 29%;
         /*mostrar para usuario que e clicavel*/
         cursor: pointer;
         /*fundo do botao*/
@@ -47,8 +45,7 @@ body {
         color: white;
         /*botao arrendondado*/
         border-radius: 30px;
-        font-size: 15px;
-        margin: 2px;
+        font-size: 12px;
 
     }
 
@@ -60,14 +57,14 @@ body {
     }
 
     .painel {
-        height: 200px;
+        height: 35%;
+        text-align: center;
     }
 
     .painel input[type="button"] {
-        margin: 1px 5px;
-        border: solid 2px;
-        width: 150px;
-        height: 28px;
+        border: solid 3px;
+        width: 40%;
+        height: 15%;
         /*mostrar para usuario que e clicavel*/
         cursor: pointer;
         /*fundo do botao*/
@@ -87,16 +84,55 @@ body {
     }
 
     .btns-painel {
-        padding-top: 75px;
-        text-align: center;
+        padding-top: 35%;
+        padding-bottom: 8%;
+    }
+
+    .txt-painel {
+        color: #FFFFFF;
+        margin-left: 3%;
+        margin-right: 4%;
+        width: 95%;
+        float: left;
+    }
+    .txt-painel h1{
+        font-size: 16px;
+    }
+    
+    .txt-painel h3{
+        font-size: 12px;
     }
 
     .menu1 {
-        height: 200px;
+        height: 500px;
     }
-
+    .m01{
+        text-align: center;
+        background-color: rgb(198, 100, 100);
+        height: 30%;
+        width: 100%;
+    }
+    .m02{
+        text-align: center;
+        background-color: rgb(93, 189, 123);
+        height: 30%;
+        width: 100%;
+    }
+    .m03 {
+        text-align: center;
+        height: 30%;
+        background-color: aqua;
+    }
     .menu3 {
-        height: 200px;
+        margin-top: 10%;
+        text-align: center;
+        margin-bottom: 5%;
+    }
+    .estruturaEstufa{
+        width: 100%;
+        height: 180px;
+        background-image: url('../images/sistemaEstufa.png');
+        background-size: cover;
     }
 
     .rodape {
@@ -145,15 +181,16 @@ body {
     .rodape-links {
         display: inline-block;
     }
-    .m01{
-        background-color: antiquewhite;
+
+    .img01 {
+        margin-left: 55px;
+        width: 50px;
+        height: 80px;
+        background-image: url('../images/estufa01.png');
+        background-size: cover;
+        background-position: center;
     }
-    .m03{
-        background-color: antiquewhite;
-    }
-    .m01, .m02, .m03 {
-        display: inline-block;
-    }
+
 
 
 }
