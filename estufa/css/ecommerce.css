@@ -95,7 +95,7 @@ body {
         height: 200px;
     }
 
-    .menu2 {
+    .menu3 {
         height: 200px;
     }
 
@@ -143,6 +143,15 @@ body {
 
     .rodape-marca,
     .rodape-links {
+        display: inline-block;
+    }
+    .m01{
+        background-color: antiquewhite;
+    }
+    .m03{
+        background-color: antiquewhite;
+    }
+    .m01, .m02, .m03 {
         display: inline-block;
     }
 
@@ -241,8 +250,6 @@ body {
         float: left;
     }
     
-    .txt-painel h1{
-    }
     .txt-painel h3{
         font-size: 25px;
     }
@@ -254,11 +261,40 @@ body {
     }
 
     .menu1 {
-        height: 300px;
+        margin-top: 100px;
+        height: 500px;
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    .menu2 {
+        height: 400px;
+        color: white;
+        margin-left: 850px;
+    }
+    .topics{
+        text-align: center;
+        vertical-align: middle;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        background-color: #4c8124;
+        width: 400px;
+        height: 50px;
+        border-radius: 35px;
     }
 
-    .menu2 {
-        height: 300px;
+    .menu3 {
+        margin-top: 80px;
+        text-align: center;
+    }
+    .estruturaEstufa{
+        margin-top: 55px;
+        margin-left: 350px;
+        margin-bottom: 55px;
+        width: 1400px;
+        height: 700px;
+        background-image: url('../images/sistemaEstufa.png');
+        background-size: cover;
+        background-position: center;
     }
 
     .rodape {
@@ -307,6 +343,30 @@ body {
     .rodape-links {
         display: inline-block;
     }
+    .m01{
+        background-color: white;
+        height: 100%;
+        width: 350px;
+    }
+    .m02{
+        background-color: white;
+        height: 100%;
+        width: 350px;
+        margin-left: 95px;
+        margin-right: 95px;
+    }
+    .m01, .m02{
+        display: inline-block;
 
+    }
+    .img01 {
+        margin-left: 55px;
+        width: 350px;
+        height: 380px;
+        background-image: url('../images/estufa01.png');
+        background-size: cover;
+        background-position: center;
+    }
+    
 
 }

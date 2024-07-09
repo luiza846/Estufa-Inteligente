@@ -84,7 +84,7 @@ catch(PDOException $erro)
             <!--mensagem de aviso-->
 
         </form>
-        <a href="monitora.php"><input type="button" value="Monitoramento" name="btnMonitorar" id="btn_monitorar"></a>
+        <a href="listarEstufas.php"><input type="button" value="Monitoramento" name="btnMonitorar" id="btn_monitorar"></a>
         <a href="registro.php"><input type="button" value="Registro" nome="btnregistro" id="btns"></a>
     </div>
 
@@ -96,7 +96,7 @@ catch(PDOException $erro)
         <h3>Páginas</h3>
                 <li><a href="perfil.php">Perfil</a></li>
                 <li><a href="cadasPlanta.php">Inserir Planta</a></li>
-                <li><a href="monitora.php">Monitoramento</a></li>
+                <li><a href="listarEstufas.php">Monitoramento</a></li>
                 <li><a href="registro.php">Registro</a></li>
             </ul>
 

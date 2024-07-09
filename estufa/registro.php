@@ -52,24 +52,26 @@ $indiceFinal = $indiceInicial + $linhasPorPagina;
                 <th>Temperatura</th>
                 <th>Umidade</th>
             </tr>
-
             <?php
             // Itera sobre as linhas da página atual
             for ($i = $indiceInicial; $i < $indiceFinal && $i < $totalLinhas; $i++) {
-
                 $dados = explode(' ', $linhas[$i]);
+                
+                if(count($dados) >=4){
+                    $data = $dados[0];
+                    $hora = $dados[1];
+                    $temperatura = $dados[2];
+                    $umidade = $dados[3];
 
-                $data = $dados[0];
-                $hora = $dados[1];
-                $temperatura = $dados[2];
-                $umidade = $dados[3];
-
-                echo '<tr>';
-                echo '<td>' . $data . '</td>';
-                echo '<td>' . $hora . '</td>';
-                echo '<td>' . $temperatura . '</td>';
-                echo '<td>' . $umidade . '</td>';
-                echo '</tr>';
+                    echo '<tr>';
+                    echo '<td>' . $data . '</td>';
+                    echo '<td>' . $hora . '</td>';
+                    echo '<td>' . $temperatura . '</td>';
+                    echo '<td>' . $umidade . '</td>';
+                    echo '</tr>';
+                }else{
+                    continue;
+                }
             }
             ?>
         </table>

@@ -1,26 +1,3 @@
-<?php
-include('protect.php');
-# Fazer conexão com BD
-try
-{
-    # Conexão com MySQL usando PDO
-    $conectaBD = new PDO("mysql:host=127.0.0.1;port=3306;dbname=estufa", "root", "");
-    $conectaBD->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-    # Preparar a consulta SQL
-    $sql = "SELECT * FROM estufa";
-
-    # Preparar e executar a consulta
-    $stmt = $conectaBD->query($sql);
-
-}
-catch(PDOException $erro)
-{
-    # Informar que houve erro ao fazer a conexão com BD
-    echo "Houve erro ao fazer a conexão com o banco de dados!";
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,27 +14,63 @@ catch(PDOException $erro)
 
 <div class = "div-info-planta">
 
+<!--AQUI, AQUI!!!-->
+
 <?php
+include('protect.php');
 
-$id_usuario = $_SESSION['id_usuario'];
-$sql = "SELECT * FROM estufa WHERE id_usuario = :id_usuario ORDER BY id_estufa DESC LIMIT 1";
-
-$stmt = $conectaBD->prepare($sql);
-$stmt->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
-$stmt->execute();
-
-while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    $foto_planta = $dados["imagem"];
-    echo "<div class='div-foto-planta'><img src='planta/" . $dados["id_estufa"] . "/" . $foto_planta . "'></div><br>";
-    echo "<h1>",$dados["nome"],"</h1></h5>"; 
-    echo "<h5>Data criação: ",$dados["data_criacao"],"</h5>"; 
-    echo "<h5>Umidade ideal: ",$dados["umidade"],"%</h5>";
-    echo "<h5>Temperatura ideal: ",$dados["temperatura"],"°C</h5>";  
+if (isset($_GET['n_serie'])) {
+    $n_serie = $_GET['n_serie'];
+} else {
+    echo "Número de série não especificado";
+    exit;
 }
+# Fazer conexão com BD
+try
+{
+    # Conexão com MySQL usando PDO
+    $conectaBD = new PDO("mysql:host=127.0.0.1;port=3306;dbname=estufa", "root", "");
+    $conectaBD->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    # Preparar e executar a consulta
+    $sql = "SELECT * FROM estufa WHERE n_serie = :n_serie";
+
+    $stmt = $conectaBD->prepare($sql);
+    $stmt->bindParam(':n_serie', $n_serie, PDO::PARAM_STR);
+    $stmt->execute();
+
+    if($stmt->rowCount() > 0){
+        $dados = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $foto_planta = $dados["imagem"];
+        $diretorio = "planta/$n_serie/$foto_planta";
+
+        if (file_exists($diretorio)){
+            echo "<div class='div-foto-planta'><img src='$diretorio'></div><br>";
+        }
+        else{
+            echo "Erro ao carregar a imagem!";
+        }
+
+        echo "<h1>",$dados["nome"],"</h1></h5>"; 
+        echo "<h5>Data criação: ",$dados["data_criacao"],"</h5>"; 
+        echo "<h5>Umidade ideal: ",$dados["umidade"],"%</h5>";
+        echo "<h5>Temperatura ideal: ",$dados["temperatura"],"°C</h5>";  
+        
+    } else {
+        echo "Estufa não encontrada";
+    }
+
+}
+catch(PDOException $erro)
+{
+    # Informar que houve erro ao fazer a conexão com BD
+    echo "Houve erro ao fazer a conexão com o banco de dados!";
+}
+
 ?>
 
-
-<!-- BOTAO PARA RECEBER OS DADOS DO ARDUINO-->
+<!-- MIGUEL VERIFICAR ESSE CODIGO-->
 <script>
     function Monitora(){
     alert('Dados Recebidos');
@@ -69,7 +82,7 @@ while ($dados = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
     <div class="div-voltar">
                 <img class = "img-voltar" src="fundoLogin/voltar.png" alt="Ícone de saída">
-                <a href="telaPrincipal.php">Voltar</a>
+                <a href="listarEstufas.php">Voltar</a>
             </div>
 
 </div>

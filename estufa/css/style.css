@@ -266,7 +266,7 @@
   .tooltip2 .tooltiptext2 {
     visibility: hidden;
     width: 220px;
-    background-color: #4C81241A;
+    background-color: #e1f4d2d1;
     color: #284611;
     text-align: center;
     border-radius: 6px;
@@ -584,6 +584,39 @@ form input[type=password]{
 #msgSucesso a{
     text-decoration: none;
 }
+
+/*msg alert*/
+#msgAlert{
+    text-align: center;
+    border:1px solid #4c8124;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    width: 20%;
+}
+/*botao do dialog (mensagem de aviso)*/
+#msgAlert input[type="button"]{
+    margin-top: 45px;
+    background-color: #21572dcc;
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 30px;
+}
+/*efeitos do botao*/
+#msgAlert input[type=button]:hover{
+    background-color: #0d1e11cc;
+    /*ao clicar ele muda a cor lentamente*/
+    transition: 1s;
+}
+#msgAlert a{
+    text-decoration: none;
+}
+.btnVoltarAlert, .btnEditPlantaAlert{
+    display: inline-block;
+}
+
 .div-cadas-planta-aviso{
     color: red;
 }
@@ -879,4 +912,44 @@ tr:hover {
     display: inline-block; 
     vertical-align: middle; 
     font-size: 20px;
+}
+/*-------------------------------------------------TELA LISTAR ESTUFA-----------------------------------------------------------*/
+.div-listar-estufa button {
+    margin-bottom: 1%;
+    margin-top: 1%;
+    width: 48%;
+    background-color: #21572dcc;
+    font-size: 30px;
+    color: #fff;
+    border: none;
+    height: 40px;
+    cursor: pointer;
+    border-radius: 30px;
+}   
+/*efeitos do botao*/
+.div-listar-estufa button:hover{
+    background-color: #ffffff3a;
+    color: #4c8124;
+    border:solid 3px #4D8124;
+    transition: 0.5s;
+}
+.body-listar-estufa{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    background-color: #8AA26E;
+}
+.body-listar-estufa h1{
+    text-align: center;
+    font-size: 40px;
+    color: #21572dcc;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.div-principal-listar-estufa{
+    background-color: white;
+    width: 94%;
+    height: 100%;
+    margin-top: 3%;
+    padding-bottom: 1.5%;
 }

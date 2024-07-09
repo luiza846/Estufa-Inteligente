@@ -72,39 +72,41 @@ catch(PDOException $erro)
                     <!--alterar senha-->
                     <?php
                     if (isset($_SESSION['id_usuario'])) {
-                        $id_usuario = $_SESSION['id_usuario'];
-                        $oldPassword = $_POST['campoSenhaAntiga'];
-                        $newPassword = $_POST['campoNovaSenha'];
-                        $servidor = "localhost";
-                        $usuario = "root";
-                        $senha = "";
-                        $dbname = "estufa";
-                    
-                        $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
-                    
-                        $sql = "SELECT senha FROM usuario WHERE id_usuario = $id_usuario";
-                        $result = mysqli_query($conn, $sql);
-                    
-                        if ($result) {
-                            $row = mysqli_fetch_assoc($result);
-                            $senhaAtual = $row['senha'];
-                    
-                            if ($oldPassword == $senhaAtual) {
-                    
-                                $result_usuario = "UPDATE usuario SET senha = '$newPassword' WHERE id_usuario = $id_usuario";
-                                #consultar o resultado para ver se foi alterado com sucesso
-                                $result_usuario = mysqli_query($conn, $result_usuario);
-                                echo "<dialog id='msgSucessoPerfil' open>
-                                <center><img src=fundoLogin/sucesso.png></center>
-                                <br>Senha alterada com sucesso!
-                                <a href=telaPrincipal.php><input type=button value=VOLTAR name=btnVoltar></a>
-                            </dialog>";
+                        if (isset($_POST['campoSenhaAntiga']) && isset($_POST['campoNovaSenha'])) {
+                            $id_usuario = $_SESSION['id_usuario'];
+                            $oldPassword = $_POST['campoSenhaAntiga'];
+                            $newPassword = $_POST['campoNovaSenha'];
+                            $servidor = "localhost";
+                            $usuario = "root";
+                            $senha = "";
+                            $dbname = "estufa";
+                        
+                            $conn = mysqli_connect($servidor, $usuario, $senha, $dbname);
+                        
+                            $sql = "SELECT senha FROM usuario WHERE id_usuario = $id_usuario";
+                            $result = mysqli_query($conn, $sql);
+                        
+                            if ($result) {
+                                $row = mysqli_fetch_assoc($result);
+                                $senhaAtual = $row['senha'];
+                        
+                                if ($oldPassword == $senhaAtual) {
+                        
+                                    $result_usuario = "UPDATE usuario SET senha = '$newPassword' WHERE id_usuario = $id_usuario";
+                                    #consultar o resultado para ver se foi alterado com sucesso
+                                    $result_usuario = mysqli_query($conn, $result_usuario);
+                                    echo "<dialog id='msgSucessoPerfil' open>
+                                    <center><img src=fundoLogin/sucesso.png></center>
+                                    <br>Senha alterada com sucesso!
+                                    <a href=telaPrincipal.php><input type=button value=VOLTAR name=btnVoltar></a>
+                                </dialog>";
                             } else {
                                 echo "<div class=div-senha> Campos ainda não preenchidos ou senha incorreta! </div>";
                             }
                         } else {
                             echo "Erro ao buscar a senha atual do usuário.";
                         }
+                    }
                     } else {
                         echo "ID de usuário não definido na sessão.";
                     }
