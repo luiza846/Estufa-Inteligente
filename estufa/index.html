@@ -11,54 +11,52 @@
 <body>
     <div class="menu">
         <div class="btns-menu">
+            <a href="index.html"><input type="button" value="Home" name="btnPerfil" id="btns"></a>
             <a href="sobreNos.html"><input type="button" value="Sobre Nós" name="btnPerfil" id="btns"></a>
             <a href="contato.html"><input type="button" value="Contato" name="btnPerfil" id="btns"></a>
             <a href="login.php"><input type="button" value="Entrar" name="btnPerfil" id="btns"></a>
         </div>
     </div>
 
-
-    <div class="painel" style="background-image: url('images/folhas.jpg'); background-attachment: fixed;">
+    <div class="painel" style="background-image: url('images/teste.jpeg');">
+        <div class="logo02"></div>
+        <div class="seta"></div>
         <div class="txt-painel">
-            <h1>Monitore suas plantas em tempo real!</h1>
-            <h3>Uma estufa inteligente, perfeita para aqueles que não têm tempo para cuidar de suas plantas, que oferece uma irrigação automática, refrigeração e iluminação ultravioleta, tornando o cultivo mais prático e eficaz!</h3>
-        </div>
-        <div class="btns-painel">
-            <a href="#"><input type="button" value="Nossos Produtos" class="btns" onclick="redirect('#menu2')" name="btnPainel"></a>
-            <a href="cadasUsuario.php"><input type="button" value="Cadastre-se agora!" name="btnPainel" id="btns"></a>
+            <h1>Estufa</h1>
+            <div class="alteraFrase"></div>
+            <div class="title"> 
+              <span>automatizada.</span>
+            </div>      
+            <h3>Cuidados com a planta de forma independente!</h3>
+            <div class="btns-painel">
+                <!--<a href="cadasUsuario.php"><input type="button" value="Cadastre-se agora!" name="btnPainel" id="btns"></a>-->
+                    <a href="cadasUsuario.php" class="button">Cadastre-se agora!</a>                
+            </div>
+
         </div>
     </div>
-
-        <script>
-            function redirect(target) {
-                // Redireciona para a div especificada
-                window.location.href = window.location.pathname + target;
-            }
-        </script>
 
     <div class="menu1">
-        <div class="title"><h3>Nosso Produto</h3></div>
-        <div class="m01">
-            <h3>Estufa Inteligente</h3>
-            <div class="img01"></div>
+        <div class="m">
+            <div class="img-estufa" style="background-image: url('images/estufa.jpg');"></div>
+            <div class="nosso-produto">
+                <h3>CONHEÇA O NOSSO PRODUTO</h3>
+                <h5>CONHEÇA O NOSSO PRODUTO</h5>
+            </div>
         </div>
-        <div class="m02">
-            <h3>Descrição</h3>
-            <div class="img02"></div>
-        </div>
-        <div class="m03">
-            <h3>Vantagens</h3>
-        </div>
-    
+
     </div>
-
-
-
-    <div class="menu3">
-        <div class="title2">
-            <h3>Como que funciona?</h3>
+    
+    <div class="menu2">
+        <div class="m2">
+            <div class="nosso-produto-web">
+                <h3>CONHEÇA O SITE DE MONITORAMENTO DE PLANTAS</h3>
+                <h5>Um website que se integra diretamente com um sistema de Arduino que tem a função de monitorar a planta e controlar os componentes do Arduino, como irrigação, refrigeração, exposição UV de forma automática e personalizada.</h5>
+            </div>
+            <div class="img-website" style="background-image: url('images/website.png');"></div>    
         </div>
-        <div class="estruturaEstufa"></div>
+        <div class="estrutura" style="background-image: url('images/sistemaEstufa.png');"></div>  
+
     </div>
 
     <div class="rodape">
@@ -73,8 +71,6 @@
             <li><a href="">Contato</a></li>
         </div>
     </div>
-
-
 </body>
 
 </html>

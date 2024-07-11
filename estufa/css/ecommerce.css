@@ -9,6 +9,427 @@ body {
     padding: 0;
 }
 
+/*text Automatizada*/
+
+.title {
+    overflow: hidden;
+    /* Para esconder qualquer conteúdo que exceda as dimensões do contêiner */
+}
+
+.title span {
+    display: inline-block;
+    /* Garante que o span se comporte como um bloco inline */
+    animation: slidein 4s;
+    /* Aplica a animação para deslizar o texto */
+}
+
+@keyframes slidein {
+    0% {
+        margin-left: -800px;
+    }
+
+    20% {
+        margin-left: -800px;
+    }
+
+    35% {
+        margin-left: 0px;
+    }
+
+    100% {
+        margin-left: 0px;
+    }
+}
+
+/*--------------------------------------------------notebook-----------------------------------------------------------*/
+
+@media (min-width: 768px) {
+
+    .menu {
+        height: 90px;
+    }
+
+    /*tag do link*/
+    .menu a {
+        margin-top: 10px;
+        color: #FFFFFF;
+        /*remover o sublinhado (aspecto de link)*/
+        text-decoration: none;
+        /*distancia entre dois campos*/
+        margin: 1px 25px;
+        /*tamanho da fonte*/
+        font-size: 10px;
+        margin-left: 2px;
+
+    }
+
+    .btns-menu {
+        padding-top: 2%;
+        padding-left: 35%;
+    }
+
+    .menu input[type="button"] {
+        border: 0px;
+        height: 29px;
+        width: 150px;
+        /*mostrar para usuario que e clicavel*/
+        cursor: pointer;
+        /*fundo do botao*/
+        background: #325c12;
+        /*cor da letra*/
+        color: white;
+        /*botao arrendondado*/
+        border-radius: 30px;
+        font-size: 20px;
+        margin: 2px;
+
+    }
+
+    /*efeitos do botao*/
+    .menu input[type="button"]:hover {
+        background-color: #ffffff3a;
+        color: #4c8124;
+        border: solid 3px #4c8124;
+    }
+
+    .painel {
+        height: 450px;
+        font-family: 'Andale Mono', monospace;
+        background-image: url('images/teste.jpeg');
+        background-attachment: fixed;
+        background-size: cover;
+        /* Para garantir que a imagem cubra todo o contêiner */
+        background-position: center;
+        /* Para centralizar a imagem */
+        background-repeat: no-repeat;
+        /* Para evitar que a imagem se repita */
+    }
+
+    .painel img {
+        width: 100%;
+    }
+
+
+    .logo02 {
+        background-image: url('../images/logo.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 10px;
+        left: 1%;
+        width: 12%;
+        /* ajuste conforme necessário */
+        height: 12%;
+        /* ajuste conforme necessário */
+        z-index: 10;
+        cursor: pointer;
+    }
+
+
+    .txt-painel {
+        padding-top: 1.5%;
+        color: #FFFFFF;
+        text-align: left;
+        margin-left: 10%;
+        width: 50%;
+        float: left;
+    }
+
+    .btns-painel {
+        padding-top: 2%;
+    }
+
+    .seta {
+        margin-top: 6%;
+        margin-left: 7%;
+        background-image: url('../images/seta.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        width: 10%;
+        /* ajuste conforme necessário */
+        height: 10%;
+        /* ajuste conforme necessário */
+    }
+
+    .txt-painel h1 {
+        font-size: 78px;
+        margin-bottom: 0%;
+    }
+
+    .title {
+        font-size: 78px;
+        color: #94BA76;
+        font-weight: bolder;
+    }
+
+    .txt-painel h3 {
+        font-size: 17px;
+    }
+
+    .alteraFrase {
+        color: rgb(255, 255, 255);
+        font-size: 40px;
+        font-weight: bold;
+    }
+
+    /*botao cadastre se!*/
+    .button {
+        text-align: center;
+        display: inline-block;
+        padding: .75rem 1.25rem;
+        border-radius: 10rem;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 25px;
+        width: 50%;
+        transition: all .3s;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        font-weight: bold;
+    }
+
+    .button:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #6ba53e;
+        /* Valor direto no lugar da variável $color */
+        border-radius: 10rem;
+        z-index: -2;
+    }
+
+    .button:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 100%;
+        background-color: #4c8124;
+        /* Escurecido manualmente (darken($color, 15%)) */
+        transition: all .3s;
+        border-radius: 10rem;
+        z-index: -1;
+    }
+
+    .button:hover {
+        color: #fff;
+    }
+
+    .button:hover:before {
+        width: 100%;
+    }
+
+    * {
+        text-decoration: none;
+    }
+
+    .menu1 {
+        margin-top: 100px;
+        height: 500px;
+        text-align: center;
+        margin-bottom: 0.2%;
+    }
+
+    .m {
+        display: flex;
+        /* Define o contêiner como um flexbox */
+        justify-content: center;
+        /* Centraliza horizontalmente os itens */
+        text-align: center;
+        background-color: #4c8124;
+        height: 80%;
+        width: 50%;
+        margin-left: 25%;
+    }
+
+    .img-estufa {
+        background-image: url('images/estufa.jpg');
+        background-size: cover;
+        /* Faz com que a imagem cubra a área */
+        background-repeat: no-repeat;
+        background-position: center;
+        /* Centraliza a imagem */
+        width: 50%;
+        /* Ajuste conforme necessário */
+        height: 100%;
+        /* Ajuste conforme necessário */
+        transition: transform 0.5s ease-in-out;
+        /* Adiciona transição suave */
+        overflow: hidden;
+        /* Garante que a imagem não "saia" da div */
+        position: relative;
+    }
+
+    .img-estufa::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: inherit;
+        background-size: inherit;
+        background-repeat: inherit;
+        background-position: inherit;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .img-estufa:hover::before {
+        transform: scale(1.1);
+        /* Aplica o efeito de zoom */
+    }
+
+    .nosso-produto {
+        color: white;
+        width: 50%;
+        /* Ajuste conforme necessário */
+        text-align: left;
+        /* Alinhamento do texto */
+        margin-left: 18px;
+    }
+
+    .img-estufa,
+    .nosso-produto {
+        display: inline-block;
+    }
+
+    .menu2 {
+        height: 950px;
+        text-align: center;
+    }
+
+    .m2 {
+        display: flex;
+        /* Define o contêiner como um flexbox */
+        justify-content: center;
+        /* Centraliza horizontalmente os itens */
+        text-align: center;
+        background-color: #4c8124;
+        height: 35.2%;
+        width: 75%;
+        margin-left: 10%;
+    }
+
+    .img-website {
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 76%;
+        /* Ajuste conforme necessário */
+        height: auto;
+        transition: transform 0.5s ease-in-out;
+        /* Adiciona transição suave */
+        overflow: hidden;
+        /* Garante que a imagem não "saia" da div */
+        position: relative;
+
+    }
+
+    .img-website::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: inherit;
+        background-size: inherit;
+        background-repeat: inherit;
+        background-position: inherit;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .img-website:hover::before {
+        transform: scale(1.1);
+        /* Aplica o efeito de zoom */
+    }
+
+
+    .nosso-produto-web {
+        color: white;
+        width: 50%;
+        /* Ajuste conforme necessário */
+        text-align: left;
+        /* Alinhamento do texto */
+        margin-left: 2%;
+        height: 50%;
+
+    }
+
+    .nosso-produto-web H5 {
+        color: white;
+        font-size: 15px;
+    }
+
+    .img-website,
+    .nosso-produto-web {
+        display: inline-block;
+    }
+
+    .estrutura {
+        margin-top: 5%;
+        margin-left: 20%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 60%;
+        /* Ajuste conforme necessário */
+        height: 60%;
+    }
+
+    .rodape {
+        height: 150px;
+        background-color: #284611;
+        margin: 0%;
+    }
+
+    .rodape img {
+        width: 250px;
+        text-align: center;
+    }
+
+    .rodape li {
+        margin: 0%;
+        color: #284611;
+        /*atribuir espaco entre as palavras*/
+    }
+
+    /*tag do link*/
+    .rodape li a {
+        margin: 0%;
+        /*remover o sublinhado (aspecto de link)*/
+        text-decoration: none;
+        /*tamanho da fonte*/
+        font-size: 14px;
+        color: #FFFFFF;
+    }
+
+    .rodape-links h3 {
+        font-size: 16px;
+        color: #FFFFFF;
+    }
+
+    .rodape-marca {
+        padding-left: 13%;
+    }
+
+    .rodape-links {
+        padding-left: 13%;
+    }
+
+    .rodape-marca,
+    .rodape-links {
+        display: inline-block;
+    }
+
+
+}
+
+
 /*--------------------------------------------------celular e tablet-----------------------------------------------------------*/
 
 @media screen and (max-width: 480px) {
@@ -84,6 +505,7 @@ body {
     }
 
     .btns-painel {
+        margin-left: 5%;
         padding-top: 35%;
         padding-bottom: 8%;
     }
@@ -95,44 +517,14 @@ body {
         width: 95%;
         float: left;
     }
-    .txt-painel h1{
+
+    .txt-painel h1 {
         font-size: 16px;
     }
-    
-    .txt-painel h3{
-        font-size: 12px;
-    }
+
 
     .menu1 {
         height: 500px;
-    }
-    .m01{
-        text-align: center;
-        background-color: rgb(198, 100, 100);
-        height: 30%;
-        width: 100%;
-    }
-    .m02{
-        text-align: center;
-        background-color: rgb(93, 189, 123);
-        height: 30%;
-        width: 100%;
-    }
-    .m03 {
-        text-align: center;
-        height: 30%;
-        background-color: aqua;
-    }
-    .menu3 {
-        margin-top: 10%;
-        text-align: center;
-        margin-bottom: 5%;
-    }
-    .estruturaEstufa{
-        width: 100%;
-        height: 180px;
-        background-image: url('../images/sistemaEstufa.png');
-        background-size: cover;
     }
 
     .rodape {
@@ -195,215 +587,91 @@ body {
 
 }
 
-/*--------------------------------------------------notebook-----------------------------------------------------------*/
+/*SOBRE NOS*/
 
-@media (min-width: 768px) {
+.members{
+    text-align: center;
+    padding-top: 2%;
+    height: 750px;
+    background-color: #f8f8f8;
+}
+.members h1{
+    padding-bottom: 2%;
+    font-size: 45px;
+    color: #284611;
+}
+.p01 {
+    height: 450px;
+    width: 370px;
+    border: 2px solid #284611;
+    display: inline-block;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 10%;
+    transition: transform 0.3s ease-in-out;
+}
+.p01:hover {
+    transform: scale(1.1); /* Aplica o efeito de zoom */
+    background-color: #d5e1cc;
+    transition: 0.7s;
 
-    .menu {
-        height: 65px;
-    }
+}
+.p01 h1{
+    padding-bottom: 2%;
+    font-size: 25px;
+    color: #284611;
+}
+.p01 h3{
+    padding-bottom: 2%;
+    font-size: 16px;
+    color: #284611;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.profile{
+    padding-top: 7%;
+}
+.profile img{
+    clip-path: circle(50%);
+    width: 170px;
+    height: 170px;
+}
+.social-icons{
+    padding-left: 0px;
+}
+.social-icons img{
+    height: 35px;
+    width: 35px;
+}
 
-    /*tag do link*/
-    .menu a {
-        margin-top: 10px;
-        color: #FFFFFF;
-        /*remover o sublinhado (aspecto de link)*/
-        text-decoration: none;
-        /*distancia entre dois campos*/
-        margin: 1px 25px;
-        /*tamanho da fonte*/
-        font-size: 10px;
-        margin-left: 2px;
-
-    }
-
-    .btns-menu {
-        padding-top: 20px;
-        padding-left: 55%;
-    }
-
-    .menu input[type="button"] {
-        border: 0px;
-        height: 29px;
-        width: 150px;
-        /*mostrar para usuario que e clicavel*/
-        cursor: pointer;
-        /*fundo do botao*/
-        background: #325c12;
-        /*cor da letra*/
-        color: white;
-        /*botao arrendondado*/
-        border-radius: 30px;
-        font-size: 20px;
-        margin: 2px;
-
-    }
-
-    /*efeitos do botao*/
-    .menu input[type="button"]:hover {
-        background-color: #ffffff3a;
-        color: #4c8124;
-        border: solid 3px #4c8124;
-    }
-
-    .painel {
-        height: 450px;
-    }
-
-    .painel input[type="button"] {
-        margin: 5px 15px;
-        border: solid 3px;
-        width: 300px;
-        height: 57px;
-        /*mostrar para usuario que e clicavel*/
-        cursor: pointer;
-        /*fundo do botao*/
-        background: #21572d81;
-        /*cor da letra*/
-        color: white;
-        font-size: 30px;
-        /*botao arrendondado*/
-        border-radius: 20px;
-    }
-
-    /*efeitos do botao*/
-    .painel input[type="button"]:hover {
-        background-color: #0d1e11cc;
-        /*ao clicar ele muda a cor lentamente*/
-        transition: 1s;
-    }
-
-    .btns-painel {
-        padding-top: 28%;
-    }
-
-    .txt-painel {
-        padding-top: 5%;
-        color: #FFFFFF;
-        text-align: left;
-        margin-left: 3%;
-        margin-right: 4%;
-        width: 45%;
-        float: left;
-    }
-    
-    .txt-painel h3{
-        font-size: 25px;
-    }
-
-    .txt-painel,.btns-painel {
-        display: inline-block;
-        vertical-align: middle;
-        display: table-cell;
-    }
-
-    .menu1 {
-        margin-top: 100px;
-        height: 500px;
-        text-align: center;
-        margin-bottom: 50px;
-    }
-    .menu2 {
-        height: 400px;
-        color: white;
-        margin-left: 850px;
-    }
-    .topics{
-        text-align: center;
-        vertical-align: middle;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        background-color: #4c8124;
-        width: 400px;
-        height: 50px;
-        border-radius: 35px;
-    }
-
-    .menu3 {
-        margin-top: 80px;
-        text-align: center;
-    }
-    .estruturaEstufa{
-        margin-top: 55px;
-        margin-left: 350px;
-        margin-bottom: 55px;
-        width: 1400px;
-        height: 700px;
-        background-image: url('../images/sistemaEstufa.png');
-        background-size: cover;
-        background-position: center;
-    }
-
-    .rodape {
-        height: 150px;
-        background-color: #284611;
-        margin: 0%;
-    }
-
-    .rodape h3 {
-        padding-top: 10%;
-        margin: 0%;
-        color: #FFFFFF;
-        font-size: 12px;
-    }
-
-    .rodape img {
-        height: 20px;
-        text-align: center;
-    }
-
-    .rodape li {
-        margin: 0%;
-        color: #284611;
-        /*atribuir espaco entre as palavras*/
-    }
-
-    /*tag do link*/
-    .rodape li a {
-        margin: 0%;
-        /*remover o sublinhado (aspecto de link)*/
-        text-decoration: none;
-        /*tamanho da fonte*/
-        font-size: 10px;
-        color: #FFFFFF;
-    }
-
-    .rodape-marca {
-        padding-left: 13%;
-    }
-
-    .rodape-links {
-        padding-left: 13%;
-    }
-
-    .rodape-marca,
-    .rodape-links {
-        display: inline-block;
-    }
-    .m01{
-        background-color: white;
-        height: 100%;
-        width: 350px;
-    }
-    .m02{
-        background-color: white;
-        height: 100%;
-        width: 350px;
-        margin-left: 95px;
-        margin-right: 95px;
-    }
-    .m01, .m02{
-        display: inline-block;
-
-    }
-    .img01 {
-        margin-left: 55px;
-        width: 350px;
-        height: 380px;
-        background-image: url('../images/estufa01.png');
-        background-size: cover;
-        background-position: center;
-    }
-    
-
+.mission-history{
+    text-align: center;
+    height: 800px;
+}
+.mission{
+    align-content: center;
+    height: 450px;
+    font-family: 'Andale Mono', monospace;
+    background-attachment: fixed;
+    background-size: cover;
+    /* Para garantir que a imagem cubra todo o contêiner */
+    background-position: center;
+    /* Para centralizar a imagem */
+    background-repeat: no-repeat;
+    /* Para evitar que a imagem se repita */
+}
+.mission-title{
+    margin-left: 3%;
+    height: 300px;
+    width: 620px;
+    background-color: #4c8124;
+}
+.mission-title h1{
+    padding-top: 5%;
+    color: #fff;
+    font-size: 40px;
+}
+.mission-title h3{
+    color: #fff;
+    font-size: 18px;
 }

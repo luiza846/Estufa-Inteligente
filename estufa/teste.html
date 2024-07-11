@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ecommerce.css">
+    <title>GreenCode</title>
+</head>
+
+<body>
+    <div class="menu">
+        <div class="btns-menu">
+            <a href="sobreNos.html"><input type="button" value="Sobre Nós" name="btnPerfil" id="btns"></a>
+            <a href="contato.html"><input type="button" value="Contato" name="btnPerfil" id="btns"></a>
+            <a href="login.php"><input type="button" value="Entrar" name="btnPerfil" id="btns"></a>
+        </div>
+    </div>
+
+    <div class="painel" style="background-image: url('images/folhas.png'); background-attachment: fixed;">
+        <div class="logo02"></div>
+        <div class="seta"></div>
+        <div class="txt-painel">
+            <h1>Estufa Automatizada</h1>
+            <div class="alteraFrase"></div>
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    // textos a serem exibidos
+                    var textos = ["Irrigação automatizada", "Refrigeração automatizada", "Sistema de iluminação UV"];
+                    // exibição inicial
+                    var atual = 0;
+
+                    function alteraTexto() {
+                        var texto = textos[atual++];
+                        $('.alteraFrase').fadeOut(function () {
+                            // Substitui as palavras específicas com a cor desejada
+                            texto = texto.replace(/(Irrigação|Refrigeração|iluminação UV)/g, '<span class="cor-especial">$1</span>');
+                            $('.alteraFrase').html(texto).fadeIn();
+                        });
+                        if (atual >= textos.length) atual = 0;
+                    }
+
+                    // Define intervalo de troca
+                    setInterval(alteraTexto, 3000);
+
+                    // Inicializa a primeira alteração
+                    alteraTexto();
+                });
+            </script>
+            <h3>bla bla bla bla</h3>
+        </div>
+        <div class="btns-painel">
+            <a href="cadasUsuario.php"><input type="button" value="Cadastre-se agora!" name="btnPainel" id="btns"></a>
+        </div>
+    </div>
+
+    <div class="menu1">
+        <div class="title">
+            <h3>Nosso Produto</h3>
+        </div>
+        <div class="m01">
+            <h3>Estufa Inteligente</h3>
+            <div class="img01"></div>
+        </div>
+        <div class="m02">
+            <h3>Descrição</h3>
+            <div class="img02"></div>
+        </div>
+        <div class="m03">
+            <h3>Vantagens</h3>
+        </div>
+    </div>
+
+    <div class="menu3">
+        <div class="title2">
+            <h3>Como que funciona?</h3>
+        </div>
+        <div class="estruturaEstufa"></div>
+    </div>
+
+    <div class="rodape">
+        <div class="rodape-marca">
+            <img src="fundoLogin/logoxx.png" alt="logo">
+        </div>
+        <div class="rodape-links">
+            <h3>Páginas</h3>
+            <li><a href="">Inscreva-se</a></li>
+            <li><a href="">Entrar</a></li>
+            <li><a href="">Sobre nós</a></li>
+            <li><a href="">Contato</a></li>
+        </div>
+    </div>
+</body>
+
+</html>
