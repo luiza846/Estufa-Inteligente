@@ -235,12 +235,10 @@ body {
         text-align: center;
         margin-bottom: 0.2%;
     }
-
+    
     .m {
         display: flex;
-        /* Define o contêiner como um flexbox */
         justify-content: center;
-        /* Centraliza horizontalmente os itens */
         text-align: center;
         background-color: #4c8124;
         height: 80%;
@@ -248,43 +246,45 @@ body {
         margin-left: 25%;
     }
 
+            
+    .menu1 {
+        margin-top: 100px;
+        height: 500px;
+        text-align: center;
+        margin-bottom: 0.2%;
+    }
+    
+    .m {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        background-color: #4c8124;
+        height: 80%;
+        width: 50%;
+        margin-left: 25%;
+    }
+    
     .img-estufa {
-        background-image: url('images/estufa.jpg');
-        background-size: cover;
-        /* Faz com que a imagem cubra a área */
-        background-repeat: no-repeat;
-        background-position: center;
-        /* Centraliza a imagem */
         width: 50%;
         /* Ajuste conforme necessário */
         height: 100%;
         /* Ajuste conforme necessário */
-        transition: transform 0.5s ease-in-out;
-        /* Adiciona transição suave */
         overflow: hidden;
         /* Garante que a imagem não "saia" da div */
         position: relative;
     }
-
-    .img-estufa::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
+    
+    .img-estufa img {
         width: 100%;
         height: 100%;
-        background-image: inherit;
-        background-size: inherit;
-        background-repeat: inherit;
-        background-position: inherit;
+        object-fit: cover;
         transition: transform 0.5s ease-in-out;
     }
-
-    .img-estufa:hover::before {
+    
+    .img-estufa:hover img {
         transform: scale(1.1);
         /* Aplica o efeito de zoom */
     }
-
     .nosso-produto {
         color: white;
         width: 50%;
@@ -425,9 +425,159 @@ body {
     .rodape-links {
         display: inline-block;
     }
+    .div-email{
+        background-color: #f8f8f8;
+        text-align: center;
+        align-content: center;
+        height: 460px;
+    }
+    .div-email h1{
+        color: #284611;
+        font-size: 30px;
+    }
+    .div-email input[type="button"] {
+        border: 0px;
+        height: 50px;
+        width: 25%;
+        /*mostrar para usuario que e clicavel*/
+        cursor: pointer;
+        /*botao arrendondado*/
+        border-radius: 30px;
+        font-size: 20px;
+        margin: 2px;
+        background-color: #284611;
+        color: #fff;
+        font-size: 25px;
+        border: solid 3px #284611;
+    
+    }
 
+    /*efeitos do botao*/
+.div-email input[type="button"]:hover {
+    transition: 1s;
+    background-color: #fff;
+    color: #284611;
+}
+    
+/*SOBRE NOS*/
+
+.members {
+    text-align: center;
+    padding-top: 2%;
+    height: 750px;
+    background-color: #f8f8f8;
+}
+
+.members h1 {
+    padding-bottom: 2%;
+    font-size: 45px;
+    color: #284611;
+}
+
+.p01 {
+    height: 450px;
+    width: 370px;
+    border: 2px solid #284611;
+    display: inline-block;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 10%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.p01:hover {
+    transform: scale(1.1);
+    /* Aplica o efeito de zoom */
+    background-color: #d5e1cc;
+    transition: 0.7s;
 
 }
+
+.p01 h1 {
+    padding-bottom: 2%;
+    font-size: 25px;
+    color: #284611;
+}
+
+.p01 h3 {
+    padding-bottom: 2%;
+    font-size: 16px;
+    color: #284611;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.profile {
+    padding-top: 7%;
+}
+
+.profile img {
+    clip-path: circle(50%);
+    width: 170px;
+    height: 170px;
+}
+
+.social-icons {
+    padding-left: 0px;
+}
+
+.social-icons img {
+    height: 35px;
+    width: 35px;
+}
+
+.mission-history {
+    text-align: center;
+    height: 800px;
+}
+
+.mission {
+    align-content: center;
+    height: 450px;
+    font-family: 'Andale Mono', monospace;
+    background-size: cover;
+    /* Para garantir que a imagem cubra todo o contêiner */
+    background-position: center;
+    /* Para centralizar a imagem */
+    background-repeat: no-repeat;
+    /* Para evitar que a imagem se repita */
+}
+
+.mission-title {
+    margin-left: 3%;
+    height: 300px;
+    width: 620px;
+    background-color: #4c8124;
+}
+
+.mission-title h1 {
+    padding-top: 5%;
+    color: #fff;
+    font-size: 40px;
+}
+
+.mission-title h3 {
+    color: #fff;
+    font-size: 18px;
+}
+
+.history-title {
+    height: 300px;
+}
+
+.history-title h1 {
+    padding-top: 5%;
+    color: #284611;
+    font-size: 40px;
+}
+
+.history-title h3 {
+    color: #284611;
+    font-size: 18px;
+}
+}
+
+
 
 
 /*--------------------------------------------------celular e tablet-----------------------------------------------------------*/
@@ -587,91 +737,3 @@ body {
 
 }
 
-/*SOBRE NOS*/
-
-.members{
-    text-align: center;
-    padding-top: 2%;
-    height: 750px;
-    background-color: #f8f8f8;
-}
-.members h1{
-    padding-bottom: 2%;
-    font-size: 45px;
-    color: #284611;
-}
-.p01 {
-    height: 450px;
-    width: 370px;
-    border: 2px solid #284611;
-    display: inline-block;
-    margin-left: 2%;
-    margin-right: 2%;
-    border-radius: 10%;
-    transition: transform 0.3s ease-in-out;
-}
-.p01:hover {
-    transform: scale(1.1); /* Aplica o efeito de zoom */
-    background-color: #d5e1cc;
-    transition: 0.7s;
-
-}
-.p01 h1{
-    padding-bottom: 2%;
-    font-size: 25px;
-    color: #284611;
-}
-.p01 h3{
-    padding-bottom: 2%;
-    font-size: 16px;
-    color: #284611;
-    padding-left: 5%;
-    padding-right: 5%;
-}
-.profile{
-    padding-top: 7%;
-}
-.profile img{
-    clip-path: circle(50%);
-    width: 170px;
-    height: 170px;
-}
-.social-icons{
-    padding-left: 0px;
-}
-.social-icons img{
-    height: 35px;
-    width: 35px;
-}
-
-.mission-history{
-    text-align: center;
-    height: 800px;
-}
-.mission{
-    align-content: center;
-    height: 450px;
-    font-family: 'Andale Mono', monospace;
-    background-attachment: fixed;
-    background-size: cover;
-    /* Para garantir que a imagem cubra todo o contêiner */
-    background-position: center;
-    /* Para centralizar a imagem */
-    background-repeat: no-repeat;
-    /* Para evitar que a imagem se repita */
-}
-.mission-title{
-    margin-left: 3%;
-    height: 300px;
-    width: 620px;
-    background-color: #4c8124;
-}
-.mission-title h1{
-    padding-top: 5%;
-    color: #fff;
-    font-size: 40px;
-}
-.mission-title h3{
-    color: #fff;
-    font-size: 18px;
-}
