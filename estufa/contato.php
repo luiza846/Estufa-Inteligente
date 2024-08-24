@@ -23,12 +23,31 @@
     </a>
     <div class="div-contato">
         <div class="div-email">
-            <img src="images/email01.png" alt="email">
-            <h1>Fale conosco clicando neste botão!</h1>
-            <a href="mailto:greencode.duvidas@gmail.com?subject=D%C3%BAvida%20sobre%20o%20projeto&" class = ""><input type="button" value="Enviar e-mail" name="btnPerfil" id="btns"></a>
+            <img class = "div-img" src="images/email01.png" alt="email">
+           
+            <form action="enviar.php" name="form_contato" method="POST" >
+            
+                <div class="div-contat-nome">
+                    Nome: <input type="text" name="campoNome" id="name" placeholder="Digite o seu nome" data-max-length="16" data-only-letters>
+                </div>
+                <div class="div-contat-email">
+                    E-mail: <input type="text" name="campoEmail" id="email" placeholder="Digite o seu e-mail" data-min-length="3" data-required data-email-validate>
+                </div>
+                <div class="div-contat-duvida">
+                    <textarea id="duvida" class="div-duvida" placeholder="Digite o seu comentário ou dúvida..." name="campoDuvida" rows="10" cols="33"></textarea>        
+                </div>
+
+                <div class="div-contat-button">
+                    <input type="submit" id="btn-submit" name="btnEnviarEmail" value="Enviar sua dúvida">
+                </div>
+
+            </form>
 
         </div>
     </div>
+    <div id="contato_form">
+    </div>
+
     <div class="rodape">
         <div class="rodape-marca">
             <img src="fundoLogin/logoxx.png" alt="logo">

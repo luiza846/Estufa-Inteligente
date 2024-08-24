@@ -425,39 +425,6 @@ body {
     .rodape-links {
         display: inline-block;
     }
-    .div-email{
-        background-color: #f8f8f8;
-        text-align: center;
-        align-content: center;
-        height: 460px;
-    }
-    .div-email h1{
-        color: #284611;
-        font-size: 30px;
-    }
-    .div-email input[type="button"] {
-        border: 0px;
-        height: 50px;
-        width: 25%;
-        /*mostrar para usuario que e clicavel*/
-        cursor: pointer;
-        /*botao arrendondado*/
-        border-radius: 30px;
-        font-size: 20px;
-        margin: 2px;
-        background-color: #284611;
-        color: #fff;
-        font-size: 25px;
-        border: solid 3px #284611;
-    
-    }
-
-    /*efeitos do botao*/
-.div-email input[type="button"]:hover {
-    transition: 1s;
-    background-color: #fff;
-    color: #284611;
-}
     
 /*SOBRE NOS*/
 
@@ -575,6 +542,85 @@ body {
     color: #284611;
     font-size: 18px;
 }
+
+/*CONTATO*/
+.div-email{
+    background-color: #f8f8f8;
+    text-align: center;
+    align-content: center;
+    height: 100%;
+}
+.div-email h1{
+    color: #284611;
+    font-size: 30px;
+}
+
+/*efeitos do botao*/
+.div-email input[type="button"]:hover {
+    transition: 1s;
+    background-color: #fff;
+    color: #284611;
+}
+.div-contat-button input[type="submit"]{
+    /*distancia entre dois campos*/
+    margin: 30px 20px;
+    border:solid 3px #284611;
+    width: 25%;
+    height: 45px;
+    /*mostrar para usuario que e clicavel*/
+    cursor: pointer;
+    /*fundo do botao*/
+    background: #284611;
+    /*cor da letra*/
+    color: #ffffff;
+    font-size: 25px;
+    /*botao arrendondado*/
+    border-radius: 30px;
+
+}
+.div-contat-button input[type="submit"]:hover{
+    color: #284611;
+    background-color: #ffffff;
+    /*ao clicar ele muda a cor lentamente*/
+    transition: 0.5s;
+
+}
+.div-contato input[type=text]{
+    width: 20%;
+    font-size: 14px;
+    color: #1c330b;
+    height: 30px;
+    border:0.5px solid #4c8124;
+    padding-left: 10px;
+    /*distancia entre dois campos*/
+    margin: 10px 0;
+    border-radius: 20px;
+}
+.div-contat-nome{
+    margin-top: 2%;
+}
+.div-img{
+    margin-top: 3%;
+}
+.div-duvida{
+    width: 24%;
+    font-size: 14px;
+    color: #1c330b;
+    height: 100%;
+    border:0.5px solid #4c8124;
+    padding-left: 10px;
+    /*distancia entre dois campos*/
+    margin: 10px 0;
+    border-radius: 20px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    padding-right: 1;
+}
+.div-contat-button{
+    margin-bottom: 2%;
+}
+
 }
 
 
