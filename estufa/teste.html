@@ -6,8 +6,7 @@
     <title>Link de Notícias</title>
     <style>
         .news-card {
-            display: flex;
-            align-items: center;
+            display: block;
             border: 1px solid #ddd;
             border-radius: 8px;
             overflow: hidden;
@@ -24,13 +23,14 @@
         }
 
         .news-card img {
-            width: 120px;
-            height: 100%;
+            width: 100%;
+            height: auto;
             object-fit: cover;
         }
 
         .news-card .content {
             padding: 16px;
+            text-align: center;
         }
 
         .news-card .title {
@@ -47,8 +47,16 @@
     </style>
 </head>
 <body>
-    <a href="https://www.seusite.com/noticia" class="news-card">
-        <img src="sua-imagem.jpg" alt="Imagem da Notícia">
+    <a href="https://globoplay.globo.com/v/12498503/" class="news-card">
+        <img src="https://media.licdn.com/dms/image/sync/v2/D4E27AQFMCDDf89JDWg/articleshare-shrink_480/articleshare-shrink_480/0/1717096183161?e=1725458400&v=beta&t=geJSe9dqB6uF9In-sBKhUPdH4-f2Fgqx40zcwyEt5k4" alt="Imagem da Notícia">
+        <div class="content">
+            <h3 class="title">Título da Notícia</h3>
+            <p class="description">Breve descrição ou subtítulo da notícia.</p>
+        </div>
+    </a>
+
+    <a href="https://projetoeducacao.cptec.inpe.br/projetos" class="news-card">
+        <img src="https://projetoeducacao.cptec.inpe.br/img/greencode1.png" alt="Imagem da Notícia">
         <div class="content">
             <h3 class="title">Título da Notícia</h3>
             <p class="description">Breve descrição ou subtítulo da notícia.</p>

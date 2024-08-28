@@ -495,7 +495,7 @@ body {
 
 .mission-history {
     text-align: center;
-    height: 800px;
+    height: 1100px;
 }
 
 .mission {
@@ -541,6 +541,31 @@ body {
 .history-title h3 {
     color: #284611;
     font-size: 18px;
+}
+
+.link-noticias{
+
+}
+.div-noticias{
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 350px;
+    text-decoration: none;
+    color: #000;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.div-noticias :hover{
+    transform: scale(1.02);
+}
+.div-noticias img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
 }
 
 /*CONTATO*/

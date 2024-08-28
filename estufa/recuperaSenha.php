@@ -85,7 +85,7 @@ catch(PDOException $erro)
                                 //Content
                                 $mail->isHTML(true);                                //Set email format to HTML
                                 $mail->Subject = 'Recuperação de senha';
-                                $mail->Body    = "Olá, $nomeUsuario!<br> Esse é o teste de envio de email! <br><a href='http://localhost/Estufa-Inteligente/estufa/index.html'><input type='button' value='Redefinir senha' name='btnPerfil' id='btns'></a>";
+                                $mail->Body    = "Olá, $nomeUsuario!<br> Esse é o teste de envio de email! <br><a href='http://localhost/Estufa-Inteligente/estufa/novaSenha.php'><input type='button' value='Redefinir senha' name='btnPerfil' id='btns'></a>";
 
                                 $mail->send();
                                 echo 'Success!';
