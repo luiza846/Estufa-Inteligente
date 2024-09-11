@@ -36,8 +36,12 @@ catch(PDOException $erro)
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meu Perfil</title>
+    <link rel="shortcut icon" type="imagex/png" href="./images/icon.ico">
+    <!--referenciar o login.css-->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+
 </head>
-<body>
+<body class="body-rec">
 
 <center>
         <div class = "div-rec-senha">
@@ -81,12 +85,26 @@ catch(PDOException $erro)
                                 $mail->setFrom(SMTP_USER, "GreenCode");
                                 $mail->addAddress($email, 'user');
                                 $mail->addReplyTo(SMTP_USER, "GreenCode1");
+                                $mail->addEmbeddedImage('images/logoEmail.png', 'logo_banner');
 
-                                //Content
-                                $mail->isHTML(true);                                //Set email format to HTML
                                 $mail->Subject = 'Recuperação de senha';
-                                $mail->Body    = "Olá, $nomeUsuario!<br> Esse é o teste de envio de email! <br><a href='http://localhost/Estufa-Inteligente/estufa/novaSenha.php'><input type='button' value='Redefinir senha' name='btnPerfil' id='btns'></a>";
-
+                                //Content
+                                $mail->isHTML(true);                          // Caminho para o arquivo de imagem
+                                
+                                // Corpo do e-mail com a imagem no topo
+                            // Corpo do e-mail com a imagem ocupando 100% da largura
+                            $mail->Body = "
+                                <div style='text-align: center; width: 100%;'>
+                                    <img src='cid:logo_banner' alt='GreenCode Logo' style='width: 100%; max-width: 100%; height: auto;'/>
+                                </div>
+                                <br>
+                                Olá, $nomeUsuario!<br>
+                                Recebemos uma solicitação de redefinição de senha da sua conta GreenCode.<br>
+                                Clique no botão abaixo para redefinir a senha: <br><br>
+                                <a href='http://localhost/Estufa-Inteligente/estufa/novaSenha.php'>
+                                    <input type='button' value='Redefinir senha' name='btnPerfil' id='btns'>
+                                </a>
+                            ";
                                 $mail->send();
                                 echo 'Success!';
 

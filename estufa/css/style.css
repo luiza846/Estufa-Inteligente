@@ -953,3 +953,13 @@ tr:hover {
     margin-top: 3%;
     padding-bottom: 1.5%;
 }
+/*---------------------------TELA RECUPERA SENHA--------------------*/
+.body-rec{
+    margin: 0px 0px;
+    background-color: #4c812459;
+}
+.div-rec-senha{
+    background-color: #ffffff;
+    width: 70%;
+    height: 100%;
+}

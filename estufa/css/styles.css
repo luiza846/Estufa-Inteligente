@@ -76,3 +76,8 @@ a{
 .div-login-autentica{
     color: red;
 }
+.div-recSenha{
+    padding-bottom: 15px;
+    float: right;
+    padding-right: 50%;
+}

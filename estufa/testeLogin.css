@@ -1,0 +1,73 @@
+.body, html {
+    margin: 0;
+    background-color: #4c81244d;
+    overflow: hidden; /* Impede a rolagem */
+    height: 100%; /* Garante que ocupe 100% da altura */
+}
+
+.div-principal {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative; /* Necessário para o losango ser posicionado corretamente */
+}
+
+.div-secundario {
+    display: flex;
+    background-color: white;
+    height: 80%;
+    width: 85%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.314);
+    position: relative; /* Para controlar o empilhamento correto com os losangos */
+    z-index: 1; /* Coloca a div-secundário acima do losango-01 e abaixo do losango */
+}
+
+/* Losango atrás da div-secundário */
+.losango-01 {
+    width: 900px;
+    height: 900px;
+    background-color: #4c8124;
+    border-radius: 150px;
+    transform: rotate(45deg);
+    position: absolute; /* Faz o losango flutuar */
+    left: -250px; /* Move o losango para fora da tela pela metade */
+    z-index: 0; /* Garante que o losango-01 fique atrás da div-secundário */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%) rotate(45deg); /* Centraliza verticalmente e rotaciona */
+}
+
+/* Losango acima da div-secundário */
+.losango {
+    width: 900px;
+    height: 900px;
+    background-color: #4c812420;
+    border-radius: 150px;
+    transform: rotate(45deg);
+    position: absolute; /* Faz o losango flutuar */
+    left: -250px; /* Move o losango para fora da tela pela metade */
+    z-index: 2; /* Garante que o losango fique acima da div-secundário */
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%) rotate(45deg); /* Centraliza verticalmente e rotaciona */
+}
+.div-logo{
+    display: flex; /* Usamos flexbox para centralizar o conteúdo */
+    justify-content: center; /* Alinha horizontalmente ao centro */
+    align-items: center; /* Alinha verticalmente ao centro */
+    height: 100%; /* Garante que a div ocupe todo o espaço disponível */
+    width: 50%;
+}
+.div-logo img{
+    max-width: 100%; /* Garante que a imagem não ultrapasse os limites da div */
+    height: auto; /* Mantém a proporção da imagem */
+}
+.div-campos{
+    background-color: aqua;
+    height: 100%;
+    width: 50%;
+}
+.div-log, .div-campos{
+    display: inline-block;
+
+}

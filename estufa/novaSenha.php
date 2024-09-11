@@ -56,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Erro ao cadastrar o usuário.";
             }
         } else {
-            echo "*Erro: Email ou Número de Série incorretos.";
+            echo "*Erro: E-mail não encontrado!";
         }}else{
             echo "*Erro: Senhas diferentes!";
         }
@@ -86,7 +86,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <div class="div-voltar">
-                <img src="fundoLogin/voltar.png" alt="Ícone de saída">
                 <a href="index.php">Voltar</a>
             </div>    </form>
 </div>

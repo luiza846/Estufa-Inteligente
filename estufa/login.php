@@ -69,6 +69,9 @@ if(isset($_POST['email']) || isset($_POST['senha'])) {
             <input id="password"type="password" name="senha" placeholder="Senha">
         </p>
         <p>
+            <div class="div-recSenha">
+            <a href="recuperaSenha.php"> Esqueceu a senha?</a></h4>
+            </div>
             <input type="submit" value="ENTRAR"></input>
             <h4>Não possui conta?<a href="cadasUsuario.php"> Cadastre-se</a></h4>
         </p>

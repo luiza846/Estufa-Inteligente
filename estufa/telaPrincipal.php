@@ -85,7 +85,7 @@ catch(PDOException $erro)
 
         </form>
         <a href="listarEstufas.php"><input type="button" value="Monitoramento" name="btnMonitorar" id="btn_monitorar"></a>
-        <a href="registro.php"><input type="button" value="Registro" nome="btnregistro" id="btns"></a>
+        <a href="conectaWifi.php"><input type="button" value="Wi-fi" nome="btnregistro" id="btns"></a>
     </div>
 
     

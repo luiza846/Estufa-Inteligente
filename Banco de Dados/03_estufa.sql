@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11/09/2024 às 03:16
+-- Tempo de geração: 06/05/2024 às 01:39
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -43,7 +43,50 @@ CREATE TABLE `estufa` (
 --
 
 INSERT INTO `estufa` (`id_estufa`, `id_usuario`, `n_serie`, `nome`, `data_criacao`, `umidade`, `temperatura`, `imagem`) VALUES
-(22, 25, '00ff', 'alface', '2024-09-10', 75, 18, 'Foto.jpeg');
+(10, 26, '0', 'Cacto', '2024-05-04', 30, 30, 'cacto-mini-900x1200.jpg'),
+(11, 25, '0', 'Morango', '2024-05-04', 70, 22, 'morango.jpg'),
+(12, 25, '0', 'Morango', '2024-05-05', 70, 22, 'morango.jpg'),
+(13, 28, '0077', 'Morango', '2024-05-05', 0, 0, 'morango.jpg'),
+(16, 28, 'abc', 'Cacto', '2024-05-05', 0, 0, 'cacto-mini-900x1200.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `planta`
+--
+
+CREATE TABLE `planta` (
+  `id_planta` int(11) NOT NULL,
+  `nome_planta` varchar(255) NOT NULL,
+  `umidade_ideal` int(11) NOT NULL,
+  `temperatura_ideal` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Despejando dados para a tabela `planta`
+--
+
+INSERT INTO `planta` (`id_planta`, `nome_planta`, `umidade_ideal`, `temperatura_ideal`) VALUES
+(1, 'Morango', 70, 22),
+(2, 'Cebolinha', 60, 18),
+(3, 'Manjericão', 50, 24),
+(4, 'Salsinha', 65, 20),
+(5, 'Tomate', 75, 23),
+(6, 'Pimenta', 60, 25),
+(7, 'Alecrim', 40, 27),
+(8, 'Lavanda', 40, 25),
+(9, 'Camomila', 60, 21),
+(10, 'Hortelã', 70, 18),
+(11, 'Orégano', 55, 22),
+(12, 'Coentro', 65, 20),
+(13, 'Alface', 75, 18),
+(14, 'Espinafre', 65, 20),
+(15, 'Erva-cidreira', 50, 25),
+(16, 'Cacto', 30, 30),
+(17, 'Suculenta', 40, 25),
+(18, 'Begônia', 50, 22),
+(19, 'Violeta', 60, 18),
+(20, 'Rosa', 55, 22);
 
 -- --------------------------------------------------------
 
@@ -53,17 +96,19 @@ INSERT INTO `estufa` (`id_estufa`, `id_usuario`, `n_serie`, `nome`, `data_criaca
 
 CREATE TABLE `produto` (
   `id_produto` int(11) NOT NULL,
-  `email_produto` varchar(250) NOT NULL,
-  `n_serie` varchar(30) NOT NULL
+  `n_serie` varchar(30) NOT NULL,
+  `email_produto` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `produto`
 --
 
-INSERT INTO `produto` (`id_produto`, `email_produto`, `n_serie`) VALUES
-(1, 'ana@gmail.com', '00ff'),
-(2, 'joao@gmail.com', 'ak47');
+INSERT INTO `produto` (`id_produto`, `n_serie`, `email_produto`) VALUES
+(1, '00ff', 'ana@gmail.com'),
+(2, '555g', 'joao@gmail.com'),
+(4, '0077', 'cecilia@gmail.com'),
+(5, 'abc', 'cecilia@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -97,15 +142,19 @@ INSERT INTO `usuario` (`id_usuario`, `nome`, `email`, `senha`, `imagem`) VALUES
 --
 ALTER TABLE `estufa`
   ADD PRIMARY KEY (`id_estufa`),
-  ADD KEY `fk_plantUsuario` (`id_usuario`),
-  ADD KEY `fk_nSeriePorduto` (`n_serie`);
+  ADD KEY `fk_plantUsuario` (`id_usuario`);
+
+--
+-- Índices de tabela `planta`
+--
+ALTER TABLE `planta`
+  ADD PRIMARY KEY (`id_planta`);
 
 --
 -- Índices de tabela `produto`
 --
 ALTER TABLE `produto`
-  ADD PRIMARY KEY (`id_produto`),
-  ADD UNIQUE KEY `n_serie` (`n_serie`);
+  ADD PRIMARY KEY (`id_produto`);
 
 --
 -- Índices de tabela `usuario`
@@ -121,7 +170,13 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `estufa`
 --
 ALTER TABLE `estufa`
-  MODIFY `id_estufa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_estufa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT de tabela `planta`
+--
+ALTER TABLE `planta`
+  MODIFY `id_planta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de tabela `produto`
@@ -143,7 +198,6 @@ ALTER TABLE `usuario`
 -- Restrições para tabelas `estufa`
 --
 ALTER TABLE `estufa`
-  ADD CONSTRAINT `fk_nSeriePorduto` FOREIGN KEY (`n_serie`) REFERENCES `produto` (`n_serie`),
   ADD CONSTRAINT `fk_plantUsuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 COMMIT;
 

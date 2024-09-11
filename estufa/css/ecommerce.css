@@ -430,8 +430,8 @@ body {
 
 .members {
     text-align: center;
+    padding-bottom: 5%;
     padding-top: 2%;
-    height: 750px;
     background-color: #f8f8f8;
 }
 
@@ -440,62 +440,73 @@ body {
     font-size: 45px;
     color: #284611;
 }
-
 .p01 {
-    height: 450px;
+    height: 100%;
     width: 370px;
     border: 2px solid #284611;
     display: inline-block;
     margin-left: 2%;
     margin-right: 2%;
-    border-radius: 10%;
+    border-radius: 2%;
     transition: transform 0.3s ease-in-out;
 }
 
 .p01:hover {
     transform: scale(1.1);
-    /* Aplica o efeito de zoom */
     background-color: #d5e1cc;
     transition: 0.7s;
-
-}
-
-.p01 h1 {
-    padding-bottom: 2%;
-    font-size: 25px;
-    color: #284611;
-}
-
-.p01 h3 {
-    padding-bottom: 2%;
-    font-size: 16px;
-    color: #284611;
-    padding-left: 5%;
-    padding-right: 5%;
 }
 
 .profile {
     padding-top: 7%;
+    display: flex;
+    align-items: flex-start;
 }
 
 .profile img {
     clip-path: circle(50%);
-    width: 170px;
-    height: 170px;
+    width: 70px;
+    height: 70px;
+    margin-right: 15px; /* Espaço entre a imagem e as informações */
+    margin-left: 15px;
+}
+
+.profile-information {
+    display: flex;
+    flex-direction: column; /* Alinha os elementos em coluna */
+}
+
+.profile-information h1,
+.profile-information h3 {
+    margin: 0;
+    padding: 0;
+}
+
+.profile-information h1 {
+    font-size: 17px;
+    color: #284611;
+    margin-bottom: 8px; /* Espaço entre h1 e h3 */
+}
+
+.profile-information h3 {
+    font-size: 12px;
+    color: #555;
 }
 
 .social-icons {
-    padding-left: 0px;
+    margin-top: 0px;
+    padding-left: 0%;
 }
 
 .social-icons img {
     height: 35px;
     width: 35px;
+    margin-right: 5px; /* Espaço entre os ícones */
 }
 
 .mission-history {
     text-align: center;
-    height: 1100px;
+    height: 1590px;
 }
 
 .mission {
@@ -543,29 +554,51 @@ body {
     font-size: 18px;
 }
 
-.link-noticias{
-
-}
 .div-noticias{
+    text-align: center;
+}
+.news-card {
     display: block;
     border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
     width: 350px;
+    height: 350px;
     text-decoration: none;
     color: #000;
     margin: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out;
+    display: inline-block;
+    margin: 0% 2%;
 }
 
-.div-noticias :hover{
+.news-card:hover {
     transform: scale(1.02);
 }
-.div-noticias img{
+
+.news-card img {
     width: 100%;
-    height: auto;
+    height: 60%;
     object-fit: cover;
+}
+
+.news-card .content {
+    padding: 16px;
+    text-align: center;
+}
+
+.news-card .title {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    color: #284611;
+}
+
+.news-card .description {
+    font-size: 14px;
+    color: #555;
+    margin-top: 8px;
 }
 
 /*CONTATO*/
