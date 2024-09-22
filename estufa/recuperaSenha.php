@@ -35,7 +35,7 @@ catch(PDOException $erro)
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Perfil</title>
+    <title>Redefinir senha</title>
     <link rel="shortcut icon" type="imagex/png" href="./images/icon.ico">
     <!--referenciar o login.css-->
     <link rel="stylesheet" type="text/css" href="./css/style.css">
@@ -45,14 +45,34 @@ catch(PDOException $erro)
 
 <center>
         <div class = "div-rec-senha">
-        <form action="" method="POST">
-            <br>E-mail: <input type="email" name="campoEmail" placeholder="Digite seu e-mail" required>
-            <div class="btn-senha">
-                <br><input class="btn-enviar-email" type="submit" value="Enviar pelo e-mail">
+            <div class = "div-form-senha">
+            <div class="img-logo">
+                <img src="images/logo_folha.png">
+            </div>
+            <h1>REDEFINA SUA SENHA</h1>
+            <h3>Insira o endereço de e-mail vinculado à sua conta do GreenCode para te enviarmos um e-mail.</h3>
+
+        <form class= "form-redef" action="" method="POST">
+            E-mail: <input type="email" name="campoEmail" placeholder="Digite seu e-mail" required>
+            <div class="btn-redef-senha">
+                <input class="btn-enviar-email" type="submit" value="Enviar link">
             </div>
         </form>         
 
 
+    <div id="loadingModal" class="loading-modal" style="display: none;">
+        <div class="loading-content">
+            <div class="email-gif">
+                <img src="images/gif-email.gif">
+            </div>
+            <p>Carregando...</p>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.form-redef').addEventListener('submit', function() {
+            document.getElementById('loadingModal').style.display = 'flex'; // Mostra o modal
+        });
+    </script>
 
                 <?php
                     if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -97,16 +117,16 @@ catch(PDOException $erro)
                                 <div style='text-align: center; width: 100%;'>
                                     <img src='cid:logo_banner' alt='GreenCode Logo' style='width: 100%; max-width: 100%; height: auto;'/>
                                 </div>
-                                <br>
-                                Olá, $nomeUsuario!<br>
-                                Recebemos uma solicitação de redefinição de senha da sua conta GreenCode.<br>
-                                Clique no botão abaixo para redefinir a senha: <br><br>
+                                
+                                Olá, $nomeUsuario!
+                                Recebemos uma solicitação de redefinição de senha da sua conta GreenCode.
+                                Clique no botão abaixo para redefinir a senha: 
                                 <a href='http://localhost/Estufa-Inteligente/estufa/novaSenha.php'>
                                     <input type='button' value='Redefinir senha' name='btnPerfil' id='btns'>
                                 </a>
                             ";
                                 $mail->send();
-                                echo 'Success!';
+                                echo '<div class="div-aviso-redef">O e-mail com a redefinição de senha foi enviado com sucesso!</div>';
 
                             } catch (Exception $e) {
                                 echo "No success. Mailer Error: {$mail->ErrorInfo}";
@@ -122,8 +142,7 @@ catch(PDOException $erro)
                     }
                 ?>
 
-    <a href="login.php"><button class = "voltar">Voltar</buttom></a>
-
+</div>
     </div>
 </center>
 

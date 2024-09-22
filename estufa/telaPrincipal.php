@@ -39,13 +39,9 @@ catch(PDOException $erro)
     <div class="header-2">
 
     </div>
+    <div class="conteiner">
         <div class="menu">
             <ul>
-                <li><a href="">.</a></li>
-                <li><a href="sobre.php">.</a></li>
-                <li><a href="">.</a></li>
-                <li><a href="">.</a></li>
-                <li><a href="contato.php">.</a></li>
                 <a href="perfil.php"><input type="button" value="MEU PERFIL" name="btnPerfil" id="btns"></a>                                          
             </ul>
         </div>
@@ -55,37 +51,48 @@ catch(PDOException $erro)
     </a>
     <h5>SAIR</h5>
 </div>
-
+</div>
     <div class = "cadastrePlanta">
 
         <a href="cadasPlanta.php"><input type="button" value="Inserir Planta" name="btnMonitorar" id="btns"></a>
     
     </div>
-    <div class="menu2">
-        <div class="icons">
-            <div>
-            <div class="tooltip2"> <!-- O ponto de interrogação -->
-            <abbr><img src="fundoLogin/ajuda.png" alt="Ícone de ajuda"></abbr>
-            <span class="tooltiptext2">Se você alterou a planta que vai cultivar, aperte este botão para fazer as configurações da estufa se ajustarem.</span>
-            </div>
-        </div>
+<!-- Ícone de ajuda fora da .menu2 -->
+<div class="tooltip2">
+    <abbr><img src="fundoLogin/ajuda.png" alt="Ícone de ajuda"></abbr>
+    <span class="tooltiptext2">Se você alterou a planta que vai cultivar, aperte este botão para fazer as configurações da estufa se ajustarem.</span>
+</div>
+
+<div class="menu2">
+    <div class="div-btn-img">
         <img src="fundoLogin/sync.png" alt="Ícone de perfil">
+        <form class="form-atualiza-dados" method="POST" action="http://localhost:3000/EnviarDados" onsubmit="Enviar()">
+            <input type="submit" value="Atualizar Dispositivo" name="btnAtualiza" id="btns">
+        </form>
+    </div>
+
+    <div class="div-btn-img">
         <img src="fundoLogin/icons8-análise-de-crescimento-financeiro-96.png" alt="Ícone de perfil">
+        <a href="listarEstufas.php">
+            <input type="button" value="Monitoramento" name="btnMonitorar" id="btn_monitorar">
+        </a>
+    </div>
+<!--
+    <div class="div-btn-img">
         <img src="fundoLogin/icons8-histórico-de-encomendas-96.png" alt="Ícone de perfil">
-        </div>
+        <a href="conectaWifi.php">
+            <input type="button" value="Wi-fi" name="btnregistro" id="btns">
+        </a>
+    </div>
+</div>
+        -->
 <script>
     function Enviar(){
-    alert("Planta Atualizada com sucesso");
+        alert("Planta Atualizada com sucesso");
     }
 </script>
-        <!--MIGUEL CHAMAR A FUNCAO-->
-        <form class="form-atualiza-dados" method="POST" action="http://localhost:3000/EnviarDados" onsubmit="Enviar()">
-            <input type="submit" value="Atualizar Dispositivo" nome="btnAtualiza" id="btns">
-            <!--mensagem de aviso-->
 
-        </form>
-        <a href="listarEstufas.php"><input type="button" value="Monitoramento" name="btnMonitorar" id="btn_monitorar"></a>
-        <a href="conectaWifi.php"><input type="button" value="Wi-fi" nome="btnregistro" id="btns"></a>
+        </div>
     </div>
 
     
