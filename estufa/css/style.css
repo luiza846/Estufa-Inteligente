@@ -902,40 +902,84 @@ tr:hover {
     vertical-align: middle; 
     font-size: 20px;
 }
-/*-------------------------------------------------TELA LISTAR ESTUFA-----------------------------------------------------------*/
+.div-listar-estufa {
+    display: flex;
+    justify-content: center;
+}
+
 .div-listar-estufa button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     margin-bottom: 1%;
     margin-top: 1%;
     width: 48%;
-    background-color: #21572dcc;
-    font-size: 30px;
-    color: #fff;
-    border: none;
-    height: 40px;
-    cursor: pointer;
-    border-radius: 30px;
-}   
-/*efeitos do botao*/
-.div-listar-estufa button:hover{
-    background-color: #ffffff3a;
+    background-color: #f7f7f7;
+    font-size: 18px;
     color: #4c8124;
-    border:solid 3px #4D8124;
-    transition: 0.5s;
+    border: none;
+    height: 20dvh;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
-.body-listar-estufa{
+
+/* Efeito do botão ao passar o mouse */
+.div-listar-estufa button:hover {
+    background-color: #f7f7f7;
+    color: #4c8124;
+    border: solid 3px #4D8124;
+    transition: 0.5s;
+    transform: scale(1.05); /* Aumenta o tamanho do botão em 5% */
+}
+
+/* Estilo da imagem da planta */
+.imagem-planta {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+/* Estilo para o container de informações */
+.info-planta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Estilo para a série */
+.info-planta .serie {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Estilo para o nome da planta */
+.info-planta .nome-planta {
+    font-size: 16px;
+    color: #4c8124d4;
+}
+
+/* Estilo do body */
+.body-listar-estufa {
     text-align: center;
     display: flex;
     justify-content: center;
-    align-items: center ;
+    align-items: center;
     background-color: #8AA26E;
 }
-.body-listar-estufa h1{
+
+.body-listar-estufa h1 {
     text-align: center;
     font-size: 40px;
     color: #21572dcc;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-.div-principal-listar-estufa{
+
+.div-principal-listar-estufa {
     background-color: white;
     width: 94%;
     height: 100%;
