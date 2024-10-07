@@ -1,126 +1,103 @@
-//Sensor de Temperatura DHT11
 #include "DHT.h"
- 
-//Variaveis de recebimento de dados da Porta Serial
-static String umid_Recebida;
-static float umid_Ideal;
- 
-String temp_Recebido;
-static float tempe_Ideal;
- 
-//Sensor de UMIDADE
-int sensor_Umid = A0;
- 
-//Sensor de Temperatura
+
+// Definições dos pinos e variáveis
 #define DHTPIN 7
 #define DHTTYPE DHT11
+#define SENSOR_UMID A0
+#define LAMP 4
+#define VALVULA 9
+#define VENT 5
+
+const int Sensor_NV_Agua = 11;
+
 DHT dht(DHTPIN, DHTTYPE);
- 
- 
-int lamp = 4;
-int valvula =  9;
-int vent = 5;
- 
+
+float umid_Ideal = 0;
+float tempe_Ideal = 0;
+
 void setup() {
-  //Iniciando a porta Serial
   Serial.begin(9600);
- 
-  //Iniando os Sensores
-  pinMode(sensor_Umid, INPUT);
-  pinMode(lamp, OUTPUT);
   dht.begin();
- 
-  //Definindo Componentes
-  pinMode(valvula, OUTPUT);
-  pinMode(vent, OUTPUT);
-  //Ligando a Lampada
-  digitalWrite(lamp, HIGH);
- 
-  while (!Serial) {
-    ; // Aguardar pela conexão
-  }
-}
- 
-void loop() {
- 
-  ReceberDados();
-  Controle();
-  ControleLampada();
-}
- 
-void ReceberDados(){
-
- 
-    while (Serial.available()) {
-    String dados = Serial.readStringUntil('\n');
- 
-    if (dados.startsWith("UmidadeIdeal:")) {
-      umid_Recebida = dados.substring(13);
-        umid_Ideal = umid_Recebida.toFloat();
- 
-    }
- 
-       if (dados.startsWith("TempIdeal:")) {
-      temp_Recebido = dados.substring(10);
-        tempe_Ideal = temp_Recebido.toFloat();
- 
-    }
-
-
-  }
-
-  if(umid_Recebida != "" && temp_Recebido != ""){
-    Serial.println(umid_Ideal);
-    Serial.println(tempe_Ideal);
-    umid_Recebida = "";
-    temp_Recebido = "";
-  }
-
- 
-}
- 
-void Controle(){
-  //Variaveis Medidoras
-  float nv_Umidade = analogRead(sensor_Umid);
-  float Umidade_Atual = map(nv_Umidade, 0, 1023, 0, 100);
-
- float tempe_Atual = dht.readTemperature();
   
-
-  //Manda os niveis de humidade e temperatura para a porta serial
-  Serial.print(tempe_Atual);
-  Serial.print(",");
-  Serial.println(Umidade_Atual);
-
-
-  //Controle da Valvula
-  if(Umidade_Atual < umid_Ideal){
-    
-    digitalWrite(valvula, HIGH);
-  }
- 
-  if(Umidade_Atual >= umid_Ideal){
-    digitalWrite(valvula, LOW);
- 
-  }
- 
-  //Controle da Ventuinha
-  if(tempe_Atual > tempe_Ideal){
-    digitalWrite(vent, LOW);
-  }
- 
-  if(tempe_Atual <= tempe_Ideal){
-    digitalWrite(vent, HIGH);
-  }
-
-
-
- delay(2000);     
- 
+  pinMode(SENSOR_UMID, INPUT);
+  pinMode(LAMP, OUTPUT);
+  pinMode(VALVULA, OUTPUT);
+  pinMode(VENT, OUTPUT);
+  pinMode(Sensor_NV_Agua, INPUT);   
+  
+  // Inicializa a lâmpada desligada
+  digitalWrite(LAMP, LOW);
 }
-void ControleLampada(){
-    digitalWrite(lamp, HIGH);
-    delay(12 * 60 * 60 * 1000);
-    digitalWrite(lamp, LOW);
 
+void loop() {
+  // Recebe e processa dados da serial
+  ReceberDados();
+  
+  // Controle baseado nos dados recebidos
+  Controle();
+  
+  // Controle da lâmpada
+  ControleLampada();
+  
+  delay(2000); // Aguarda 2 segundos antes da próxima iteração
+}
+
+void ReceberDados() {
+  while (Serial.available()) {
+    String dados = Serial.readStringUntil('\n');
+    
+    if (dados.startsWith("UmidadeIdeal:")) {
+      umid_Ideal = dados.substring(13).toFloat(); // Ajusta o índice para o início do valor
+    } 
+    else if (dados.startsWith("TempIdeal:")) {
+      tempe_Ideal = dados.substring(10).toFloat(); // Ajusta o índice para o início do valor
+    }
+  }
+  
+  // Imprime os valores recebidos para verificação
+  if (umid_Ideal != 0 || tempe_Ideal != 0) {
+    Serial.print("Umidade Ideal: ");
+    Serial.println(umid_Ideal);
+    Serial.print("Temperatura Ideal: ");
+    Serial.println(tempe_Ideal);
+  }
+}
+
+void Controle() {
+  float nv_Umidade = analogRead(SENSOR_UMID);
+  float Umidade_Atual = map(nv_Umidade, 0, 1023, 0, 100);
+  float tempe_Atual = dht.readTemperature();
+  int estado_NV_agua = digitalRead(Sensor_NV_Agua);
+
+  // Envia os níveis atuais de umidade e temperatura para a porta serial
+  Serial.print("Temperatura Atual: ");
+  Serial.print(tempe_Atual);
+  Serial.print(", Umidade Atual: ");
+  Serial.print(Umidade_Atual);
+  if(estado_NV_agua == HIGH){
+  Serial.println(", OK");
+  }
+  if(estado_NV_agua == LOW){
+  Serial.println(", POUCO");
+  }
+  // Controle da válvula
+  if (Umidade_Atual < umid_Ideal) {
+    digitalWrite(VALVULA, HIGH);
+  } else {
+    digitalWrite(VALVULA, LOW);
+  }
+  
+  // Controle da ventoinha
+  if (tempe_Atual > tempe_Ideal) {
+    digitalWrite(VENT, LOW);
+  } else {
+    digitalWrite(VENT, HIGH);
+  }
+}
+
+
+void ControleLampada() {
+  digitalWrite(LAMP, HIGH);
+  delay(12 * 60 * 60 * 1000); // Liga a lâmpada por 12 horas
+  digitalWrite(LAMP, LOW);
 }
