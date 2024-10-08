@@ -13,7 +13,7 @@
 <body style="background-image: url(fundoLogin/login.png);">
     <div class="div-login">
     <form action="" method="POST">
-        <br><br><h1>LOGIN</h1><br><br><br>
+        <h1>LOGIN</h1>
         <div class = "div-login-autentica">
         <?php
 

@@ -9,16 +9,13 @@
     <!--icon-->
     <link rel="shortcut icon" type="imagex/png" href="./images/icon.ico">
 </head>
-<body class="body-usuario">
+<body>
 
-<div class="div-cadas-usuario">
     
-    
-    <form class="form-cadas-usuario" method="POST" action="" enctype="multipart/form-data">
+    <form class="form-cadas-usuario" method="POST" action="">
         <!-- CARREGAR IMAGEM -->
 
         <h1>Redefinir senha</h1>
-        <div class = "div-cadas-usuario-aviso">
 
         <?php
 include_once "conexao.php";
@@ -67,28 +64,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "";
 }
 ?>
-        </div>
         
-        <div class="full-box">
             E-mail: <input type="text" name="campoEmail" id="email" placeholder="Digite o seu e-mail" data-min-length="3" data-required data-email-validate>
-        </div>
-
-        <div class="full-box spacing">
             Senha: <input type="password" name="campoSenha" id="password" placeholder="Digite a sua senha" data-required data-password-validate>
-        </div>
-
-        <div class="full-box">
             Confirmação senha: <input type="password" name="campoConfirmSenha" id="passconfirmation" placeholder="Confirme a sua senha" data-equal="password" data-required>
-        </div>
-
-        <div class="full-box">
             <input type="submit" id="btn-submit" value="ALTERAR">
-        </div>
-
-        <div class="div-voltar">
                 <a href="index.php">Voltar</a>
-            </div>    </form>
-</div>
+  </form>
+
 
 </body>
 </html>
