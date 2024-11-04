@@ -4,7 +4,8 @@
 const char* ssid = "Miguel";         // Substitua pelo nome da sua rede Wi-Fi
 const char* password = "Hunter231020$";    // Substitua pela senha da sua rede Wi-Fi
 
-const char* serverName = "http://labtg1.com.br/GreenCode/estufa/conexao_node.php"; // URL do script PHP
+const char* parametros = "http://labtg1.com.br/GreenCode/estufa/conexao_node.php"; // URL do script PHP
+const char* parametros = "http://labtg1.com.br/GreenCode/estufa/monitora_estufa.php"; // URL do script PHP
 
 void setup() {
   Serial.begin(115200);  // Usar Serial para comunicação com o Arduino Mega
@@ -17,7 +18,7 @@ void loop() {
     WiFiClient client;
     HTTPClient http;
 
-    http.begin(client, serverName); // Use WiFiClient com a URL
+    http.begin(client, parametros); // Use WiFiClient com a URL
 
     int httpCode = http.GET();   // Envia uma solicitação GET
 
@@ -27,6 +28,12 @@ void loop() {
     } else {
       Serial.println("Erro ao fazer a solicitação");
     }
+    
+    http.end();
+
+    
+
+
 
   } else {
     Serial.println("Não conectado ao Wi-Fi");
