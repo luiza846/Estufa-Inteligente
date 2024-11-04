@@ -100,6 +100,8 @@ void Controle() {
     Serial.println("OK");
   }
 
+  EnviarDadosParaESP(Umidade_Atual, tempe_Atual);
+
   // Controle da Válvula
   if (Umidade_Atual < umid_Ideal) {
     digitalWrite(valvula, HIGH);
@@ -116,6 +118,14 @@ void Controle() {
 
   delay(2000); // Espera 2 segundos antes de fazer outra leitura
 }
+
+void EnviarDadosParaESP(float umidade, float temperatura) {
+  Serial3.print("UmidadeAtual: ");
+  Serial3.println(umidade);
+  Serial3.print("TemperaturaAtual: ");
+  Serial3.println(temperatura);
+}
+
 
 void ControleLampada() {
   static unsigned long lastLampChange = 0;
