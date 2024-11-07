@@ -1,23 +1,31 @@
 <?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+// Verifica se os parâmetros esperados estão presentes
+if (isset($_POST['temperatura']) && isset($_POST['umidade']) && isset($_POST['nivelAgua'])) {
+    // Lê os valores enviados pelo ESP
     $temperatura = $_POST['temperatura'];
     $umidade = $_POST['umidade'];
-    $nivelAgua = $_POST['nivel_agua'];
+    $nivelAgua = $_POST['nivelAgua'];
 
-    // Data e hora atual no formato desejado
-    $data_hora = date('Y/m/d H:i:s');
+    // Cria uma string com os dados recebidos
+    $dados = "Temperatura: " . $temperatura . "°C\n";
+    $dados .= "Umidade: " . $umidade . "%\n";
+    $dados .= "Nível de Água: " . $nivelAgua . "\n";
+    $dados .= "Data/Hora: " . date('Y-m-d H:i:s') . "\n\n";
 
-    // Conteúdo a ser salvo no arquivo, seguindo o formato desejado
-    $content = "$data_hora $temperatura $umidade $nivelAgua\n";
+    // Caminho para o arquivo de texto onde os dados serão salvos
+    $arquivo = 'dados_estufa.txt';
 
-    // Nome do arquivo de dados
-    $filename = "dados.txt";
-
-    // Grava no arquivo
-    file_put_contents($filename, $content, FILE_APPEND);
-
-    echo "Dados gravados com sucesso";
+    // Verifica se o arquivo existe e tem permissão de escrita
+    if (is_writable($arquivo)) {
+        if (file_put_contents($arquivo, $dados, FILE_APPEND)) {
+            echo "Dados salvos com sucesso!";
+        } else {
+            echo "Erro ao salvar os dados.";
+        }
+    } else {
+        echo "Arquivo não tem permissão de escrita.";
+    }
 } else {
-    echo "Método de requisição inválido.";
+    echo "Parâmetros inválidos ou ausentes.";
 }
 ?>
