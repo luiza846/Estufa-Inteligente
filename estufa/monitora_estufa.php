@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $content = "$data_hora $temperatura $umidade $nivelAgua\n";
 
     // Nome do arquivo de dados
-    $filename = "dados_sensor.txt";
+    $filename = "dados.txt";
 
     // Grava no arquivo
     file_put_contents($filename, $content, FILE_APPEND);
