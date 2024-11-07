@@ -120,10 +120,17 @@ void Controle() {
 }
 
 void EnviarDadosParaESP(float umidade, float temperatura) {
+  int Nivel_Agua = digitalRead(boia);
   Serial3.print("UmidadeAtual: ");
   Serial3.println(umidade);
   Serial3.print("TemperaturaAtual: ");
   Serial3.println(temperatura);
+  if (Nivel_Agua == HIGH) {
+    Serial3.println("Baixo/Vazio");
+  } else {
+    Serial3.println("OK");
+  }
+
 }
 
 
