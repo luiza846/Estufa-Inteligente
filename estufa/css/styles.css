@@ -7,11 +7,11 @@ body{
 }
 .div-login{
     padding-left: 63%;
-    padding-top: 8%;
+    padding-top: 10%;
 }
 form h1{
     width: 50%;
-    height: 35px;
+    height: 100%;
     font-size: 47px;
     text-align: center;
     color: #4D8124;

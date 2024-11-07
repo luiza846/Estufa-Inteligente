@@ -1,9 +1,9 @@
 <?php
 
-$usuario = 'root';
-$senha = '';
+$usuario = 'estufa';
+$senha = 'Hunter231020@#';
 $database = 'estufa';
-$host = 'localhost';
+$host = 'estufa.mysql.dbaas.com.br';
 
 $mysqli = new mysqli($host, $usuario, $senha, $database);
 

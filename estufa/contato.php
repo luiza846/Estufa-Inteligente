@@ -16,7 +16,7 @@
         <div class="btns-menu">
             <a href="index.html"><input type="button" value="Home" name="btnPerfil" id="btns"></a>
             <a href="sobreNos.html"><input type="button" value="Sobre Nós" name="btnPerfil" id="btns"></a>
-            <a href="contato.html"><input type="button" value="Contato" name="btnPerfil" id="btns"></a>
+            <a href="contato.php"><input type="button" value="Contato" name="btnPerfil" id="btns"></a>
             <a href="login.php"><input type="button" value="Entrar" name="btnPerfil" id="btns"></a>
         </div>
     </div>

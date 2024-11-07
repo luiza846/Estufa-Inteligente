@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/ecommerce.css">
-        <!--icon-->
-        <link rel="shortcut icon" type="imagex/png" href="./images/icon.ico">
-
+    <!--icon-->
+    <link rel="shortcut icon" type="imagex/png" href="./images/icon.ico">
     <title>GreenCode</title>
+
+    <style>
+    </style>
 </head>
 
 <body>
@@ -32,40 +34,48 @@
             </div>
             <h3>Cuidados com a planta de forma independente!</h3>
             <div class="btns-painel">
-                <!--<a href="cadasUsuario.php"><input type="button" value="Cadastre-se agora!" name="btnPainel" id="btns"></a>-->
                 <a href="cadasUsuario.php" class="button">Cadastre-se agora!</a>
             </div>
-
         </div>
     </div>
 
     <div class="menu1">
         <div class="m">
             <div class="img-estufa">
-                <img src="images/estufa01.jpg">
+                <img src="images/estufa01.jpg" alt="Imagem da Estufa">
             </div>
 
-
             <div class="nosso-produto">
-                <h3>NOSSO PRODUTO</h3>
-                <h5>CONHEÇA O NOSSO PRODUTO</h5>
+                <h3>Nosso produto</h3>
+                <h5>A estufa automatizada GreenCode oferece um sistema completo para cultivo sem intervenções constantes: controla irrigação, refrigeração e iluminação UV de forma inteligente, preservando o ambiente ideal para o desenvolvimento das suas plantas. Cultive sem esforço, com tecnologia que cuida por você!</h5>
+
+                <div class="btn-prod">
+                    <input type="submit" value="Entenda a estrutura da estufa" onclick="openPopup()"/>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- Estrutura do pop-up -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">×</span>
+            <img src="images/sistemaEstufa.png" alt="Estrutura da Estufa">
+        </div>
+    </div>
 
     <div class="menu2">
         <div class="m2">
             <div class="nosso-produto-web">
-                <h3>PLATAFORMA DE MONITORAMENTO DE PLANTAS</h3>
-                <h5>Um website que se integra diretamente com um sistema de Arduino que tem a função de monitorar a
-                    planta e controlar os componentes do Arduino, como irrigação, refrigeração, exposição UV de forma
-                    automática e personalizada.</h5>
-            </div>
-            <div class="img-website" style="background-image: url('images/website.png');"></div>
-        </div>
-        <div class="estrutura" style="background-image: url('images/sistemaEstufa.png');"></div>
 
+                <h3>Nossa Plataforma</h3>
+                <h5>Um website que se integra diretamente com um sistema de Arduino que tem a função de monitorar a planta e controlar os componentes do Arduino, como irrigação, refrigeração, exposição UV de forma automática e personalizada.</h5>
+            </div>
+            <div class="img-web">
+                <img src="images/website.png" alt="Imagem da Estufa">
+            </div>
+        </div>
+        <div class="estrutura"></div>
     </div>
 
     <div class="rodape">
@@ -80,6 +90,18 @@
             <li><a href="">Contato</a></li>
         </div>
     </div>
+
+    <script>
+        // Função para abrir o pop-up
+        function openPopup() {
+            document.getElementById("popupOverlay").style.display = "flex";
+        }
+
+        // Função para fechar o pop-up
+        function closePopup() {
+            document.getElementById("popupOverlay").style.display = "none";
+        }
+    </script>
 </body>
 
 </html>

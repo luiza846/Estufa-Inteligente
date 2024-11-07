@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         if($senha == $confirmSenha){
         // Criar uma conexão PDO
-        $conn = new PDO("mysql:host=localhost;dbname=estufa", "root", "");
+        $conn = new PDO("mysql:host=estufa.mysql.dbaas.com.br;port=3306;dbname=estufa", "estufa", "Hunter231020@#");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         <label for="foto_usuario">Foto: </label>
-        <input type="file" name="foto_usuario" id="foto_usuario" required><br><br>
+        <input type="file" name="foto_usuario" id="foto_usuario" required>
         
         <div class="full-box">
             E-mail: <input type="text" name="campoEmail" id="email" placeholder="Digite o seu e-mail" data-min-length="3" data-required data-email-validate>

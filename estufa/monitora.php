@@ -29,7 +29,7 @@ if (isset($_GET['n_serie'])) {
 try
 {
     # Conexão com MySQL usando PDO
-    $conectaBD = new PDO("mysql:host=127.0.0.1;port=3306;dbname=estufa", "root", "");
+    $conectaBD = new PDO("mysql:host=estufa.mysql.dbaas.com.br;port=3306;dbname=estufa", "estufa", "Hunter231020@#");
     $conectaBD->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     # Preparar e executar a consulta
@@ -46,13 +46,14 @@ try
         $diretorio = "planta/$n_serie/$foto_planta";
 
         if (file_exists($diretorio)){
-            echo "<div class='div-foto-planta'><img src='$diretorio'></div>";
+            echo "<div class='div-foto-planta'><img src='$diretorio'></div><br>";
         }
         else{
             echo "Erro ao carregar a imagem!";
         }
 
         echo "<h1>",$dados["nome"],"</h1></h5>"; 
+        echo "<h5>Reservatório com água</h5>";
         echo "<h5>Data criação: ",$dados["data_criacao"],"</h5>"; 
         echo "<h5>Umidade ideal: ",$dados["umidade"],"%</h5>";
         echo "<h5>Temperatura ideal: ",$dados["temperatura"],"°C</h5>";  

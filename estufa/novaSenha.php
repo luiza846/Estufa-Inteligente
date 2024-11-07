@@ -9,16 +9,13 @@
     <!--icon-->
     <link rel="shortcut icon" type="imagex/png" href="./images/icon.ico">
 </head>
-<body class="body-usuario">
+<body>
 
-<div class="div-cadas-usuario">
     
-    
-    <form class="form-cadas-usuario" method="POST" action="" enctype="multipart/form-data">
+    <form class="form-cadas-usuario" method="POST" action="">
         <!-- CARREGAR IMAGEM -->
 
         <h1>Redefinir senha</h1>
-        <div class = "div-cadas-usuario-aviso">
 
         <?php
 include_once "conexao.php";
@@ -32,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         if($senha == $confirmSenha){
         // Criar uma conexão PDO
-        $conn = new PDO("mysql:host=localhost;dbname=estufa", "root", "");
+        $conn = new PDO("mysql:host=estufa.mysql.dbaas.com.br;port=3306;dbname=estufa", "estufa", "Hunter231020@#");
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // verificar se o email e n serie existem
@@ -67,28 +64,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "";
 }
 ?>
-        </div>
         
-        <div class="full-box">
             E-mail: <input type="text" name="campoEmail" id="email" placeholder="Digite o seu e-mail" data-min-length="3" data-required data-email-validate>
-        </div>
-
-        <div class="full-box spacing">
             Senha: <input type="password" name="campoSenha" id="password" placeholder="Digite a sua senha" data-required data-password-validate>
-        </div>
-
-        <div class="full-box">
             Confirmação senha: <input type="password" name="campoConfirmSenha" id="passconfirmation" placeholder="Confirme a sua senha" data-equal="password" data-required>
-        </div>
-
-        <div class="full-box">
             <input type="submit" id="btn-submit" value="ALTERAR">
-        </div>
+                <a href="http://labtg1.com.br/Estufa-Inteligente/estufa/index.html">Voltar</a>
+  </form>
 
-        <div class="div-voltar">
-                <a href="index.php">Voltar</a>
-            </div>    </form>
-</div>
 
 </body>
 </html>
