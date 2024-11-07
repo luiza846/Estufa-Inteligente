@@ -46,7 +46,7 @@ try
         $diretorio = "planta/$n_serie/$foto_planta";
 
         if (file_exists($diretorio)){
-            echo "<div class='div-foto-planta'><img src='$diretorio'></div><br>";
+            echo "<div class='div-foto-planta'><img src='$diretorio'></div>";
         }
         else{
             echo "Erro ao carregar a imagem!";
@@ -70,15 +70,7 @@ catch(PDOException $erro)
 
 ?>
 
-<!-- MIGUEL VERIFICAR ESSE CODIGO-->
-<script>
-    function Monitora(){
-    alert('Dados Recebidos');
-    }
-</script>
-<form method="GET" action="http://localhost:3000/ReceberDados" onsubmit="Monitora()">
-        <input type="submit" value="Iniciar monitoramento">
-    </form>
+
 
     <div class="div-voltar">
                 <img class = "img-voltar" src="fundoLogin/voltar.png" alt="Ícone de saída">
