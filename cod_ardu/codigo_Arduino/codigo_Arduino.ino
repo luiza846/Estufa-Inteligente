@@ -121,15 +121,15 @@ void Controle() {
 
 void EnviarDadosParaESP(float umidade, float temperatura) {
   int Nivel_Agua = digitalRead(boia);
-  Serial3.print("UmidadeAtual: ");
-  Serial3.println(umidade);
-  Serial3.print("TemperaturaAtual: ");
+  String nivelAguaStatus = (Nivel_Agua == HIGH) ? "Baixo/Vazio" : "OK";
+
+  // Envio dos dados para o ESP8266
+  Serial3.print("temperatura: ");
   Serial3.println(temperatura);
-  if (Nivel_Agua == HIGH) {
-    Serial3.println("Baixo/Vazio");
-  } else {
-    Serial3.println("OK");
-  }
+  Serial3.print("umidade: ");
+  Serial3.println(umidade);
+  Serial3.print("nivelAgua: ");
+  Serial3.println(nivelAguaStatus);
 
 }
 

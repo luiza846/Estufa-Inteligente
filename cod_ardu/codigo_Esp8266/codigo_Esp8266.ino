@@ -40,9 +40,19 @@ void loop() {
     http.end();
 
     // Enviar dados da temperatura, umidade e nível de água ao segundo endpoint
+     if (WiFi.status() == WL_CONNECTED) {
+    WiFiClient client;
+    HTTPClient http;
+
+    // Enviar dados da temperatura, umidade e nível de água ao segundo endpoint
     http.begin(client, enviar);
     http.addHeader("Content-Type", "application/x-www-form-urlencoded");
-    String postData = "temperatura=" + String(temperaturaAtual) + "&umidade=" + String(umidadeAtual) + "&nivelAgua=" + nivelAgua;
+
+    // Construção da string com os dados para enviar
+    String postData = "temperatura=" + String(temperaturaAtual) + 
+                      "&umidade=" + String(umidadeAtual) + 
+                      "&nivelAgua=" + nivelAgua;
+    
     int httpResponseCode = http.POST(postData);
 
     if (httpResponseCode > 0) {
@@ -52,12 +62,12 @@ void loop() {
       Serial.println("Erro ao enviar dados");
     }
     http.end();
-
   } else {
     Serial.println("Não conectado ao Wi-Fi");
   }
 
   delay(2000); // Espera 2 segundos antes de fazer outra solicitação
+}
 }
 
 void ReceberDadosArduino() {
