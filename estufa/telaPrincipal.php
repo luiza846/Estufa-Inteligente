@@ -58,19 +58,10 @@ catch(PDOException $erro)
         <a href="cadasPlanta.php"><input type="button" value="Inserir Planta" name="btnMonitorar" id="btns"></a>
     
     </div>
-<!-- Ícone de ajuda fora da .menu2 -->
-<div class="tooltip2">
-    <abbr><img src="fundoLogin/ajuda.png" alt="Ícone de ajuda"></abbr>
-    <span class="tooltiptext2">Se você alterou a planta que vai cultivar, aperte este botão para fazer as configurações da estufa se ajustarem.</span>
-</div>
+
 
 <div class="menu2">
-    <div class="div-btn-img">
-        <img src="fundoLogin/sync.png" alt="Ícone de perfil">
-        <form class="form-atualiza-dados" method="POST" action="http://localhost:3000/EnviarDados" onsubmit="Enviar()">
-            <input type="submit" value="Atualizar Dispositivo" name="btnAtualiza" id="btns">
-        </form>
-    </div>
+
 
     <div class="div-btn-img">
         <img src="fundoLogin/icons8-análise-de-crescimento-financeiro-96.png" alt="Ícone de perfil">
@@ -87,11 +78,7 @@ catch(PDOException $erro)
     </div>
 </div>
        
-<script>
-    function Enviar(){
-        alert("Planta Atualizada com sucesso");
-    }
-</script>
+
 
         </div>
     </div>
