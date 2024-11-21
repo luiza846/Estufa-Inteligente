@@ -13,7 +13,7 @@ if (isset($_POST['temperatura']) && isset($_POST['umidade']) && isset($_POST['ni
     $dados .= "Data/Hora: " . date('Y-m-d H:i:s') . "\n\n";
 
     // Caminho para o arquivo de texto onde os dados serão salvos
-    $arquivo = 'dados_estufa.txt';
+    $arquivo = '123d.txt';
 
     // Verifica se o arquivo existe e tem permissão de escrita
     if (is_writable($arquivo)) {
